@@ -2,12 +2,27 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import AroundLogo from "../images/around_logo.png";
 
 const Section = styled.div`
   width: 100vw;
   height: 80vh;
   display: flex;
   justify-content: center;
+`;
+
+const InlineStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+  margin-bottom: 1rem;
+`;
+
+const AROUND_LOGO = styled.img`
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
 `;
 
 const Input = styled.input`
@@ -19,11 +34,11 @@ const Input = styled.input`
   width: 100%;
   color: rgb(80, 80, 80);
   :hover {
-    border: 1px solid rgba(91, 202, 147, 0.5);
+    border: 1px solid rgb(36,179,139);
   }
 
   :focus {
-    border: 1px solid rgba(91, 202, 147, 0.8);
+    border: 1px solid rgb(36,179,139);
     background-color: rgba(91, 202, 147, 0.1);
   }
 `;
@@ -50,11 +65,12 @@ const Form = styled.form`
 
 const Button = styled.button`
   all: unset;
-  background-color: rgba(91, 202, 147, 30);
+  background-color: rgb(36,179,139);
   color: white;
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 1rem 1.5rem 1rem 1.5rem;
   border-radius: 5px;
   transition: 0.5s;
+  font-weight: 500;
   cursor: pointer;
   :hover {
     opacity: 0.7;
@@ -87,10 +103,17 @@ export const Login = () => {
   return (
     <Section>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Link style={{textDecoration:"none"}} to='/'>
-        <Font fontSize="22px" fontColor="rgb(91, 202, 147)" fontWeight="700">
-          BetterPeople Inc.
-        </Font>
+        <Link style={{ textDecoration: "none" }} to="/">
+          <InlineStyle>
+            <AROUND_LOGO src={AroundLogo} alt="로고" />
+            <Font
+              fontSize="26px"
+              fontColor="rgb(36,179,139)"
+              fontWeight="700"
+            >
+              BetterPeople Inc.
+            </Font>
+          </InlineStyle>
         </Link>
         <Font
           fontSize="22px"
@@ -122,10 +145,13 @@ export const Login = () => {
               아직 더 좋은 사람들의 회원이 아니신가요?
             </Font>
 
-            <Link style={{textDecoration:"none", display:'inline-block'}} to="/create-account">
+            <Link
+              style={{ textDecoration: "none", display: "inline-block" }}
+              to="/create-account"
+            >
               <Font
                 fontSize="16px"
-                fontColor="rgba(91, 202, 147, 30)"
+                fontColor="rgb(36,179,139)"
                 marginTop="0.3rem"
               >
                 회원가입
