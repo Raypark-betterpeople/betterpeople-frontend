@@ -6,11 +6,18 @@ const Container = styled.div`
   width: 100vw;
   background-color: rgb(250, 250, 250);
   padding-bottom: 3rem;
+  @media only screen and (max-width: 520px) {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
 `;
 
 const NoAroundLogo = styled.img`
   width: 100px;
   height: 100px;
+  @media only screen and (max-width: 520px) {
+    display: none;
+  }
 `;
 
 const GridSection = styled.div`
@@ -19,6 +26,12 @@ const GridSection = styled.div`
   grid-template-rows: 3fr 1fr 1fr 1fr 1fr; 
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: 30% 30% 30%;
+  }
+  @media only screen and (max-width: 520px) {
+    grid-template-rows: 28% 28% 0fr 4% 35% 6% 4%;
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -35,6 +48,17 @@ const ItemContainer = styled.div`
   :nth-child(6) {
     grid-column: 1/4;
   }
+  @media only screen and (max-width: 520px) {
+    :nth-child(0) {
+      grid-column: 1/4;
+    }
+    :nth-child(1) {
+      grid-column: 1/4;
+    }
+    :nth-child(2) {
+      grid-column: 1/4;
+    }
+  }
 `;
 
 const Font = styled.p<{
@@ -47,6 +71,9 @@ const Font = styled.p<{
   font-weight: ${(props) => props.fontWeight};
   color: ${(props) => props.fontColor};
   line-height: 1.8rem;
+  @media only screen and (max-width: 1000px) {
+    font-size: 12px;
+  }
 `;
 
 export const Footer = () => {
