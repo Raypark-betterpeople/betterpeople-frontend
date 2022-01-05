@@ -41,6 +41,7 @@ const Font = styled.p<{
   fontSize: string;
   fontWeight?: string;
   fontColor?: string;
+  hover? : string
 }>`
   font-size: ${(props) => props.fontSize};
   font-weight: ${(props) => props.fontWeight};

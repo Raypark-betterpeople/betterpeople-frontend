@@ -1,8 +1,23 @@
+import { gql, useMutation } from "@apollo/client";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { FormError } from "../components/form-error";
 import AroundLogo from "../images/around_logo.png";
+
+const LOGIN_MUTATION = gql`
+  mutation LoginMutation($email: String!, $password:String!) {
+    Login(input: {
+      email: $email,
+      password: $password
+    }) {
+      ok
+      error
+      token
+    }
+  }
+`
 
 const Section = styled.div`
   width: 100vw;
@@ -93,12 +108,19 @@ interface IForm {
 export const Login = () => {
   const {
     register,
-    watch,
+    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm<IForm>();
+  const [loginMutation] = useMutation(LOGIN_MUTATION)
   const onSubmit = () => {
-    console.log(watch("email"));
+    const {email, password} = getValues();
+    loginMutation({
+      variables: {
+        email,
+        password
+      }
+    })
   };
   return (
     <Section>
@@ -128,17 +150,22 @@ export const Login = () => {
         </Font>
         <Input
           style={{ boxSizing: "border-box" }}
-          {...register("email", { required: true })}
+          {...register("email", { required: "이메일은 필수 항목입니다." })}
           type="email"
+          required
         />
+        {errors.email?.message && <FormError errorMessage={errors.email?.message} />}
         <Font fontSize="16px" fontColor="rgb(80,80,80)" marginTop="3rem">
           비밀번호
         </Font>
         <Input
           style={{ boxSizing: "border-box" }}
-          {...register("password", { required: true })}
+          {...register("password", { required: "비밀번호는 필수 항목입니다.", minLength: 10 })}
           type="password"
+          required
         />
+        {errors.password?.message && <FormError errorMessage={errors.password?.message} />}
+        {errors.password?.type === 'minLength' && <FormError errorMessage="비밀번호는 8글자 이상이어야 합니다." />}
         <Seperate>
           <div>
             <Font fontSize="16px" fontColor="rgb(80,80,80)">
