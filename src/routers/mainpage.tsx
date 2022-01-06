@@ -9,7 +9,7 @@ export const MainPage = () => {
   return (
     <div>
       {isLoggedIn ? (
-        "로그인"
+        "로그인 되었습니다."
       ) : (
         <div>
           <Link className='text-link' to="/login">로그인</Link>

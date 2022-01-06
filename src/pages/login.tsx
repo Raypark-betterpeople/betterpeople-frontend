@@ -1,14 +1,16 @@
 import { gql, useMutation } from "@apollo/client";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FormError } from "../components/form-error";
+import Helmet from "react-helmet";
 import AroundLogo from "../images/around_logo.png";
 import {
   LoginMutation,
   LoginMutationVariables,
 } from "../__generated__/LoginMutation";
+import { isLoggedInVar } from "../apollo";
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($loginInput: LoginInput!) {
@@ -106,7 +108,7 @@ const Form = styled.form`
   }
 `;
 
-const Button = styled.button`
+const Button = styled.button<{ opacity?: string, canClick?: string }>`
   all: unset;
   background-color: rgb(36, 179, 139);
   color: white;
@@ -115,12 +117,14 @@ const Button = styled.button`
   transition: 0.5s;
   font-weight: 500;
   cursor: pointer;
+  pointer-events: ${(props) => props.canClick};
+  opacity: ${(props) => props.opacity};
   :hover {
     opacity: 0.7;
   }
   @media only screen and (max-width: 520px) {
     padding: 0.8rem 1rem 0.8rem 1rem;
-    font-size:14px;
+    font-size: 14px;
   }
 `;
 
@@ -142,25 +146,30 @@ export const Login = () => {
     register,
     getValues,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<IForm>({
-    mode: "onChange"
+    mode: "onChange",
   });
+
+  const navigate = useNavigate();
+
   const onCompleted = (data: LoginMutation) => {
     const {
       Login: { ok, error, token },
     } = data;
     if (ok) {
-      console.log(token)
+      console.log(token);
+      isLoggedInVar(true);
+      navigate('/')
     }
-    if(error) {
-      console.log(error)
+    if (error) {
+      console.log(error);
     }
   };
-  const [loginMutation, {data}] = useMutation<LoginMutation, LoginMutationVariables>(
-    LOGIN_MUTATION,
-    { onCompleted }
-  );
+  const [loginMutation, { data }] = useMutation<
+    LoginMutation,
+    LoginMutationVariables
+  >(LOGIN_MUTATION, { onCompleted });
   const onSubmit = () => {
     const { email, password } = getValues();
     loginMutation({
@@ -174,6 +183,9 @@ export const Login = () => {
   };
   return (
     <Section>
+      <Helmet>
+        <title>더 좋은 사람들 | 로그인</title>
+      </Helmet>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Link style={{ textDecoration: "none" }} to="/">
           <InlineStyle>
@@ -196,12 +208,15 @@ export const Login = () => {
         </Font>
         <Input
           style={{ boxSizing: "border-box" }}
-          {...register("email", { required: "이메일은 필수 항목입니다." })}
+          {...register("email", { required: "이메일은 필수 항목입니다.", pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })}
           type="email"
           required
         />
         {errors.email?.message && (
           <FormError errorMessage={errors.email?.message} />
+        )}
+        {errors.email?.type ==='pattern' && (
+          <FormError errorMessage="이메일 형식이 올바르지 않습니다." />
         )}
         <Font fontSize="16px" fontColor="rgb(80,80,80)" marginTop="3rem">
           비밀번호
@@ -219,7 +234,7 @@ export const Login = () => {
           <FormError errorMessage={errors.password?.message} />
         )}
         {errors.password?.type === "minLength" && (
-          <FormError errorMessage="비밀번호는 8글자 이상이어야 합니다." />
+          <FormError errorMessage="비밀번호는 10글자 이상이어야 합니다." />
         )}
         <Seperate>
           <div>
@@ -240,11 +255,9 @@ export const Login = () => {
               </Font>
             </Link>
           </div>
-          <Button>로그인</Button>
+          {isValid ? <Button>로그인</Button> : <Button canClick='none' opacity='0.5'>로그인</Button>}
         </Seperate>
-        {data?.Login.error && (
-          <FormError errorMessage={data?.Login.error} />
-        )}
+        {data?.Login.error && <FormError errorMessage={data?.Login.error} />}
       </Form>
     </Section>
   );

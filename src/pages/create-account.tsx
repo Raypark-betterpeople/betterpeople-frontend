@@ -1,9 +1,31 @@
+import { gql, useMutation } from "@apollo/client";
 import React from "react";
+import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FormError } from "../components/form-error";
 import AroundLogo from "../images/around_logo.png";
+import {
+  createAccountMutation,
+  createAccountMutationVariables,
+} from "../__generated__/createAccountMutation";
+
+const CREATE_ACCOUNT_MUTATION = gql`
+  mutation createAccountMutation($createAccountInput: CreateAccountInput!) {
+    createAccount(input: $createAccountInput) {
+      ok
+      error
+    }
+  }
+`;
+
+interface ICreateAccountForm {
+  email: string;
+  password: string;
+  nickname: string;
+  passwordcheck: string;
+}
 
 const Section = styled.div`
   width: 100vw;
@@ -91,7 +113,7 @@ const Form = styled.form`
   }
 `;
 
-const Button = styled.button`
+const Button = styled.button<{ opacity?: string; canClick?: string }>`
   all: unset;
   background-color: rgb(36, 179, 139);
   color: white;
@@ -100,6 +122,8 @@ const Button = styled.button`
   transition: 0.5s;
   font-weight: 500;
   cursor: pointer;
+  pointer-events: ${(props) => props.canClick};
+  opacity: ${(props) => props.opacity};
   :hover {
     opacity: 0.7;
   }
@@ -122,14 +146,39 @@ export const CreateAccount = () => {
     register,
     getValues,
     handleSubmit,
-    formState: { errors },
-  } = useForm({
+    formState: { errors, isValid },
+  } = useForm<ICreateAccountForm>({
     mode: "onChange",
   });
-
+  const navigate = useNavigate();
+  const onCompleted = (data: createAccountMutation) => {
+    const {createAccount: { ok }} = data;
+    if(ok) {
+      navigate('/login')
+    }
+  }
+  const [createAccountMutation, { data }] = useMutation<
+    createAccountMutation,
+    createAccountMutationVariables
+  >(CREATE_ACCOUNT_MUTATION, {onCompleted});
+  const onSubmit = () => {
+    const { email, password, nickname } = getValues();
+    createAccountMutation({
+      variables: {
+        createAccountInput: {
+          email,
+          password,
+          nickname,
+        },
+      },
+    });
+  };
   return (
     <Section>
-      <Form>
+      <Helmet>
+        <title>더 좋은 사람들 | 회원가입</title>
+      </Helmet>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <Link style={{ textDecoration: "none" }} to="/">
           <InlineStyle>
             <AROUND_LOGO src={AroundLogo} alt="로고" />
@@ -151,12 +200,18 @@ export const CreateAccount = () => {
         </Font>
         <Input
           style={{ boxSizing: "border-box" }}
-          {...register("email", { required: "이메일은 필수 항목입니다." })}
+          {...register("email", {
+            required: "이메일은 필수 항목입니다.",
+            pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+          })}
           type="email"
           required
         />
         {errors.email?.message && (
           <FormError errorMessage={errors.email?.message} />
+        )}
+        {errors.email?.type === "pattern" && (
+          <FormError errorMessage="이메일 형식이 올바르지 않습니다." />
         )}
         <Font fontSize="16px" fontColor="rgb(80,80,80)" marginTop="2rem">
           닉네임
@@ -186,7 +241,7 @@ export const CreateAccount = () => {
           <FormError errorMessage={errors.password?.message} />
         )}
         {errors.password?.type === "minLength" && (
-          <FormError errorMessage="비밀번호는 8글자 이상이어야 합니다." />
+          <FormError errorMessage="비밀번호는 10글자 이상이어야 합니다." />
         )}
         <Font fontSize="16px" fontColor="rgb(80,80,80)" marginTop="2rem">
           비밀번호 확인
@@ -194,12 +249,16 @@ export const CreateAccount = () => {
         <Input
           style={{ boxSizing: "border-box" }}
           {...register("passwordcheck", {
-            required: "비밀번호는 필수 항목입니다.",
+            required: "비밀번호가 일치하지 않습니다.",
             minLength: 10,
+            validate: (value) => value === getValues("password"),
           })}
           type="password"
           required
         />
+        {errors.passwordcheck?.type === "validate" && (
+          <FormError errorMessage="비밀번호가 일치하지 않습니다." />
+        )}
         <Seperate>
           <div>
             <Font fontSize="16px" fontColor="rgb(80,80,80)">
@@ -219,8 +278,15 @@ export const CreateAccount = () => {
               </Font>
             </Link>
           </div>
-          <Button>회원가입</Button>
+          {isValid ? (
+            <Button>회원가입</Button>
+          ) : (
+            <Button canClick="none" opacity="0.5">
+              회원가입
+            </Button>
+          )}
         </Seperate>
+        {data?.createAccount.error && <FormError errorMessage={data?.createAccount.error} />}
       </Form>
     </Section>
   );
