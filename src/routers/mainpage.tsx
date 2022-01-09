@@ -1,21 +1,35 @@
 import { useReactiveVar } from "@apollo/client";
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { isLoggedInVar } from "../apollo";
+import { DogCatInfo } from "../components/dogcat-info";
+import { LoginHeader } from "../pages/login-header";
+import { LogoutHeader } from "../pages/logout-header";
+import {Intro} from '../components/Intro'
+
+const MainPageContainer = styled.div`
+  position: relative;
+  display: flex;
+  padding: 0 18% 0 18%;
+  flex-direction: column;
+`
 
 export const MainPage = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   return (
-    <div>
+    <MainPageContainer>
+      <Helmet>
+        <title>더 좋은 사람들</title>
+      </Helmet>
       {isLoggedIn ? (
-        "로그인 되었습니다."
+        <LoginHeader />
       ) : (
-        <div>
-          <Link className='text-link' to="/login">로그인</Link>
-          <Link className='text-link' to="/create-account">회원가입</Link>
-        </div>
+        <LogoutHeader />
       )}
-    </div>
+      <Intro />
+      <DogCatInfo />
+    </MainPageContainer>
   );
 };

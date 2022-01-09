@@ -101,6 +101,7 @@ menu,
 nav,
 section {
   display: block;
+  text-decoration: none;
 }
 body {
   line-height: 1;
@@ -128,4 +129,8 @@ table {
 .text-link {
     text-decoration: none;
     color: black;
+}
+
+a {
+  text-decoration: none;
 }

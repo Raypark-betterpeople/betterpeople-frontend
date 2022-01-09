@@ -10,7 +10,8 @@ import {
   LoginMutation,
   LoginMutationVariables,
 } from "../__generated__/LoginMutation";
-import { isLoggedInVar } from "../apollo";
+import { authToken, isLoggedInVar } from "../apollo";
+import { LOCALSTORAGE_TOKEN } from "../constant";
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($loginInput: LoginInput!) {
@@ -157,9 +158,10 @@ export const Login = () => {
     const {
       Login: { ok, error, token },
     } = data;
-    if (ok) {
-      console.log(token);
+    if (ok && token) {
+      localStorage.setItem(LOCALSTORAGE_TOKEN, token)
       isLoggedInVar(true);
+      authToken(token);
       navigate('/')
     }
     if (error) {
