@@ -21,6 +21,9 @@ const HeaderSection = styled.nav`
 const UlStyle = styled.ul`
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const LogoBox = styled.div`
@@ -69,6 +72,9 @@ const Font = styled.p<{
   font-size: ${(props) => props.fontSize};
   color: ${(props) => props.fontColor};
   font-weight: ${(props) => props.fontWeight};
+  @media only screen and (max-width: 520px) {
+    font-size: 1rem;
+  }
 `;
 
 const ME_QUERY = gql`

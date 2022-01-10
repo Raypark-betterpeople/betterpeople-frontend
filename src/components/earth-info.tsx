@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import CountUp from "react-countup";
 import styled from "styled-components";
-import Dog from "../images/dog.jpeg";
+import EarthImage from '../images/earth.png'
 
 const Font = styled.p<{
   fontSize: string;
@@ -15,6 +15,7 @@ const Font = styled.p<{
   font-weight: ${(props) => props.fontWeight};
   margin-bottom: ${(props) => props.marginBottom};
   letter-spacing: 1px;
+  line-height: 1.4rem;
 `;
 
 const Container = styled.div`
@@ -26,6 +27,13 @@ const Container = styled.div`
   padding: 20rem 0 20rem 0;
   box-sizing: border-box;
 `;
+
+const HighLight = styled.span`
+  display: inline-block;
+  background-color: hsla(0, 100%, 50%, 0.3);
+  color: black;
+  font-weight: 600;
+`
 
 const DirectionStyle = styled.div<{
   flexDirection: string;
@@ -54,68 +62,69 @@ const Circle = styled.div`
   z-index: -1;
 `;
 
-const DogImage = styled.img`
+const EarthImages = styled.img`
   position: absolute;
   display: block;
-  width: 150%;
-  height: 100%;
-  left: -60%;
+  width: 100%;
   top: -1rem;
+  left: -10%;
   border-radius: 15px;
-  z-index:-10;
+  z-index: -10;
   opacity: 0.5;
   @media only screen and (max-width: 900px) {
     display: none;
   }
 `;
 
-export const DogCatInfo = () => {
+export const EarthInfo = () => {
   const [innerHeight, setInnerHeight] = useState(0);
   const [currentScroll, setCurrentScroll] = useState(0);
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     setInnerHeight(window.innerHeight);
-    console.log(innerHeight)
+    console.log(innerHeight);
     return () => {
-      window.removeEventListener('scroll', handleScroll); //clean up
+      window.removeEventListener("scroll", handleScroll); //clean up
     };
-    
   }, [innerHeight, currentScroll]);
 
   const handleScroll = () => {
     setCurrentScroll(window.scrollY);
-    console.log(currentScroll)
+    console.log(currentScroll);
   };
   return (
     <Fade triggerOnce={false} duration={2000} fraction={0.4}>
       <Container>
         <DirectionStyle flexDirection="row">
           <DirectionStyle flexDirection="column">
-            <DirectionStyle flexDirection="column" marginBottom='10rem'>
+            <DirectionStyle flexDirection="column" marginBottom="10rem">
               <Font
                 fontSize="3rem"
                 fontColor="black"
                 fontWeight="800"
-                marginBottom="1rem"
+                marginBottom="2rem"
               >
-                유기견,묘는 지금,
+                지구는 지금,
               </Font>
               <Font fontSize="1rem" fontColor="gray" fontWeight="400">
-                파양, 유기등으로 정말 많이 버려지고 있습니다.
+                지구 온난화로 인해 지구 해수면 상승이 가속화 되고 있습니다.
               </Font>
               <Font fontSize="1rem" fontColor="gray" fontWeight="400">
-                당신의 가치가 이 곳에 있다면 유기동물들의 영웅이 되어보는건 어떠신가요? 😇
+                2100년에는 <HighLight>최대 73cm</HighLight>까지 상승할 수도 있다네요..
+              </Font>
+              <Font fontSize="1rem" fontColor="gray" fontWeight="400">
+                당신의 가치는 우리가 살아가는 지구에 있나요? 🌎
               </Font>
             </DirectionStyle>
             <DirectionStyle flexDirection="column">
-            <Circle />
+              <Circle />
               <Font
                 fontSize="1rem"
                 fontColor="black"
                 fontWeight="600"
                 marginBottom="1rem"
               >
-                2020년 유기견,묘 수
+                2021년 지구 해수면, 30년동안
               </Font>
               <Font
                 fontSize="4rem"
@@ -123,7 +132,18 @@ export const DogCatInfo = () => {
                 fontWeight="800"
                 marginBottom="0.5rem"
               >
-                {currentScroll > innerHeight * 4.6 ? <CountUp end={130401} duration={1.5} separator="," /> : "0"}
+                {currentScroll > innerHeight * 5.5 ? (
+                  <CountUp
+                    end={9.1}
+                    duration={1.5}
+                    separator=","
+                    decimal="."
+                    decimals={1}
+                  />
+                ) : (
+                  "0"
+                )}
+                cm 상승
               </Font>
               <Font
                 fontSize="0.8rem"
@@ -131,12 +151,15 @@ export const DogCatInfo = () => {
                 fontWeight="400"
                 marginBottom="1rem"
               >
-                자료 : 농림축산검역본부
+                자료 : 해수부
               </Font>
             </DirectionStyle>
           </DirectionStyle>
-          <DirectionStyle flexDirection='none' mobileAdapt="none">
-              <DogImage src={Dog} alt="강아지 이미지" />
+          <DirectionStyle
+            flexDirection="none"
+            mobileAdapt="none"
+          >
+              <EarthImages src={EarthImage} alt="지구 이미지" />
           </DirectionStyle>
         </DirectionStyle>
       </Container>

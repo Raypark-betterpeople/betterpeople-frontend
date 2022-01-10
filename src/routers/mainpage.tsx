@@ -7,8 +7,12 @@ import { DogCatInfo } from "../components/dogcat-info";
 import { LoginHeader } from "../pages/login-header";
 import { LogoutHeader } from "../pages/logout-header";
 import {Intro} from '../components/Intro'
+import { EarthInfo } from "../components/earth-info";
+import { EmailWarning } from "../components/confirm-email-warning";
 
 const MainPageContainer = styled.div`
+  box-sizing: border-box;
+  height: 100%;
   position: relative;
   display: flex;
   padding: 0 18% 0 18%;
@@ -22,6 +26,7 @@ export const MainPage = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   return (
     <MainPageContainer>
+      <EmailWarning />
       <Helmet>
         <title>더 좋은 사람들</title>
       </Helmet>
@@ -32,6 +37,7 @@ export const MainPage = () => {
       )}
       <Intro />
       <DogCatInfo />
+      <EarthInfo />
     </MainPageContainer>
   );
 };
