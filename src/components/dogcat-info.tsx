@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import CountUp from "react-countup";
 import styled from "styled-components";
@@ -24,12 +24,14 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   padding: 10rem 0 10rem 0;
+  box-sizing: border-box;
 `;
 
 const DirectionStyle = styled.div<{
   flexDirection: string;
   marginBottom?: string;
-  marginRight? : string
+  marginRight?: string;
+  mobileAdapt?: string;
 }>`
   position: relative;
   display: flex;
@@ -38,78 +40,106 @@ const DirectionStyle = styled.div<{
   margin-bottom: ${(props) => props.marginBottom};
   margin-right: ${(props) => props.marginRight};
   width: 100%;
+  @media only screen and (max-width: 900px) {
+    display: ${(props) => props.mobileAdapt};
+  }
 `;
 
 const Circle = styled.div`
   position: absolute;
   width: 300px;
   height: 300px;
-  top: 10%;
-  left:0;
   background-color: rgba(36, 179, 139);
   border-radius: 100%;
   z-index: -1;
 `;
 
 const DogImage = styled.img`
-  width: 100%;
-  height: 400px;
+  position: absolute;
+  display: block;
+  width: 150%;
+  height: 100%;
+  left: -60%;
+  top: -1rem;
   border-radius: 15px;
+  z-index:-10;
+  opacity: 0.5;
+  @media only screen and (max-width: 900px) {
+    display: none;
+  }
 `;
 
 export const DogCatInfo = () => {
+  const [innerHeight, setInnerHeight] = useState(0);
+  const [currentScroll, setCurrentScroll] = useState(0);
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    setInnerHeight(window.innerHeight);
+    console.log(innerHeight)
+    return () => {
+      window.removeEventListener('scroll', handleScroll); //clean up
+    };
+    
+  }, [innerHeight, currentScroll]);
+
+  const handleScroll = () => {
+    setCurrentScroll(window.scrollY);
+    console.log(currentScroll)
+  };
   return (
     <Fade triggerOnce={false} duration={2000} fraction={0.4}>
-    <Container>
-      <DirectionStyle flexDirection="column" marginBottom="5rem">
-        <Font
-          fontSize="3rem"
-          fontColor="black"
-          fontWeight="800"
-          marginBottom="1rem"
-        >
-          유기견,묘는 지금
-        </Font>
-        <Font fontSize="1rem" fontColor="gray" fontWeight="400">
-          파양, 유기등으로 정말 많이 버려지고 있습니다.
-        </Font>
-        <Font fontSize="1rem" fontColor="gray" fontWeight="400">
-          당신이 이 아이들의 영웅이 되어주세요.
-        </Font>
-      </DirectionStyle>
-      <DirectionStyle flexDirection="row">
-        <DirectionStyle flexDirection="column">
-          <Font
-            fontSize="1rem"
-            fontColor="black"
-            fontWeight="600"
-            marginBottom="1rem"
-          >
-            2020년 유기견,묘 수
-          </Font>
-          <Font
-            fontSize="4rem"
-            fontColor="black"
-            fontWeight="800"
-            marginBottom="0.5rem"
-          > 
-            <CountUp end={130401} duration={1} separator=","/>
-          </Font>
-          <Font
-            fontSize="0.8rem"
-            fontColor="rgb(80,80,80)"
-            fontWeight="400"
-            marginBottom="1rem"
-          >
-            자료 : 농림축산검역본부
-          </Font>
-        </DirectionStyle>
-        <Circle />
+      <Container>
         <DirectionStyle flexDirection="row">
-          <DogImage src={Dog} alt="dog image" />
+          <DirectionStyle flexDirection="column">
+            <DirectionStyle flexDirection="column" marginBottom='10rem'>
+              <Font
+                fontSize="3rem"
+                fontColor="black"
+                fontWeight="800"
+                marginBottom="1rem"
+              >
+                유기견,묘는 지금,
+              </Font>
+              <Font fontSize="1rem" fontColor="gray" fontWeight="400">
+                파양, 유기등으로 정말 많이 버려지고 있습니다.
+              </Font>
+              <Font fontSize="1rem" fontColor="gray" fontWeight="400">
+                당신의 가치가 이 곳에 있다면 유기동물들의 영웅이 되어보는건 어떠신가요? 😇
+              </Font>
+            </DirectionStyle>
+            <DirectionStyle flexDirection="column">
+            <Circle />
+              <Font
+                fontSize="1rem"
+                fontColor="black"
+                fontWeight="600"
+                marginBottom="1rem"
+              >
+                2020년 유기견,묘 수
+              </Font>
+              <Font
+                fontSize="4rem"
+                fontColor="black"
+                fontWeight="800"
+                marginBottom="0.5rem"
+              >
+                {currentScroll > innerHeight * 4.6 ? <CountUp end={130401} duration={1.5} separator="," /> : "0"}
+              </Font>
+              <Font
+                fontSize="0.8rem"
+                fontColor="rgb(80,80,80)"
+                fontWeight="400"
+                marginBottom="1rem"
+              >
+                자료 : 농림축산검역본부
+              </Font>
+            </DirectionStyle>
+          </DirectionStyle>
+          <DirectionStyle flexDirection='none' mobileAdapt="none">
+              <DogImage src={Dog} alt="강아지 이미지" />
+          </DirectionStyle>
         </DirectionStyle>
-      </DirectionStyle> 
-    </Container>
+      </Container>
     </Fade>
   );
 };

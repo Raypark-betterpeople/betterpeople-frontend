@@ -1,7 +1,6 @@
 import { useReactiveVar } from "@apollo/client";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { isLoggedInVar } from "../apollo";
 import { DogCatInfo } from "../components/dogcat-info";
@@ -14,6 +13,9 @@ const MainPageContainer = styled.div`
   display: flex;
   padding: 0 18% 0 18%;
   flex-direction: column;
+  @media only screen and (max-width: 520px) {
+    padding: 0 5% 0 5%;
+  }
 `
 
 export const MainPage = () => {

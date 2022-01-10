@@ -32,8 +32,12 @@ const LogoBox = styled.div`
 const LiStyle = styled.li`
   text-decoration: none;
   font-size: 15px;
-  color: rgb(100,100,100);
-  margin-right:3rem;
+  color: rgb(100, 100, 100);
+  margin-right: 3rem;
+  display: inline-block;
+  :hover {
+      color:rgb(36, 179, 139);
+  }
 `;
 
 const LogoImage = styled.img`
@@ -50,7 +54,11 @@ const GaleryButton = styled.button`
   background-color: rgba(36, 179, 139, 0.2);
   border-radius: 5px;
   font-weight: 600;
+  transition: 0.2s;
   cursor: pointer;
+  :hover {
+      transform: scale(1.03);
+  }
 `;
 
 const Font = styled.p<{
@@ -76,9 +84,7 @@ const ME_QUERY = gql`
 `;
 
 export const LoginHeader = () => {
-  
   const { data, loading, error } = useQuery<meQuery>(ME_QUERY);
-  console.log(data);
   if (!data || loading || error) {
     return <Loading />;
   }
@@ -91,10 +97,19 @@ export const LoginHeader = () => {
         </Font>
       </LogoBox>
       <UlStyle>
-        <LiStyle>공지사항</LiStyle>
+        <Link to="/">
+          <LiStyle>공지사항</LiStyle>
+        </Link>
+        <Link to="/">
         <LiStyle>서비스 소개</LiStyle>
+        </Link>
+        <Link to="/">
+        <LiStyle>일러스트 정품인증</LiStyle>
+        </Link>
         <LiStyle>
-            <Link to='/my-page'><GaleryButton>내 갤러리 →</GaleryButton></Link>
+          <Link to="/my-page">
+            <GaleryButton>내 갤러리 →</GaleryButton>
+          </Link>
         </LiStyle>
       </UlStyle>
     </HeaderSection>

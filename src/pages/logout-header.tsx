@@ -71,6 +71,7 @@ export const LogoutHeader = () => {
       <UlStyle>
         <LiStyle>공지사항</LiStyle>
         <LiStyle>서비스 소개</LiStyle>
+        <LiStyle>일러스트 정품인증</LiStyle>
         <LiStyle>
         <Link to='/login'><GaleryButton>로그인</GaleryButton></Link>
         </LiStyle>
