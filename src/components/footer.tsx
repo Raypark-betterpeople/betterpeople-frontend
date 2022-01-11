@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Logo from "../images/noaround_logo.png";
 
 const Container = styled.div`
-  width: 100vw;
   background-color: rgb(250, 250, 250);
   padding-bottom: 3rem;
   @media only screen and (max-width: 520px) {

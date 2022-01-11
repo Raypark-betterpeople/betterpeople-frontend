@@ -9,6 +9,7 @@ import { LogoutHeader } from "../pages/logout-header";
 import {Intro} from '../components/Intro'
 import { EarthInfo } from "../components/earth-info";
 import { EmailWarning } from "../components/confirm-email-warning";
+import { Footer } from "../components/footer";
 
 const MainPageContainer = styled.div`
   box-sizing: border-box;

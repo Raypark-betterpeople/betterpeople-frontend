@@ -7,12 +7,14 @@ import '../css/App.css'
 import { isLoggedInVar } from "../apollo";
 import { MyPage } from "../pages/my-page";
 import { ScrollTop } from "../components/scrollTop";
+import { NotFound } from "../pages/404";
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <ScrollTop />
       <Routes>
+          <Route path='*' element={<NotFound />} />
           <Route path='/' element={<MainPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/create-account' element={<CreateAccount />} />
