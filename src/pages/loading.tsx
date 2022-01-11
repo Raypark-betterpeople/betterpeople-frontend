@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
+import { DirectionStyle, Font } from '../common/styled'
 import LogoImage from '../images/around_logo.png'
 
 const ImageOpacity = keyframes`
@@ -28,6 +29,7 @@ const LoadingImage = styled.img`
     width: 150px;
     height: 150px;
     animation: ${ImageOpacity} 0.7s infinite alternate;
+    margin-bottom: 1rem;
 `
 
 
@@ -35,7 +37,10 @@ const LoadingImage = styled.img`
 export const Loading = () => {
     return(
         <LoadingSection>
+            <DirectionStyle directionStyle='column'>
             <LoadingImage src={LogoImage} alt='image logo' />
+            <Font fontSize='1rem' fontColor="rgb(150,150,150)" fontWeight="500">조금만 기다려 주세요!</Font>
+            </DirectionStyle>
         </LoadingSection>
     )
 }

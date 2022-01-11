@@ -20,6 +20,7 @@ export const MyPage = () => {
         localStorage.clear();
         isLoggedInVar(false);
         navigate('/')
+        window.location.replace("/")
       };
     return (
         <GaleryButton onClick={logoutClick}>로그아웃</GaleryButton>

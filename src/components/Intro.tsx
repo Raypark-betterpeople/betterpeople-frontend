@@ -1,8 +1,7 @@
-import { gql, useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { meQuery } from "../__generated__/meQuery";
 import "../css/Intro.css";
+import { useMe } from "../hooks/useMe";
 
 const Container = styled.div`
   position: relative;
@@ -56,20 +55,8 @@ const HighLight = styled.span`
   }
 `;
 
-const ME_QUERY = gql`
-  query meQuery {
-    me {
-      id
-      email
-      nickname
-      emailVerified
-      profileImg
-    }
-  }
-`;
-
 export const Intro = () => {
-  const { data } = useQuery<meQuery>(ME_QUERY);
+  const { data } = useMe();
   const [currentScroll, setCurrentScroll] = useState(0);
   const [innerHeight, setInnerHeight] = useState(0);
 
@@ -93,7 +80,7 @@ export const Intro = () => {
       <NonStickySection>
         {data ? (
           <Font>
-            {data?.me.nickname}님의 <HighLight>소비의 가치</HighLight>는
+            {data.me.nickname}님의 <HighLight>소비의 가치</HighLight>는
           </Font>
         ) : (
           <Font>

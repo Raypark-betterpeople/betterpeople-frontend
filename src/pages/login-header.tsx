@@ -1,11 +1,9 @@
-import { gql, useQuery } from "@apollo/client";
 import React from "react";
 import styled from "styled-components";
-import { isLoggedInVar } from "../apollo";
-import { meQuery } from "../__generated__/meQuery";
 import { Loading } from "./loading";
 import Logo from "../images/noaround_logo.png";
 import { Link } from "react-router-dom";
+import { useMe } from "../hooks/useMe";
 
 const HeaderSection = styled.nav`
   display: flex;
@@ -77,20 +75,8 @@ const Font = styled.p<{
   }
 `;
 
-const ME_QUERY = gql`
-  query meQuery {
-    me {
-      id
-      email
-      nickname
-      emailVerified
-      profileImg
-    }
-  }
-`;
-
 export const LoginHeader = () => {
-  const { data, loading, error } = useQuery<meQuery>(ME_QUERY);
+  const { data, loading, error } = useMe();
   if (!data || loading || error) {
     return <Loading />;
   }

@@ -4,16 +4,17 @@ import { CreateAccount } from "../pages/create-account";
 import { Login } from "../pages/login";
 import { MainPage } from "./mainpage";
 import '../css/App.css'
-import { isLoggedInVar } from "../apollo";
 import { MyPage } from "../pages/my-page";
 import { ScrollTop } from "../components/scrollTop";
 import { NotFound } from "../pages/404";
+import { ConfirmEmail } from "../pages/confirm-email";
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <ScrollTop />
       <Routes>
+          <Route path='/confirm' element={<ConfirmEmail />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/' element={<MainPage />} />
           <Route path='/login' element={<Login />} />

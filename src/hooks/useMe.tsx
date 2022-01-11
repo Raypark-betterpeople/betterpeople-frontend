@@ -6,8 +6,8 @@ export const ME_QUERY = gql`
     me {
       id
       email
-      role
-      verified
+      nickname
+      emailVerified
     }
   }
 `;

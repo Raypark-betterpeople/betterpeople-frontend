@@ -75,7 +75,6 @@ export const DogCatInfo = () => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     setInnerHeight(window.innerHeight);
-    console.log(innerHeight)
     return () => {
       window.removeEventListener('scroll', handleScroll); //clean up
     };
@@ -84,7 +83,6 @@ export const DogCatInfo = () => {
 
   const handleScroll = () => {
     setCurrentScroll(window.scrollY);
-    console.log(currentScroll)
   };
   return (
     <Fade triggerOnce={false} duration={2000} fraction={0.4}>
