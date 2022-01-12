@@ -94,7 +94,7 @@ export const Intro = () => {
         }
       >
         <Font>
-          <HighLight>{data?.me.nickname ? data.me.nickname : "더 좋은 사람"}님</HighLight>은
+          <HighLight>{data?.me.nickname ? `${data.me.nickname}님` : "당신" }</HighLight>은
         </Font>
         <Font>동물을 좋아하시나요? 🐈‍⬛🐕</Font>
       </Section>
@@ -116,7 +116,7 @@ export const Intro = () => {
             : ""
         }
       >
-        <Font>무엇이든 좋아요, {data?.me.nickname ? data.me.nickname : "더 좋은 사람"}님의 </Font>
+        <Font>무엇이든 좋아요, {data?.me.nickname ? `${data.me.nickname}님` : "당신" }의 </Font>
         <Font>
         <HighLight>관심분야의 영웅</HighLight>이 되고,
         </Font>
