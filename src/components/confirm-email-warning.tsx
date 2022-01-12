@@ -24,6 +24,9 @@ const FadeContainer = keyframes`
   30% {
     transform: translateY(0);
   }
+  70% {
+    transform: translateY(0);
+  }
   100% {
     transform: translateY(150%);
   }
@@ -42,7 +45,7 @@ const TrueContainer = styled.div`
   line-height: 1.5rem;
   margin-left: 1rem;
   transform: translateY(150%);
-  animation: ${FadeContainer} 6s;
+  animation: ${FadeContainer} 5s;
 `;
 
 export const EmailWarning = () => {
@@ -58,7 +61,7 @@ export const EmailWarning = () => {
     <div>
       {data?.me.emailVerified ? (
         <TrueContainer>
-          이메일 인증이 완료된 계정입니다👍🏻 이제 모든 기능을 사용할 수 있어요!
+          이메일 인증이 완료된 계정입니다👍🏻 모든 기능을 사용할 수 있어요!
         </TrueContainer>
       ) : (
         <FalseContainer>

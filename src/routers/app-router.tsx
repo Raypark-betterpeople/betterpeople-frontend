@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CreateAccount } from "../pages/create-account";
 import { Login } from "../pages/login";
-import { MainPage } from "./mainpage";
+import { MainPage } from "../pages/mainpage";
 import '../css/App.css'
 import { MyPage } from "../pages/my-page";
 import { ScrollTop } from "../components/scrollTop";

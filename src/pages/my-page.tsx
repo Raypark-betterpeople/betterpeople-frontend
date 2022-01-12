@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { isLoggedInVar } from '../apollo';
+import { CommonBodyContainer } from '../common/styled';
+import { LoginHeader } from './login-header';
 
 const GaleryButton = styled.button`
   all: unset;
@@ -23,6 +25,9 @@ export const MyPage = () => {
         window.location.replace("/")
       };
     return (
+      <CommonBodyContainer>
+        <LoginHeader />
         <GaleryButton onClick={logoutClick}>로그아웃</GaleryButton>
+      </CommonBodyContainer>
     )
 }
