@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { gql, useApolloClient, useMutation } from "@apollo/client";
 import {
   verifyEmail,
@@ -22,42 +22,59 @@ export const ConfirmEmail = () => {
   const { data: userData } = useMe();
   const client = useApolloClient();
   const navigate = useNavigate();
+  const [userId, setUserId] = useState<number>(0);
+
+  console.log(userId);
+
   
+
   const onCompleted = (data: verifyEmail) => {
     const {
-      verifyEmail: { ok },
+      verifyEmail: { ok, error },
     } = data;
     if (ok && userData?.me.id) {
       client.writeFragment({
         id: `User:${userData.me.id}`,
         fragment: gql`
-          fragment VerifiedUser on User {
+          fragment MyUser on User {
             emailVerified
           }
         `,
         data: {
+          __typename: "User",
           emailVerified: true,
         },
       });
+      navigate("/");
     }
-    navigate("/");
+    if (error) {
+      return <div>에러입니다.</div>;
+    }
   };
+  useEffect(() => {
+    if (userData?.me.id) {
+      setUserId(userData?.me.id);
+    }
+    const [_, code] = window.location.href.split("code=");
+    const Mutation = () => {
+      verifyEmail({
+        variables: {
+          input: {
+            code,
+          },
+        },
+      });
+    };
+    setTimeout(Mutation, 500)
+  }, []);
+
   const [verifyEmail] = useMutation<verifyEmail, verifyEmailVariables>(
     VERIFY_EMAIL_MUTATION,
     {
       onCompleted,
     }
   );
-  useEffect(() => {
-    const [_, code] = window.location.href.split("code=");
-    verifyEmail({
-      variables: {
-        input: {
-          code,
-        },
-      },
-    });
-  }, [verifyEmail]);
+
   return (
     <div>
       <DirectionStyle directionStyle="column">

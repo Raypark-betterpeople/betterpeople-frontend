@@ -21,7 +21,7 @@ const FadeContainer = keyframes`
   0% {
     transform: translateY(150%);
   }
-  20% {
+  30% {
     transform: translateY(0);
   }
   100% {
@@ -42,7 +42,7 @@ const TrueContainer = styled.div`
   line-height: 1.5rem;
   margin-left: 1rem;
   transform: translateY(150%);
-  animation: ${FadeContainer} 5s;
+  animation: ${FadeContainer} 6s;
 `;
 
 export const EmailWarning = () => {
