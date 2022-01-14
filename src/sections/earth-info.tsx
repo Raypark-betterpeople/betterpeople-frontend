@@ -120,7 +120,7 @@ export const EarthInfo = () => {
                 fontSize="1rem"
                 fontColor="black"
                 fontWeight="600"
-                marginBottom="1rem"
+                marginBottom="2rem"
               >
                 2021년 지구 해수면, 30년동안
               </Font>
@@ -128,7 +128,7 @@ export const EarthInfo = () => {
                 fontSize="4rem"
                 fontColor="black"
                 fontWeight="800"
-                marginBottom="0.5rem"
+                marginBottom="1rem"
               >
                 {currentScroll > innerHeight * 5.5 ? (
                   <CountUp

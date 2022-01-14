@@ -2,14 +2,15 @@ import { useReactiveVar } from "@apollo/client";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { isLoggedInVar } from "../apollo";
-import { DogCatInfo } from "../components/dogcat-info";
+import { DogCatInfo } from "../sections/dogcat-info";
 import { LoginHeader } from "./login-header";
 import { LogoutHeader } from "./logout-header";
-import {Intro} from '../components/Intro'
-import { EarthInfo } from "../components/earth-info";
+import {Intro} from '../sections/Intro'
+import { EarthInfo } from "../sections/earth-info";
 import { EmailWarning } from "../components/confirm-email-warning";
 import { CommonBodyContainer } from "../common/styled";
 import { InstaSection } from "../sections/InstaSection";
+import { IllustAbout } from "../sections/illust-about-section";
 
 export const MainPage = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
@@ -27,6 +28,7 @@ export const MainPage = () => {
       <Intro />
       <DogCatInfo />
       <EarthInfo />
+      <IllustAbout />
       <InstaSection />
     </CommonBodyContainer>
   );

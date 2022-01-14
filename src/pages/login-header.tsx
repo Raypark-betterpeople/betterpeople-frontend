@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Loading } from "./loading";
 import Logo from "../images/noaround_logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMe } from "../hooks/useMe";
+import { isLoggedInVar } from "../apollo";
 
 const HeaderSection = styled.nav`
   display: flex;
@@ -33,8 +34,8 @@ const LogoBox = styled.div`
 const LiStyle = styled.li`
   text-decoration: none;
   font-size: 15px;
+  margin-left: 2rem;
   color: rgb(100, 100, 100);
-  margin-right: 3rem;
   display: inline-block;
   :hover {
       color:rgb(36, 179, 139);
@@ -76,10 +77,17 @@ const Font = styled.p<{
 `;
 
 export const LoginHeader = () => {
+  const navigate = useNavigate();
   const { data, loading, error } = useMe();
   if (!data || loading || error) {
     return <Loading />;
   }
+  const logoutClick = () => {
+    localStorage.clear();
+    isLoggedInVar(false);
+    navigate('/')
+    window.location.replace("/")
+  };
   return (
     <HeaderSection>
       <LogoBox>
@@ -102,6 +110,9 @@ export const LoginHeader = () => {
           <Link to="/my-page">
             <GaleryButton>내 갤러리 →</GaleryButton>
           </Link>
+        </LiStyle>
+        <LiStyle style={{marginLeft:"0.5rem"}}>
+        <GaleryButton onClick={logoutClick}>로그아웃</GaleryButton>
         </LiStyle>
       </UlStyle>
     </HeaderSection>

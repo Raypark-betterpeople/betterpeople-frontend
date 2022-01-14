@@ -96,7 +96,7 @@ export const Intro = () => {
         <Font>
           <HighLight>{data?.me.nickname ? `${data.me.nickname}님` : "당신" }</HighLight>은
         </Font>
-        <Font>동물을 좋아하시나요? 🐈‍⬛🐕</Font>
+        <Font>동물을 좋아하시나요? 🐈‍⬛</Font>
       </Section>
       <Section
         className={
@@ -106,7 +106,7 @@ export const Intro = () => {
         }
       >
         <Font>아니면,</Font>
-        <Font>지구🌎 의 건강에는 </Font>
+        <Font>지구의 건강에는 </Font>
         <Font>관심이 있으신가요?</Font>
       </Section>
       <Section
@@ -116,9 +116,9 @@ export const Intro = () => {
             : ""
         }
       >
-        <Font>무엇이든 좋아요, {data?.me.nickname ? `${data.me.nickname}님` : "당신" }의 </Font>
+        <Font><HighLight>무엇이든 좋아요</HighLight>, {data?.me.nickname ? `${data.me.nickname}님` : "당신" }의 </Font>
         <Font>
-        <HighLight>관심분야의 영웅</HighLight>이 되고,
+        관심분야의 영웅이 되고,
         </Font>
         <Font>마음껏 자랑해주세요!</Font>
       </Section>

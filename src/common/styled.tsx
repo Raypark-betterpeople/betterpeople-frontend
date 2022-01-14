@@ -29,7 +29,7 @@ export const CommonBodyContainer = styled.div`
   }
 `
 
-export const Highlight = styled.div`
+export const Highlight = styled.span`
   display: inline-block;
   background:linear-gradient(to top, rgba(36, 179, 139, 0.5), transparent 40%);
 `
