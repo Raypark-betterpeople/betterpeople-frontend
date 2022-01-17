@@ -11,6 +11,7 @@ import { EmailWarning } from "../components/confirm-email-warning";
 import { CommonBodyContainer } from "../common/styled";
 import { InstaSection } from "../sections/InstaSection";
 import { IllustAbout } from "../sections/illust-about-section";
+import { DonateSession } from "../sections/donate-session";
 
 export const MainPage = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
@@ -30,6 +31,7 @@ export const MainPage = () => {
       <EarthInfo />
       <IllustAbout />
       <InstaSection />
+      <DonateSession />
     </CommonBodyContainer>
   );
 };

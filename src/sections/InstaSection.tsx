@@ -23,6 +23,7 @@ const Container = styled.div`
 
 const IPhone = styled.img`
   width: 350px;
+  z-index:15;
 `;
 
 const Feed = styled.img`
@@ -99,7 +100,7 @@ export const InstaSection = () => {
         </Font>
         <Font fontColor="gray" fontSize="1rem" fontWeight="500">
           {data?.me.nickname ? `${data.me.nickname}님` : "당신"}의 멋짐을 세상에
-          알려보는건 어떤가요 흐흐
+          알려보는건 어떤가요?
         </Font>
       </FontContainer>
       <ImageContainer>
