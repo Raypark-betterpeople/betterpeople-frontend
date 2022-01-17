@@ -18,16 +18,17 @@ const move = keyframes`
     transform:(translateX(0));
   }
   100% {
-    transform: translateX(-3000px);
+    transform: translateX(-2700px);
   }
 `
 
 const GoodsContainer = styled.div`
   display: flex;
+  box-sizing: border-box;
   justify-content: flex-start;
   align-items: center;
   margin-top: 6rem;
-  width: 3000px;
+  width: 3500px;
   gap: 5rem;
   animation: ${move} 50s infinite linear;
 `;
@@ -58,16 +59,27 @@ export const IllustAbout = () => {
           durationTime="2022년 1월 1일 ~ 2022년 3월 1일"
         />
         <VerifyGoods
-          title="유기견,묘를 위한 컨텐츠"
+          title="지구가 뜨거워 컨텐츠"
           durationTime="2022년 1월 1일 ~ 2022년 3월 1일"
+          illust='earth'
         />
         <VerifyGoods
           title="유기견,묘를 위한 컨텐츠"
           durationTime="2022년 1월 1일 ~ 2022년 3월 1일"
         />
         <VerifyGoods
+          title="지구가 뜨거워 컨텐츠"
+          durationTime="2022년 1월 1일 ~ 2022년 3월 1일"
+          illust='earth'
+        />
+        <VerifyGoods
           title="유기견,묘를 위한 컨텐츠"
           durationTime="2022년 1월 1일 ~ 2022년 3월 1일"
+        />
+        <VerifyGoods
+          title="지구가 뜨거워 컨텐츠"
+          durationTime="2022년 1월 1일 ~ 2022년 3월 1일"
+          illust='earth'
         />
         <VerifyGoods
           title="유기견,묘를 위한 컨텐츠"

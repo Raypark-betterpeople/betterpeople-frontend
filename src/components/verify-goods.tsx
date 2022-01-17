@@ -2,22 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import { Font, Highlight } from "../common/styled";
 import IllustDummy from "../images/illustdummy.png";
+import EarthIllust from "../images/earth_illust.png";
 
 interface IGoodsProps {
   title: string;
   durationTime: string;
   width?: string;
   height?: string;
+  illust?: string;
 }
 
 const GoodsBox = styled.div`
   display: flex;
+  width: 1000px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2.5rem 3rem;
   border-radius: 15px;
-  border: 2px solid rgb(200,200,200);
+  border: 2px solid rgb(200, 200, 200);
 `;
 
 const FontBox = styled.div`
@@ -28,30 +31,55 @@ const FontBox = styled.div`
 `;
 
 const Illust = styled.img`
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
   border-radius: 15px;
   margin-bottom: 2rem;
 `;
 
-export const VerifyGoods: React.FC<IGoodsProps> = ({ title, durationTime, height, width }) => {
+export const VerifyGoods: React.FC<IGoodsProps> = ({
+  title,
+  durationTime,
+  height,
+  width,
+  illust,
+}) => {
   return (
-    <GoodsBox style={{height: height, width: width}}>
-      <Illust src={IllustDummy} alt="굿즈 일러스트" />
+    <GoodsBox style={{ height: height, width: width }}>
+      {illust === "earth" ? (
+        <Illust src={EarthIllust} />
+      ) : (
+        <Illust src={IllustDummy} alt="굿즈 일러스트" />
+      )}
       <FontBox>
-        <Font
-          fontColor="rgb(50,50,50)"
-          fontWeight="600"
-          fontSize="2rem"
-          marginBottom="1rem"
-        >
-          고영들의 영웅 <Highlight>'더좋사'</Highlight>님
-        </Font>
+        {illust !== "earth" ? (
+          <Font
+            fontColor="rgb(50,50,50)"
+            fontWeight="600"
+            fontSize="2rem"
+            marginBottom="1rem"
+          >
+            고영들의 영웅 <Highlight>'더좋사'</Highlight>님
+          </Font>
+        ) : (
+          <Font
+            fontColor="rgb(50,50,50)"
+            fontWeight="600"
+            fontSize="2rem"
+            marginBottom="1rem"
+          >
+            지구의 영웅 <Highlight>'더좋사'</Highlight>님
+          </Font>
+        )}
+
         <Font fontColor="rgb(50,50,50)" fontWeight="500" fontSize="1.3rem">
           위 사람은,
         </Font>
         <p>
-          {durationTime}에 진행된 {title}에 참여한
+          {durationTime}에 진행된,
+        </p>
+        <p>
+        {title}에 참여한
         </p>
         <Font
           fontColor="black"

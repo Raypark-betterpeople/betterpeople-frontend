@@ -1,7 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { DirectionStyle, Font, Highlight } from "../common/styled";
+import { HomeDonate } from "../components/home-donate";
+import { useDonate } from "../hooks/allDonate";
+import { allDonateQuery_allDonate_donates } from "../__generated__/allDonateQuery";
+
+const DonateSectionContainer = styled.section`
+  box-sizing: border-box;
+  display: flex;
+  padding: 10rem 0;
+  line-height: 3rem;
+  flex-direction: column;
+`;
+
+const DonateBox = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  line-height: normal;
+`;
 
 export const DonateSession = () => {
-    return (
-        <div>현재 진행중인 프로젝트들</div>
-    )
-}
+  const { data } = useDonate();
+  const [donates, setDonates] = useState<
+    allDonateQuery_allDonate_donates[] | null
+  >();
+  useEffect(() => {
+    setDonates(data?.allDonate.donates);
+  }, [data?.allDonate.donates]);
+  return (
+    <DonateSectionContainer>
+      <DirectionStyle style={{ textAlign: "start" }} directionStyle="column">
+        <Font fontColor="black" fontWeight="600" fontSize="1.8rem">
+          <Highlight>현재!</Highlight> 진행중인
+        </Font>
+        <Font fontColor="black" fontWeight="600" fontSize="2.5rem">
+          기부 프로젝트에 참여해보세오
+        </Font>
+      </DirectionStyle>
+      {donates?.map((donate) => {
+        return (
+          <HomeDonate
+            description={donate.description}
+            title={donate.title}
+            id={donate.id}
+            durationTime={donate.durationTime}
+            coverImg={donate.coverImg}
+          />
+        );
+      })}
+    </DonateSectionContainer>
+  );
+};
