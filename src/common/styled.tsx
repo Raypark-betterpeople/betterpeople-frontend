@@ -5,11 +5,13 @@ export const Font = styled.p<{
   fontWeight: string;
   fontColor: string;
   marginBottom?: string;
+  lineHeight? : string;
 }>`
   font-size: ${(props) => props.fontSize};
   font-weight: ${(props) => props.fontWeight};
   color: ${(props) => props.fontColor};
   margin-bottom: ${(props) => props.marginBottom};
+  line-height: ${(props) => props.lineHeight};
 `;
 
 export const DirectionStyle = styled.div<{ directionStyle: string }>`

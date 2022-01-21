@@ -12,14 +12,14 @@ interface IDonateProps {
 
 const DonateContainer = styled.div`
   display: flex;
-  line-height: 1.5rem;
-  flex-wrap: wrap;
+  line-height: 1.3rem;
+  flex-wrap: wrap; 
   width: 100%;
-  border: 1px solid gray;
+  border: 1px solid rgb(200,200,200);
   border-radius: 15px;
-  padding: 1rem;
-  margin-right: 1rem;
+  padding: 2rem;
   position: relative;
+  margin-bottom: 2rem;
 `;
 
 const DonateBox = styled.div`
@@ -44,8 +44,8 @@ const Button = styled.button`
   background-color: rgba(36, 179, 139, 0.2);
   border-radius: 5px;
   position: absolute;
-  right: 1rem;
-  bottom: 1rem;
+  right: 2rem;
+  bottom: 2rem;
   cursor: pointer;
   transition: 0.3s;
   :hover {
@@ -67,17 +67,31 @@ export const HomeDonate: React.FC<IDonateProps> = ({
         <TextBox>
           <Font
             fontColor="black"
-            fontWeight="600"
-            fontSize="1.5rem"
+            fontWeight="800"
+            fontSize="2rem"
             marginBottom="1rem"
+            lineHeight='2.3rem'
           >
-            {title}
+            {title.split("]")[1] ? title.split(']')[0] + ']' : ""}
+            <p>{title.split(']')[1]}</p>
           </Font>
-          <Font fontColor="black" fontWeight="500" fontSize="1rem">
+          <Font
+            fontColor="black"
+            fontWeight="800"
+            fontSize="2rem"
+            marginBottom="1rem"
+            lineHeight='2.3rem'
+          >
+            {title.split("]")[1] ? "" : title.split(']')[0]}
+          </Font>
+          <Font fontColor="black" fontWeight="500" fontSize="1rem" marginBottom='1rem'>
             {description}
           </Font>
-          <Font fontColor="black" fontWeight="500" fontSize="1rem">
+          <Font fontColor="black" fontWeight="700" fontSize="1rem">
             {durationTime}
+          </Font>
+          <Font fontColor="black" fontWeight="500" fontSize="1rem">
+            까지 진행되는 프로젝트에오! 어서 참여하고 일러스트를 얻어보세오!
           </Font>
         </TextBox>
       </DonateBox>

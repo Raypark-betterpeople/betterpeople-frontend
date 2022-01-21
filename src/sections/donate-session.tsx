@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
 import { DirectionStyle, Font, Highlight } from "../common/styled";
 import { HomeDonate } from "../components/home-donate";
@@ -16,6 +17,7 @@ const DonateSectionContainer = styled.section`
 const DonateBoxSection = styled.div`
   display: flex;
   margin-top: 3rem;
+  flex-wrap: wrap;
 `
 
 export const DonateSession = () => {
@@ -27,6 +29,7 @@ export const DonateSession = () => {
     setDonates(data?.allDonate.donates);
   }, [data?.allDonate.donates]);
   return (
+    <Fade delay={500}>
     <DonateSectionContainer>
       <DirectionStyle style={{ textAlign: "start" }} directionStyle="column">
         <Font fontColor="black" fontWeight="600" fontSize="1.8rem">
@@ -50,5 +53,6 @@ export const DonateSession = () => {
       })}
       </DonateBoxSection>
     </DonateSectionContainer>
+    </Fade>
   );
 };
