@@ -13,13 +13,10 @@ const DonateSectionContainer = styled.section`
   flex-direction: column;
 `;
 
-const DonateBox = styled.div`
+const DonateBoxSection = styled.div`
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  line-height: normal;
-`;
+  margin-top: 3rem;
+`
 
 export const DonateSession = () => {
   const { data } = useDonate();
@@ -39,6 +36,7 @@ export const DonateSession = () => {
           기부 프로젝트에 참여해보세오
         </Font>
       </DirectionStyle>
+      <DonateBoxSection>
       {donates?.map((donate) => {
         return (
           <HomeDonate
@@ -50,6 +48,7 @@ export const DonateSession = () => {
           />
         );
       })}
+      </DonateBoxSection>
     </DonateSectionContainer>
   );
 };
