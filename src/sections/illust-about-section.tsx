@@ -1,5 +1,4 @@
 import React from "react";
-import Slick, { Settings } from "react-slick";
 import styled, { keyframes } from "styled-components";
 import { Font, Highlight } from "../common/styled";
 import { VerifyGoods } from "../components/verify-goods";
@@ -18,7 +17,7 @@ const move = keyframes`
     transform:(translateX(0));
   }
   100% {
-    transform: translateX(-2700px);
+    transform: translateX(-1800px);
   }
 `
 
@@ -28,7 +27,7 @@ const GoodsContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin-top: 6rem;
-  width: 3500px;
+  width: 2700px;
   gap: 5rem;
   animation: ${move} 50s infinite linear;
 `;
@@ -47,7 +46,7 @@ export const IllustAbout = () => {
         fontWeight="600"
         marginBottom="1rem"
       >
-        당신이 관심있는 프로젝트에 참여하고,
+        관심있는 프로젝트에 참여하고,
       </Font>
       <Font fontColor="black" fontSize="3rem" fontWeight="600">
         자신만 인증할 수 있는 <Highlight>굿즈 일러스트</Highlight>를 받아보세요!
@@ -55,11 +54,11 @@ export const IllustAbout = () => {
       <HiddenBox>
       <GoodsContainer>
         <VerifyGoods
-          title="유기견,묘를 위한 컨텐츠"
+          title="유기견,묘 센터의 와기들에게"
           durationTime="2022년 1월 1일 ~ 2022년 3월 1일"
         />
         <VerifyGoods
-          title="지구가 뜨거워 컨텐츠"
+          title="지구 수위 올리기!"
           durationTime="2022년 1월 1일 ~ 2022년 3월 1일"
           illust='earth'
         />

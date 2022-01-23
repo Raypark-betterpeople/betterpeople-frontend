@@ -17,7 +17,7 @@ const DonateContainer = styled.div`
   width: 100%;
   border: 1px solid rgb(200,200,200);
   border-radius: 15px;
-  padding: 2rem;
+  padding: 2.5rem;
   position: relative;
   margin-bottom: 2rem;
 `;
@@ -39,13 +39,14 @@ const Image = styled.img`
 
 const Button = styled.button`
   all: unset;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   color:rgb(36, 179, 139);
   background-color: rgba(36, 179, 139, 0.2);
   border-radius: 5px;
   position: absolute;
   right: 2rem;
   bottom: 2rem;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
   :hover {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import CountUp from "react-countup";
 import styled from "styled-components";
-import EarthImage from '../images/earth.png'
+import EarthImage from '../images/earthwater.png'
 
 const Font = styled.p<{
   fontSize: string;
@@ -57,22 +57,22 @@ const Circle = styled.div`
   position: absolute;
   width: 300px;
   height: 300px;
-  background-color: rgba(36, 179, 139);
+  background-color: rgba(17,133,219,0.9);
   border-radius: 100%;
   z-index: -1;
 `;
 
 const EarthImages = styled.img`
   position: absolute;
-  display: block;
-  width: 100%;
-  top: -1rem;
-  left: -10%;
+  width: 900px;
   border-radius: 15px;
+  right: 0px;
+  top: -5rem;
   z-index: -10;
-  opacity: 0.5;
-  @media only screen and (max-width: 900px) {
-    display: none;
+  @media only screen and (max-width: 500px) {
+    width: 400px;
+    top: -14rem;
+    opacity: 0.5;
   }
 `;
 
@@ -111,7 +111,7 @@ export const EarthInfo = () => {
                 2100년에는 <HighLight>최대 73cm</HighLight>까지 상승할 수도 있다네요..
               </Font>
               <Font fontSize="1rem" fontColor="gray" fontWeight="400">
-                당신의 가치는 우리가 살아가는 지구에 있나요? 🌎
+                당신의 가치는 우리가 살아가는 지구에 있나요?
               </Font>
             </DirectionStyle>
             <DirectionStyle flexDirection="column">
@@ -155,7 +155,7 @@ export const EarthInfo = () => {
           </DirectionStyle>
           <DirectionStyle
             flexDirection="none"
-            mobileAdapt="none"
+            style={{width:'1px'}}
           >
               <EarthImages src={EarthImage} alt="지구 이미지" />
           </DirectionStyle>

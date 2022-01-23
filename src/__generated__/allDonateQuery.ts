@@ -7,6 +7,11 @@
 // GraphQL query operation: allDonateQuery
 // ====================================================
 
+export interface allDonateQuery_allDonate_donates_donateImage {
+  __typename: "ImageContainer";
+  imageUrl: string;
+}
+
 export interface allDonateQuery_allDonate_donates {
   __typename: "DonateSession";
   id: number;
@@ -14,6 +19,7 @@ export interface allDonateQuery_allDonate_donates {
   description: string;
   coverImg: string;
   durationTime: string;
+  donateImage: allDonateQuery_allDonate_donates_donateImage[] | null;
 }
 
 export interface allDonateQuery_allDonate {

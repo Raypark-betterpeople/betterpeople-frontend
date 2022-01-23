@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "../css/Intro.css";
 import { useMe } from "../hooks/useMe";
+import CatPixel from '../images/catanddog.png'
+import EarthPixel from '../images/Earthskate.png'
 
 const Container = styled.div`
   position: relative;
@@ -55,6 +57,14 @@ const HighLight = styled.span`
   }
 `;
 
+const Image = styled.img`
+  width: 70%;
+  position: absolute;
+  right: 0;
+  z-index: -10;
+  opacity: 0.5;
+`
+
 export const Intro = () => {
   const { data } = useMe();
   const [currentScroll, setCurrentScroll] = useState(0);
@@ -96,7 +106,8 @@ export const Intro = () => {
         <Font>
           <HighLight>{data?.me.nickname ? `${data.me.nickname}님` : "당신" }</HighLight>은
         </Font>
-        <Font>동물을 좋아하시나요? 🐈‍⬛</Font>
+        <Font>동물을 좋아하시나요?</Font>
+        <Image src={CatPixel} alt='고양이 픽셀'/>
       </Section>
       <Section
         className={
@@ -108,6 +119,7 @@ export const Intro = () => {
         <Font>아니면,</Font>
         <Font>지구의 건강에는 </Font>
         <Font>관심이 있으신가요?</Font>
+        <Image src={EarthPixel}/>
       </Section>
       <Section
         className={

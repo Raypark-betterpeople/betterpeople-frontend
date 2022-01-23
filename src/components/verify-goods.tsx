@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Font, Highlight } from "../common/styled";
-import IllustDummy from "../images/illustdummy.png";
-import EarthIllust from "../images/earth_illust.png";
+import IllustDummy from "../images/catpixeldemo.png";
+import EarthIllust from "../images/sunearth.png";
 
 interface IGoodsProps {
   title: string;
@@ -14,13 +14,14 @@ interface IGoodsProps {
 
 const GoodsBox = styled.div`
   display: flex;
-  width: 1000px;
+  width: 300px;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 2.5rem 3rem;
-  border-radius: 15px;
-  border: 2px solid rgb(200, 200, 200);
+  padding: 1.2rem;
+  background-color: rgba(250,250,250,0.5);
+  border: 1px solid rgb(220,220,220);
+  box-shadow: 4px 8px 12px rgb(200,200,200);
+  margin-bottom: 1rem;
 `;
 
 const FontBox = styled.div`
@@ -31,11 +32,12 @@ const FontBox = styled.div`
 `;
 
 const Illust = styled.img`
-  width: 300px;
-  height: 300px;
-  border-radius: 15px;
-  margin-bottom: 2rem;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 `;
+
 
 export const VerifyGoods: React.FC<IGoodsProps> = ({
   title,
@@ -46,6 +48,9 @@ export const VerifyGoods: React.FC<IGoodsProps> = ({
 }) => {
   return (
     <GoodsBox style={{ height: height, width: width }}>
+      <Font fontColor="rgb(100,100,100)" fontSize="0.9rem" fontWeight="700" style={{margin:'auto'}}>
+          <Highlight>verified illust</Highlight>
+        </Font>
       {illust === "earth" ? (
         <Illust src={EarthIllust} />
       ) : (
@@ -56,44 +61,28 @@ export const VerifyGoods: React.FC<IGoodsProps> = ({
           <Font
             fontColor="rgb(50,50,50)"
             fontWeight="600"
-            fontSize="2rem"
-            marginBottom="1rem"
+            fontSize="1.3rem"
+            marginBottom='0.5rem'
           >
-            고영들의 영웅 <Highlight>'더좋사'</Highlight>님
+            더좋사 님
           </Font>
         ) : (
           <Font
             fontColor="rgb(50,50,50)"
             fontWeight="600"
-            fontSize="2rem"
-            marginBottom="1rem"
+            fontSize="1.3rem"
+            marginBottom='0.5rem'
           >
-            지구의 영웅 <Highlight>'더좋사'</Highlight>님
+             더좋사 님
           </Font>
         )}
-
-        <Font fontColor="rgb(50,50,50)" fontWeight="500" fontSize="1.3rem">
-          위 사람은,
+        <Font fontColor='rgb(90,90,90)' fontWeight='500' fontSize='0.85rem'>
+          "{durationTime}" 에 진행된,
         </Font>
-        <p>
-          {durationTime}에 진행된,
-        </p>
-        <p>
-        {title}에 참여한
-        </p>
-        <Font
-          fontColor="black"
-          fontWeight="400"
-          fontSize="1rem"
-          marginBottom="1.5rem"
-        >
-          너무나도 착하신 분입니다 😇
+        <Font fontColor='rgb(90,90,90)' fontWeight='500' fontSize='0.85rem' marginBottom='1rem'>
+          "{title}" 에 참여
         </Font>
-        <Font fontColor="black" fontSize="0.9rem" fontWeight="600">
-          이 일러스트는 <Highlight>Better people에서 인증된 일러스트</Highlight>
-          입니다.
-        </Font>
-        <Font fontColor="rgb(180,180,180)" fontSize="0.9rem" fontWeight="400">
+        <Font fontColor="rgb(120,120,120)" fontSize="0.8rem" fontWeight="600" style={{marginLeft:'auto'}}>
           better-people.org
         </Font>
       </FontBox>

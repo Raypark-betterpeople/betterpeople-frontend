@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import CountUp from "react-countup";
 import styled from "styled-components";
-import Dog from "../images/dog.jpeg";
+import DogCat from "../images/dogandcat.png";
 
 const Font = styled.p<{
   fontSize: string;
@@ -49,7 +49,7 @@ const Circle = styled.div`
   position: absolute;
   width: 300px;
   height: 300px;
-  background-color: rgba(36, 179, 139);
+  background-color: rgba(36, 179, 139,0.9);
   border-radius: 100%;
   z-index: -1;
 `;
@@ -57,15 +57,14 @@ const Circle = styled.div`
 const DogImage = styled.img`
   position: absolute;
   display: block;
-  width: 150%;
-  height: 100%;
-  left: -60%;
-  top: -1rem;
-  border-radius: 15px;
+  width: 800px;
+  right: 0px;
+  bottom: 30px;
   z-index:-10;
-  opacity: 0.5;
-  @media only screen and (max-width: 900px) {
-    display: none;
+  @media only screen and (max-width: 500px) {
+    width: 400px;
+    bottom: 20rem;
+    opacity: 0.6;
   }
 `;
 
@@ -102,7 +101,7 @@ export const DogCatInfo = () => {
                 파양, 유기등으로 정말 많이 버려지고 있습니다.
               </Font>
               <Font fontSize="1rem" fontColor="gray" fontWeight="400">
-                당신의 가치가 이 곳에 있다면 유기동물들의 영웅이 되어보는건 어떠신가요? 😇
+                당신의 가치가 이 곳에 있다면 유기동물들의 영웅이 되어보는건 어떠신가요?
               </Font>
             </DirectionStyle>
             <DirectionStyle flexDirection="column">
@@ -133,8 +132,8 @@ export const DogCatInfo = () => {
               </Font>
             </DirectionStyle>
           </DirectionStyle>
-          <DirectionStyle flexDirection='none' mobileAdapt="none">
-              <DogImage src={Dog} alt="강아지 이미지" />
+          <DirectionStyle flexDirection='none' style={{width:'0px'}}>
+              <DogImage src={DogCat} alt="강아지 이미지" />
           </DirectionStyle>
         </DirectionStyle>
       </Container>
