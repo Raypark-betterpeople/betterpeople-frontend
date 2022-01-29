@@ -35,7 +35,7 @@ export const DonateSession = () => {
           <Highlight>현재!</Highlight> 진행중인
         </Font>
         <Font fontColor="black" fontWeight="600" fontSize="2.5rem">
-          기부 프로젝트에 참여해보세오
+          기부 프로젝트에 참여하고, 굿즈 받아오!
         </Font>
       </DirectionStyle>
       <DonateBoxSection>

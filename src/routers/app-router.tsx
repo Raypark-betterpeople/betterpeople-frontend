@@ -8,6 +8,7 @@ import { MyPage } from "../pages/my-page";
 import { ScrollTop } from "../components/scrollTop";
 import { NotFound } from "../pages/404";
 import { ConfirmEmail } from "../pages/confirm-email";
+import { SelectDonate } from "../pages/select-donation";
 
 export const AppRouter = () => {
   return (
@@ -20,6 +21,7 @@ export const AppRouter = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/create-account' element={<CreateAccount />} />
           <Route path='/my-page' element={<MyPage />} />
+          <Route path='donate/:id' element={<SelectDonate />}/>
       </Routes>
     </BrowserRouter>
   );

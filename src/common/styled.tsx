@@ -35,3 +35,8 @@ export const Highlight = styled.span`
   display: inline-block;
   background:linear-gradient(to top, rgba(36, 179, 139, 0.5), transparent 40%);
 `
+
+export const Bold = styled.span`
+  font-weight: 700;
+  color: rgb(50,50,50);
+`

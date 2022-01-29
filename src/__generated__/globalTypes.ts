@@ -14,6 +14,10 @@ export interface CreateAccountInput {
   profileImg?: string | null;
 }
 
+export interface DonateInput {
+  donateId: number;
+}
+
 export interface LoginInput {
   email: string;
   password: string;

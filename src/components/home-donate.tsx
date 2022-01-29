@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Font } from "../common/styled";
+import { useMe } from "../hooks/useMe";
 import EarthImage from '../images/earth2.png'
 interface IDonateProps {
   id: number;
@@ -61,6 +63,7 @@ export const HomeDonate: React.FC<IDonateProps> = ({
   durationTime,
   coverImg,
 }) => {
+  const { data } = useMe();
   return (
     <DonateContainer>
       <DonateBox>
@@ -96,7 +99,7 @@ export const HomeDonate: React.FC<IDonateProps> = ({
           </Font>
         </TextBox>
       </DonateBox>
-      <Button>알아보실래오?</Button>
+      <Link to={data?.me.nickname ? `donate/${id}` : 'login'}><Button>알아보실래오?</Button></Link>
     </DonateContainer>
   );
 };

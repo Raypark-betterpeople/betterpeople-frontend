@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Font, Highlight } from "../common/styled";
+import { Bold, Font } from "../common/styled";
 import IllustDummy from "../images/catpixeldemo.png";
 import EarthIllust from "../images/sunearth.png";
+import KidsIllust from "../images/kids.png";
+import { HiBadgeCheck } from "react-icons/hi";
 
 interface IGoodsProps {
   title: string;
@@ -18,9 +20,9 @@ const GoodsBox = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 1.2rem;
-  background-color: rgba(250,250,250,0.5);
-  border: 1px solid rgb(220,220,220);
-  box-shadow: 4px 8px 12px rgb(200,200,200);
+  background-color: rgba(250, 250, 250, 0.5);
+  border: 1px solid rgb(220, 220, 220);
+  box-shadow: 4px 8px 12px rgb(200, 200, 200);
   margin-bottom: 1rem;
 `;
 
@@ -38,6 +40,14 @@ const Illust = styled.img`
   margin-top: 1rem;
 `;
 
+const Icon = styled.span`
+  display: inline-block;
+  font-size: 1.5rem;
+  text-align: center;
+  vertical-align: center;
+  transform: translateY(6px);
+  margin-right: 0.2rem;
+`;
 
 export const VerifyGoods: React.FC<IGoodsProps> = ({
   title,
@@ -48,41 +58,46 @@ export const VerifyGoods: React.FC<IGoodsProps> = ({
 }) => {
   return (
     <GoodsBox style={{ height: height, width: width }}>
-      <Font fontColor="rgb(100,100,100)" fontSize="0.9rem" fontWeight="700" style={{margin:'auto'}}>
-          <Highlight>verified illust</Highlight>
-        </Font>
-      {illust === "earth" ? (
-        <Illust src={EarthIllust} />
-      ) : (
-        <Illust src={IllustDummy} alt="굿즈 일러스트" />
-      )}
+      <Font
+        fontColor="rgb(60,60,60)"
+        fontSize="0.9rem"
+        fontWeight="400"
+        style={{ marginRight: "auto"}}
+      >
+        <Icon>
+          <HiBadgeCheck color='rgb(36, 179, 139)' />
+        </Icon>
+         Verified illust
+      </Font>
+      {illust === "earth" ? <Illust src={EarthIllust} /> : ""}
+      {illust === "kids" ? <Illust src={KidsIllust} /> : ""}
+      {illust === "cats" ? <Illust src={IllustDummy} /> : ""}
       <FontBox>
-        {illust !== "earth" ? (
-          <Font
-            fontColor="rgb(50,50,50)"
-            fontWeight="600"
-            fontSize="1.3rem"
-            marginBottom='0.5rem'
-          >
-            더좋사 님
-          </Font>
-        ) : (
-          <Font
-            fontColor="rgb(50,50,50)"
-            fontWeight="600"
-            fontSize="1.3rem"
-            marginBottom='0.5rem'
-          >
-             더좋사 님
-          </Font>
-        )}
-        <Font fontColor='rgb(90,90,90)' fontWeight='500' fontSize='0.85rem'>
-          "{durationTime}" 에 진행된,
+        <Font
+          fontColor="rgb(50,50,50)"
+          fontWeight="600"
+          fontSize="1.3rem"
+          marginBottom="0.5rem"
+        >
+          더좋사 님
         </Font>
-        <Font fontColor='rgb(90,90,90)' fontWeight='500' fontSize='0.85rem' marginBottom='1rem'>
-          "{title}" 에 참여
+        <Font fontColor="rgb(90,90,90)" fontWeight="500" fontSize="0.85rem">
+          <Bold>"{durationTime}"</Bold>에 진행된,
         </Font>
-        <Font fontColor="rgb(120,120,120)" fontSize="0.8rem" fontWeight="600" style={{marginLeft:'auto'}}>
+        <Font
+          fontColor="rgb(90,90,90)"
+          fontWeight="500"
+          fontSize="0.85rem"
+          marginBottom="1rem"
+        >
+          <Bold>"{title}"</Bold> 에 참여
+        </Font>
+        <Font
+          fontColor="rgb(120,120,120)"
+          fontSize="0.8rem"
+          fontWeight="600"
+          style={{ marginLeft: "auto" }}
+        >
           better-people.org
         </Font>
       </FontBox>

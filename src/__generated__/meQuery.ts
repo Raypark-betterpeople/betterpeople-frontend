@@ -13,6 +13,7 @@ export interface meQuery_me {
   email: string;
   nickname: string;
   emailVerified: boolean;
+  adminUser: boolean;
 }
 
 export interface meQuery {

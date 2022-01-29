@@ -115,6 +115,7 @@ export const LoginHeader = () => {
         <GaleryButton onClick={logoutClick}>로그아웃</GaleryButton>
         </LiStyle>
       </UlStyle>
+      {data.me.adminUser === true ? <GaleryButton>관리자페이지</GaleryButton> : ""}
     </HeaderSection>
   );
 };
