@@ -42,6 +42,7 @@ export const DonateSession = () => {
       {donates?.map((donate) => {
         return (
           <HomeDonate
+            key={donate.id}
             description={donate.description}
             title={donate.title}
             id={donate.id}

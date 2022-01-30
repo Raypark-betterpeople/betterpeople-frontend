@@ -38,7 +38,7 @@ const LiStyle = styled.li`
   color: rgb(100, 100, 100);
   display: inline-block;
   :hover {
-      color:rgb(36, 179, 139);
+    color: rgb(36, 179, 139);
   }
 `;
 
@@ -59,7 +59,7 @@ const GaleryButton = styled.button`
   transition: 0.2s;
   cursor: pointer;
   :hover {
-      transform: scale(1.03);
+    transform: scale(1.03);
   }
 `;
 
@@ -85,8 +85,8 @@ export const LoginHeader = () => {
   const logoutClick = () => {
     localStorage.clear();
     isLoggedInVar(false);
-    navigate('/')
-    window.location.replace("/")
+    navigate("/");
+    window.location.replace("/");
   };
   return (
     <HeaderSection>
@@ -101,21 +101,27 @@ export const LoginHeader = () => {
           <LiStyle>공지사항</LiStyle>
         </Link>
         <Link to="/">
-        <LiStyle>서비스 소개</LiStyle>
+          <LiStyle>서비스 소개</LiStyle>
         </Link>
         <Link to="/">
-        <LiStyle>일러스트 정품인증</LiStyle>
+          <LiStyle>일러스트 정품인증</LiStyle>
         </Link>
         <LiStyle>
           <Link to="/my-page">
             <GaleryButton>내 갤러리 →</GaleryButton>
           </Link>
         </LiStyle>
-        <LiStyle style={{marginLeft:"0.5rem"}}>
-        <GaleryButton onClick={logoutClick}>로그아웃</GaleryButton>
+        <LiStyle style={{ marginLeft: "0.5rem" }}>
+          <GaleryButton onClick={logoutClick}>로그아웃</GaleryButton>
         </LiStyle>
       </UlStyle>
-      {data.me.adminUser === true ? <GaleryButton>관리자페이지</GaleryButton> : ""}
+      {data.me.adminUser === true ? (
+        <Link to="/admin">
+          <GaleryButton>관리자페이지</GaleryButton>
+        </Link>
+      ) : (
+        ""
+      )}
     </HeaderSection>
   );
 };

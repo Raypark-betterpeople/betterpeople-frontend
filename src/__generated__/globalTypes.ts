@@ -14,6 +14,13 @@ export interface CreateAccountInput {
   profileImg?: string | null;
 }
 
+export interface CreateDonateInput {
+  title: string;
+  description: string;
+  coverImg: string;
+  durationTime: string;
+}
+
 export interface DonateInput {
   donateId: number;
 }

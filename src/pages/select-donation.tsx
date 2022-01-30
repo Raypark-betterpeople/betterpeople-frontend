@@ -61,7 +61,7 @@ export const SelectDonate = () => {
   return (
     <CommonBodyContainer>
       {isLoggedIn ? <LoginHeader /> : <LogoutHeader />}
-      <DonateBox>
+      <DonateBox key={data?.donate.donate?.id}>
         <CoverImg>{coverImageUrl}</CoverImg>
         <Font
           fontColor="black"

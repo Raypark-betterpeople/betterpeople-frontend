@@ -9,6 +9,7 @@ import { ScrollTop } from "../components/scrollTop";
 import { NotFound } from "../pages/404";
 import { ConfirmEmail } from "../pages/confirm-email";
 import { SelectDonate } from "../pages/select-donation";
+import { AdminPage } from "../pages/admin/admin";
 
 export const AppRouter = () => {
   return (
@@ -22,6 +23,7 @@ export const AppRouter = () => {
           <Route path='/create-account' element={<CreateAccount />} />
           <Route path='/my-page' element={<MyPage />} />
           <Route path='donate/:id' element={<SelectDonate />}/>
+          <Route path='admin' element={<AdminPage />}/>
       </Routes>
     </BrowserRouter>
   );
