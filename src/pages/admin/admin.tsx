@@ -5,6 +5,7 @@ import { useDonate } from "../../hooks/allDonate";
 import { useMe } from "../../hooks/useMe";
 import { NotFound } from "../404";
 import { CreateDonate } from "./create-donate";
+import { CreateIllust } from "./create-illust";
 
 const UlStyle = styled.ul`
   all: unset;
@@ -88,7 +89,7 @@ export const AdminPage = () => {
                       현재 활성화 되어있는 기부 세션
                     </Font>
                     {donate.data?.allDonate.donates?.map((selectDonate) => {
-                      return <Font fontSize='1.1rem' fontWeight='500' fontColor='rgb(80,80,80)' marginBottom='1rem'>{selectDonate.title}</Font>;
+                      return <Font key={selectDonate.id} fontSize='1.1rem' fontWeight='500' fontColor='rgb(80,80,80)' marginBottom='1rem'>{selectDonate.title}</Font>;
                     })}
                   </DirectionStyle>
                 </ActiveDonateBox>
@@ -98,9 +99,12 @@ export const AdminPage = () => {
             )}
             {state === "illust" ? (
               <WorkSpaceBox>
+                <DirectionStyle directionStyle="column">
                 <Font fontSize="1.3rem" fontWeight="500" fontColor="black">
                   일러스트 생성
                 </Font>
+                <CreateIllust />
+                </DirectionStyle>
               </WorkSpaceBox>
             ) : (
               ""

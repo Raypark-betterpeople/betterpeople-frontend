@@ -132,7 +132,6 @@ export const CreateDonate = () => {
           body: formBody,
         })
       ).json();
-      console.log(url);
       const { title, description, durationTime } = getValues();
       createDonate({
         variables: {

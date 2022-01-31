@@ -21,6 +21,11 @@ export interface CreateDonateInput {
   durationTime: string;
 }
 
+export interface CreateImageInput {
+  imageUrl: string;
+  donateId: number;
+}
+
 export interface DonateInput {
   donateId: number;
 }
