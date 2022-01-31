@@ -97,7 +97,7 @@ export const LoginHeader = () => {
         </Font>
       </LogoBox>
       <UlStyle>
-        <Link to="/">
+        <Link to="/notices">
           <LiStyle>공지사항</LiStyle>
         </Link>
         <Link to="/">

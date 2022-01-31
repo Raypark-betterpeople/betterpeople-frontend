@@ -38,9 +38,9 @@ const DonateBox = styled.div`
 
 const CoverImg = styled.div`
   width: 100%;
-  height: 300px;
+  height: 500px;
   background-color: rgb(200, 200, 200);
-  margin-bottom: 1rem;
+  margin-bottom: 5rem;
 `;
 
 export const SelectDonate = () => {
@@ -62,7 +62,7 @@ export const SelectDonate = () => {
     <CommonBodyContainer>
       {isLoggedIn ? <LoginHeader /> : <LogoutHeader />}
       <DonateBox key={data?.donate.donate?.id}>
-        <CoverImg>{coverImageUrl}</CoverImg>
+        <CoverImg style={{backgroundImage:`url('${data?.donate.donate?.coverImg}')`, backgroundSize:'cover', backgroundPosition:'center'}} />
         <Font
           fontColor="black"
           fontWeight="600"
@@ -71,8 +71,8 @@ export const SelectDonate = () => {
         >
           {donateName}
         </Font>
-        <Font fontSize="1.2rem" fontWeight="400" fontColor="rgb(80,80,80)">
-          {durationTime}
+        <Font fontSize="1.2rem" fontWeight="600" fontColor="rgb(80,80,80)" marginBottom='2rem'>
+          진행 기간 : {durationTime}
         </Font>
         <Font fontSize="1rem" fontWeight="400" fontColor="rgb(80,80,80)">
           {description}

@@ -18,16 +18,17 @@ const DonateContainer = styled.div`
   flex-wrap: wrap; 
   width: 100%;
   border: 1px solid rgb(200,200,200);
-  border-radius: 15px;
-  padding: 2.5rem;
+  padding: 1.5rem;
   position: relative;
   margin-bottom: 2rem;
+  border-radius: 15px;
 `;
 
 const DonateBox = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
 `;
 
 const TextBox = styled.div`
@@ -35,8 +36,12 @@ const TextBox = styled.div`
   flex-direction: column;
 `;
 
-const Image = styled.img`
+const Image = styled.div`
   width: 100%;
+  height: 400px;
+  background-color: gray;
+  margin-bottom: 2rem;
+  border-radius: 15px;
 `;
 
 const Button = styled.button`
@@ -67,7 +72,7 @@ export const HomeDonate: React.FC<IDonateProps> = ({
   return (
     <DonateContainer>
       <DonateBox>
-        <Image src={EarthImage} alt="기부 이미지" />
+        <Image style={{backgroundImage:`url('${coverImg}')`, backgroundSize:'cover', backgroundPosition:'center'}} />
         <TextBox>
           <Font
             fontColor="black"
@@ -87,9 +92,6 @@ export const HomeDonate: React.FC<IDonateProps> = ({
             lineHeight='2.3rem'
           >
             {title.split("]")[1] ? "" : title.split(']')[0]}
-          </Font>
-          <Font fontColor="black" fontWeight="500" fontSize="1rem" marginBottom='1rem'>
-            {description}
           </Font>
           <Font fontColor="black" fontWeight="700" fontSize="1rem">
             {durationTime}

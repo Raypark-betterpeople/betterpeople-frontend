@@ -42,12 +42,12 @@ const Input = styled.input`
   margin-bottom: 2rem;
   color: rgb(80, 80, 80);
   :hover {
-    border: 1px solid rgb(36, 179, 139);
+    border: 1px solid dodgerblue;
   }
 
   :focus {
-    border: 1px solid rgb(36, 179, 139);
-    background-color: rgba(91, 202, 147, 0.1);
+    border: 1px solid dodgerblue;
+    background-color: rgba(37, 106, 196, 0.1);
   }
   @media only screen and (max-width: 520px) {
     margin-top: 0.4rem;
@@ -58,7 +58,7 @@ const Input = styled.input`
 
 const Button = styled.button<{ opacity?: string; canClick?: string }>`
   all: unset;
-  background-color: rgb(36, 179, 139);
+  background-color: dodgerblue;
   color: white;
   padding: 1rem 1.5rem 1rem 1.5rem;
   border-radius: 5px;
@@ -86,12 +86,12 @@ const TextArea = styled.textarea`
   height: 30vh;
   margin-bottom: 2rem;
   :hover {
-    border: 1px solid rgb(36, 179, 139);
+    border: 1px solid dodgerblue;
   }
 
   :focus {
-    border: 1px solid rgb(36, 179, 139);
-    background-color: rgba(91, 202, 147, 0.1);
+    border: 1px solid dodgerblue;
+    background-color: rgba(37, 106, 196, 0.1);
   }
 `;
 
@@ -111,6 +111,7 @@ export const CreateDonate = () => {
     } = data;
     if (ok) {
       setUploading(false);
+      alert('기부 세션이 생성되었습니다. 수고했어요 ㅎㅎ')
     }
   };
   console.log(watch());
@@ -201,9 +202,16 @@ export const CreateDonate = () => {
           fontSize="1.2rem"
           fontColor="rgb(100,100,100)"
           fontWeight="500"
-          marginBottom="0.5rem"
         >
           커버 이미지를 선택해주시오!
+        </Font>
+        <Font
+          fontSize="0.8rem"
+          fontColor="red"
+          fontWeight="400"
+          marginBottom="1rem"
+        >
+          ( 영어 이름의 이미지를 사용할 것! ⚠️)
         </Font>
         <input
           {...register("file", { required: true })}

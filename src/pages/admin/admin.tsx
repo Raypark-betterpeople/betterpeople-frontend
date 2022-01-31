@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { CommonBodyContainer, Font } from "../../common/styled";
+import { CommonBodyContainer, DirectionStyle, Font } from "../../common/styled";
+import { useDonate } from "../../hooks/allDonate";
 import { useMe } from "../../hooks/useMe";
 import { NotFound } from "../404";
 import { CreateDonate } from "./create-donate";
@@ -32,11 +33,18 @@ const WorkSpace = styled.div`
 `;
 
 const WorkSpaceBox = styled.div`
+  display: flex;
+  justify-content: space-around;
   width: 100%;
+`;
+
+const ActiveDonateBox = styled.div`
+  display: flex;
 `;
 
 export const AdminPage = () => {
   const { data } = useMe();
+  const donate = useDonate();
   const [state, setState] = useState("donate");
   return (
     <>
@@ -58,10 +66,32 @@ export const AdminPage = () => {
           <WorkSpace>
             {state === "donate" ? (
               <WorkSpaceBox>
-                <Font fontSize="1.3rem" fontWeight="500" fontColor="black" marginBottom='2rem'>
-                  기부세션 생성
-                </Font>
-                <CreateDonate />
+                <DirectionStyle directionStyle="column">
+                  <Font
+                    fontSize="1.3rem"
+                    fontWeight="500"
+                    fontColor="black"
+                    marginBottom="2rem"
+                  >
+                    기부세션 생성
+                  </Font>
+                  <CreateDonate />
+                </DirectionStyle>
+                <ActiveDonateBox>
+                  <DirectionStyle directionStyle="column">
+                    <Font
+                      fontSize="1.3rem"
+                      fontWeight="500"
+                      fontColor="black"
+                      marginBottom="2rem"
+                    >
+                      현재 활성화 되어있는 기부 세션
+                    </Font>
+                    {donate.data?.allDonate.donates?.map((selectDonate) => {
+                      return <Font fontSize='1.1rem' fontWeight='500' fontColor='rgb(80,80,80)' marginBottom='1rem'>{selectDonate.title}</Font>;
+                    })}
+                  </DirectionStyle>
+                </ActiveDonateBox>
               </WorkSpaceBox>
             ) : (
               ""

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Logo from "../images/noaround_logo.png";
 
@@ -28,8 +28,8 @@ const LogoBox = styled.div`
 const LiStyle = styled.li`
   text-decoration: none;
   font-size: 15px;
-  color: rgb(100,100,100);
-  margin-right:3rem;
+  color: rgb(100, 100, 100);
+  margin-right: 3rem;
 `;
 
 const LogoImage = styled.img`
@@ -60,8 +60,8 @@ const Font = styled.p<{
 `;
 
 export const LogoutHeader = () => {
-    return (
-        <HeaderSection>
+  return (
+    <HeaderSection>
       <LogoBox>
         <LogoImage src={Logo} alt="logo image" />
         <Font fontSize="20px" fontColor="rgb(36,179,139)" fontWeight="700">
@@ -69,13 +69,17 @@ export const LogoutHeader = () => {
         </Font>
       </LogoBox>
       <UlStyle>
-        <LiStyle>공지사항</LiStyle>
+        <Link to="/notices">
+          <LiStyle>공지사항</LiStyle>
+        </Link>
         <LiStyle>서비스 소개</LiStyle>
         <LiStyle>일러스트 정품인증</LiStyle>
         <LiStyle>
-        <Link to='/login'><GaleryButton>로그인</GaleryButton></Link>
+          <Link to="/login">
+            <GaleryButton>로그인</GaleryButton>
+          </Link>
         </LiStyle>
       </UlStyle>
     </HeaderSection>
-    )
-}
+  );
+};
