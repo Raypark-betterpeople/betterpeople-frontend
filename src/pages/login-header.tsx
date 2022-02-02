@@ -100,7 +100,7 @@ export const LoginHeader = () => {
         <Link to="/notices">
           <LiStyle>공지사항</LiStyle>
         </Link>
-        <Link to="/">
+        <Link to="/about">
           <LiStyle>서비스 소개</LiStyle>
         </Link>
         <Link to="/">

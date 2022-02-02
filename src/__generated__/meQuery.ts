@@ -7,6 +7,14 @@
 // GraphQL query operation: meQuery
 // ====================================================
 
+export interface meQuery_me_provideImage {
+  __typename: "ProvideImage";
+  token: string;
+  imageUrl: string;
+  donateSessionTitle: string;
+  donateDurationDate: string;
+}
+
 export interface meQuery_me {
   __typename: "User";
   id: number;
@@ -14,6 +22,7 @@ export interface meQuery_me {
   nickname: string;
   emailVerified: boolean;
   adminUser: boolean;
+  provideImage: meQuery_me_provideImage[] | null;
 }
 
 export interface meQuery {

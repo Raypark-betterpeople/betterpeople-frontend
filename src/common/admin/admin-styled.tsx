@@ -44,3 +44,22 @@ export const AdminInput = styled.input`
     padding: 0.8rem;
   }
 `;
+
+export const AdminTextArea = styled.textarea`
+  all: unset;
+  width: 100%;
+  padding: 1rem;
+  line-height: 1.5rem;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 5px;
+  height: 30vh;
+  margin-bottom: 2rem;
+  :hover {
+    border: 1px solid dodgerblue;
+  }
+
+  :focus {
+    border: 1px solid dodgerblue;
+    background-color: rgba(37, 106, 196, 0.1);
+  }
+`;

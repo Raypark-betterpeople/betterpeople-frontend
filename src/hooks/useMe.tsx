@@ -9,6 +9,12 @@ export const ME_QUERY = gql`
       nickname
       emailVerified
       adminUser
+      provideImage {
+        token
+        imageUrl
+        donateSessionTitle
+        donateDurationDate
+      }
     }
   }
 `;

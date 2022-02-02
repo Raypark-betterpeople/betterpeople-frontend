@@ -24,6 +24,7 @@ interface IDonateForm {
   description: string;
   durationTime: string;
   file: FileList;
+  file2: FileList;
 }
 
 const CreateDonateBox = styled.div`
@@ -113,6 +114,9 @@ export const CreateDonate = () => {
       setUploading(false);
       alert('기부 세션이 생성되었습니다. 수고했어요 ㅎㅎ')
     }
+    if(error) {
+      console.log(error)
+    }
   };
   console.log(watch());
   const [createDonate, { data }] = useMutation<
@@ -123,15 +127,26 @@ export const CreateDonate = () => {
   const onSubmit = async () => {
     try {
       const { file } = getValues();
+      const {file2} = getValues();
       const actualFile = file[0];
+      const descriptionImgFile = file2[0];
       const formBody = new FormData();
+      const formBody2 = new FormData();
       formBody.append("file", actualFile);
+      formBody2.append('file2',descriptionImgFile);
       const { url } = await (
         await fetch("http://localhost:4000/uploads", {
           method: "POST",
           body: formBody,
         })
       ).json();
+      const { url2 } = await (
+        await fetch("http://localhost:4000/uploads2", {
+          method: "POST",
+          body: formBody2,
+        })
+      ).json();
+      console.log(url2);
       const { title, description, durationTime } = getValues();
       createDonate({
         variables: {
@@ -140,6 +155,7 @@ export const CreateDonate = () => {
             description,
             coverImg: url,
             durationTime,
+            descriptionImg: url2,
           },
         },
       });
@@ -208,7 +224,7 @@ export const CreateDonate = () => {
           fontSize="0.8rem"
           fontColor="red"
           fontWeight="400"
-          marginBottom="1rem"
+          marginBottom="0.5rem"
         >
           ( 영어 이름의 이미지를 사용할 것! ⚠️)
         </Font>
@@ -216,14 +232,38 @@ export const CreateDonate = () => {
           {...register("file", { required: true })}
           type="file"
           accept="image/*"
+          style={{marginBottom:'4rem'}}
         />
+        <Font
+          fontSize="1.2rem"
+          fontColor="rgb(100,100,100)"
+          fontWeight="500"
+        >
+          설명 이미지를 선택해주세요!
+        </Font>
+        <Font
+          fontSize="0.8rem"
+          fontColor="red"
+          fontWeight="400"
+          marginBottom="0.5rem"
+        >
+          ( 영어 이름의 이미지를 사용할 것! ⚠️)
+        </Font>
+        <input
+          {...register("file2", { required: true })}
+          type="file"
+          accept="image/*"
+          style={{marginBottom:'2rem'}}
+        />
+        <div>
         {isValid ? (
-          <Button>기부 세션 생성</Button>
+          <Button>기부섹션 생성</Button>
         ) : (
           <Button canClick="none" opacity="0.5">
-            기부 세션 생성
+            기부섹션 생성
           </Button>
         )}
+        </div>
       </form>
     </CreateDonateBox>
   );

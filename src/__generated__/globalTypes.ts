@@ -18,12 +18,20 @@ export interface CreateDonateInput {
   title: string;
   description: string;
   coverImg: string;
+  descriptionImg: string;
   durationTime: string;
 }
 
 export interface CreateImageInput {
   imageUrl: string;
   donateId: number;
+}
+
+export interface CreateNoticeInput {
+  mainTitle: string;
+  subTitle: string;
+  description: string;
+  image: string;
 }
 
 export interface DonateInput {

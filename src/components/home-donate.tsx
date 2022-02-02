@@ -64,7 +64,6 @@ const Button = styled.button`
 export const HomeDonate: React.FC<IDonateProps> = ({
   id,
   title,
-  description,
   durationTime,
   coverImg,
 }) => {

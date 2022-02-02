@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { isLoggedInVar } from "../apollo";
 import { CommonBodyContainer, Font } from "../common/styled";
 import { useNotice } from "../hooks/allNotice";
+import { Loading } from "./loading";
 import { LoginHeader } from "./login-header";
 import { LogoutHeader } from "./logout-header";
 
@@ -18,13 +19,15 @@ const NoticeContainer = styled.div`
   width: 100%;
   margin-top: 3rem;
   margin-bottom: 3rem;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 const NoticeBox = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
 `;
 
 const CoverImage = styled.div`
@@ -32,6 +35,8 @@ const CoverImage = styled.div`
     width: 300px;
     height: 150px;
     margin-bottom: 1rem;
+    background-position: center;
+    background-size: cover;
     cursor: pointer;
     :hover {
         opacity: 0.8;
@@ -48,7 +53,7 @@ export const Notices = () => {
         <Font fontColor="black" fontSize="2rem" fontWeight="600">
           더좋사 공지사항이에오 🎉
         </Font>
-        <NoticeContainer>
+        {data ? <NoticeContainer>
           {data?.allNotice.notices?.map((selectNotice) => {
             return (
               <NoticeBox key={selectNotice.id}>
@@ -58,7 +63,8 @@ export const Notices = () => {
               </NoticeBox>
             );
           })}
-        </NoticeContainer>
+        </NoticeContainer> : <Loading />}
+        
       </ContentsContainer>
     </CommonBodyContainer>
   );

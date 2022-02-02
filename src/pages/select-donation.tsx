@@ -19,6 +19,7 @@ const DONATE_QUERY = gql`
         description
         coverImg
         durationTime
+        descriptionImg
         donateImage {
           imageUrl
         }
@@ -43,6 +44,31 @@ const CoverImg = styled.div`
   margin-bottom: 5rem;
 `;
 
+const DonateIllust = styled.div`
+  width: 300px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  margin: 1rem 0;
+`
+
+const IllustContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  @media only screen and (max-width: 520px) {
+    justify-content: center;
+  }
+`
+
+const DescriptionImg = styled.div`
+  width: 100%;
+  background-size: cover;
+  height: 1300px;
+`
+
 export const SelectDonate = () => {
   const params = useParams() as { id: string };
   const { data } = useQuery<donate, donateVariables>(DONATE_QUERY, {
@@ -57,27 +83,35 @@ export const SelectDonate = () => {
   const description = data?.donate.donate?.description;
   const coverImageUrl = data?.donate.donate?.coverImg;
   const durationTime = data?.donate.donate?.durationTime
+  const descriptionImg = data?.donate.donate?.descriptionImg
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   return (
     <CommonBodyContainer>
       {isLoggedIn ? <LoginHeader /> : <LogoutHeader />}
       <DonateBox key={data?.donate.donate?.id}>
-        <CoverImg style={{backgroundImage:`url('${data?.donate.donate?.coverImg}')`, backgroundSize:'cover', backgroundPosition:'center'}} />
+        <CoverImg style={{backgroundImage:`url('${coverImageUrl}')`, backgroundSize:'cover', backgroundPosition:'center'}} />
         <Font
           fontColor="black"
           fontWeight="600"
           fontSize="2rem"
-          marginBottom="0.8rem"
+          marginBottom="1rem"
         >
           {donateName}
         </Font>
-        <Font fontSize="1.2rem" fontWeight="600" fontColor="rgb(80,80,80)" marginBottom='2rem'>
+        <Font fontSize="1.2rem" fontWeight="600" fontColor="rgb(80,80,80)" marginBottom='5rem'>
           진행 기간 : {durationTime}
         </Font>
-        <Font fontSize="1rem" fontWeight="400" fontColor="rgb(80,80,80)">
+        <Font style={{lineHeight:'2rem', letterSpacing:'1px'}} fontSize="1.5rem" fontWeight="400" fontColor="rgb(80,80,80)">
           {description}
         </Font>
       </DonateBox>
+      <DescriptionImg style={{backgroundImage:`url('${descriptionImg}')`}} />
+      <Font fontSize='2rem' fontWeight='500' fontColor='black'>등록되어 있는 일러스트에오!</Font>
+      <IllustContainer>
+      {data?.donate.donate?.donateImage?.map((imageArray) => {
+        return <DonateIllust key={imageArray.imageUrl} style={{backgroundImage:`url('${imageArray.imageUrl}')`}} />
+      })}
+      </IllustContainer>
     </CommonBodyContainer>
   );
 };

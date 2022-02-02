@@ -6,6 +6,7 @@ import { useMe } from "../../hooks/useMe";
 import { NotFound } from "../404";
 import { CreateDonate } from "./create-donate";
 import { CreateIllust } from "./create-illust";
+import { CreateNotice } from "./create-notice";
 
 const UlStyle = styled.ul`
   all: unset;
@@ -111,9 +112,12 @@ export const AdminPage = () => {
             )}
             {state === "notice" ? (
               <WorkSpaceBox>
+                <DirectionStyle directionStyle="column">
                 <Font fontSize="1.3rem" fontWeight="500" fontColor="black">
                   공지사항 작성
                 </Font>
+                <CreateNotice />
+                </DirectionStyle>
               </WorkSpaceBox>
             ) : (
               ""

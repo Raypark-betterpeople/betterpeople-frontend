@@ -164,10 +164,10 @@ export const CreateIllust = () => {
           }}
         />
         {isValid ? (
-          <AdminButton>기부 세션 생성</AdminButton>
+          <AdminButton>일러스트 생성</AdminButton>
         ) : (
           <AdminButton canClick="none" opacity="0.5">
-            기부 세션 생성
+            일러스트 생성
           </AdminButton>
         )}
       </form>

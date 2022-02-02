@@ -21,6 +21,7 @@ export interface donate_donate_donate {
   description: string;
   coverImg: string;
   durationTime: string;
+  descriptionImg: string;
   donateImage: donate_donate_donate_donateImage[] | null;
 }
 
