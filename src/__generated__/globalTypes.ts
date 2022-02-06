@@ -34,6 +34,11 @@ export interface CreateNoticeInput {
   image: string;
 }
 
+export interface CreateProvideImageInput {
+  donateId: number;
+  transactionId: string;
+}
+
 export interface DonateInput {
   donateId: number;
 }
