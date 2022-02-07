@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Highlight } from "../common/styled";
 import "../css/Intro.css";
 import { useMe } from "../hooks/useMe";
 import CatPixel from '../images/catanddog.png'
@@ -45,18 +46,6 @@ const Font = styled.p`
   }
 `;
 
-const HighLight = styled.span`
-  display: inline-block;
-  font-size: 4rem;
-  font-weight: 600;
-  line-height: 5rem;
-  background:linear-gradient(to top, rgba(36, 179, 139, 0.5), transparent 50%);
-  @media only screen and (max-width: 520px) {
-    font-size:1.8rem;
-    line-height:2.5rem;
-  }
-`;
-
 const Image = styled.img`
   width: 70%;
   position: absolute;
@@ -90,21 +79,21 @@ export const Intro = () => {
       <NonStickySection>
         {data ? (
           <Font>
-            {data.me.nickname}님의 <HighLight>소비의 가치</HighLight>는
+            {data.me.nickname}님의 <Highlight>소비의 가치</Highlight>는
           </Font>
         ) : (
           <Font>
-            여러분의 <HighLight>소비의 가치</HighLight>는
+            여러분의 <Highlight>소비의 가치</Highlight>는
           </Font>
         )}
-        <Font>어디에있나요? 🧐</Font>
+        <Font>어디에있나요?</Font>
       </NonStickySection>
       <Section
         className={currentScroll > innerHeight * 1 && currentScroll < innerHeight * 1.7 ? "active" : ""
         }
       >
         <Font>
-          <HighLight>{data?.me.nickname ? `${data.me.nickname}님` : "당신" }</HighLight>은
+          <Highlight>{data?.me.nickname ? `${data.me.nickname}님` : "당신" }</Highlight>은
         </Font>
         <Font>동물을 좋아하시나요?</Font>
         <Image src={CatPixel} alt='고양이 픽셀'/>
@@ -128,7 +117,7 @@ export const Intro = () => {
             : ""
         }
       >
-        <Font><HighLight>무엇이든 좋아요</HighLight>, {data?.me.nickname ? `${data.me.nickname}님` : "당신" }의 </Font>
+        <Font><Highlight>무엇이든 좋아요</Highlight>, {data?.me.nickname ? `${data.me.nickname}님` : "당신" }의 </Font>
         <Font>
         관심분야의 영웅이 되고,
         </Font>

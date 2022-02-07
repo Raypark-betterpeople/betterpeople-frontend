@@ -1,5 +1,6 @@
 import { useReactiveVar } from "@apollo/client";
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { isLoggedInVar } from "../apollo";
 import { CommonBodyContainer, Font } from "../common/styled";
@@ -50,17 +51,24 @@ export const Notices = () => {
     <CommonBodyContainer>
       {isLoggedIn ? <LoginHeader /> : <LogoutHeader />}
       <ContentsContainer>
-        <Font fontColor="black" fontSize="2rem" fontWeight="600">
-          더좋사 공지사항이에오 🎉
+        <Font fontColor="black" fontSize="2rem" fontWeight="600" marginBottom='0.8rem'>
+          더좋사의 최근 공지사항입니다. 👍🏻
+        </Font>
+        <Font fontColor="rgb(80,80,80)" fontSize="1rem" fontWeight="500">
+          어떤 기부 프로젝트가 진행되는지, 어떻게 모금 금액이 쓰이고 있는지 확인해보세요!
         </Font>
         {data ? <NoticeContainer>
           {data?.allNotice.notices?.map((selectNotice) => {
             return (
+              <>
+              <Link to={`/notice/${selectNotice.id}`}>
               <NoticeBox key={selectNotice.id}>
                 <CoverImage style={{backgroundImage:`url('${selectNotice.image}')`}}/>
                 <Font fontSize='1.2rem' fontWeight='600' fontColor='black' marginBottom='0.3rem'>{selectNotice.mainTitle}</Font>
                 <Font fontSize='0.9rem' fontWeight='500' fontColor='rgb(80,80,80)'>{new Date(selectNotice.createAt).toLocaleString("ko")}</Font>
               </NoticeBox>
+              </Link>
+              </>
             );
           })}
         </NoticeContainer> : <Loading />}

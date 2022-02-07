@@ -22,6 +22,11 @@ const DonateContainer = styled.div`
   position: relative;
   margin-bottom: 2rem;
   border-radius: 15px;
+  transition: 0.3s;
+  :hover {
+    background-color: rgb(240,240,240);
+    transform: translateY(-5px);
+  }
 `;
 
 const DonateBox = styled.div`
@@ -36,9 +41,8 @@ const TextBox = styled.div`
   flex-direction: column;
 `;
 
-const Image = styled.div`
+const Image = styled.img`
   width: 100%;
-  height: 400px;
   background-color: gray;
   margin-bottom: 2rem;
   border-radius: 15px;
@@ -70,8 +74,9 @@ export const HomeDonate: React.FC<IDonateProps> = ({
   const { data } = useMe();
   return (
     <DonateContainer>
+      <Link to={data?.me.nickname ? `donate/${id}` : 'login'}>
       <DonateBox>
-        <Image style={{backgroundImage:`url('${coverImg}')`, backgroundSize:'cover', backgroundPosition:'center'}} />
+        <Image src={coverImg} alt='배너' />
         <TextBox>
           <Font
             fontColor="black"
@@ -79,6 +84,8 @@ export const HomeDonate: React.FC<IDonateProps> = ({
             fontSize="2rem"
             marginBottom="1rem"
             lineHeight='2.3rem'
+            smallDeviceSize='1.3rem'
+            smallDeviceLineHeight='1.7rem'
           >
             {title.split("]")[1] ? title.split(']')[0] + ']' : ""}
             <p>{title.split(']')[1]}</p>
@@ -95,12 +102,12 @@ export const HomeDonate: React.FC<IDonateProps> = ({
           <Font fontColor="black" fontWeight="700" fontSize="1rem">
             {durationTime}
           </Font>
-          <Font fontColor="black" fontWeight="500" fontSize="1rem">
-            까지 진행되는 프로젝트에오! 어서 참여하고 일러스트를 얻어보세오!
+          <Font fontColor="black" fontWeight="500" fontSize="1rem" smallDeviceSize='0.8rem'>
+            까지 진행되는 프로젝트에오. 어서 참여하고 일러스트를 얻어보세오!
           </Font>
         </TextBox>
       </DonateBox>
-      <Link to={data?.me.nickname ? `donate/${id}` : 'login'}><Button>알아보실래오?</Button></Link>
+      </Link>
     </DonateContainer>
   );
 };

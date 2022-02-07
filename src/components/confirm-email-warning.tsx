@@ -34,7 +34,7 @@ const FadeContainer = keyframes`
 
 const TrueContainer = styled.div`
   border-radius: 15px;
-  background-color: rgba(36, 179, 139, 0.4);
+  background-color: rgba(95, 75, 139, 0.4);
   color: white;
   font-weight: 600;
   padding: 1.3rem;

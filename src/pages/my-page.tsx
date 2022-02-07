@@ -8,6 +8,7 @@ export const MyPage = () => {
   return (
     <CommonBodyContainer>
       <LoginHeader />
+      <div>{UserData?.me.nickname}님 이 만큼이나 참여하셨네요?! 🎉</div>
       <div style={{marginTop:'3rem'}}>
         {UserData?.me.provideImage?.map((images, index) => {
           return (

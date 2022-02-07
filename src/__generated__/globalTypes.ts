@@ -48,6 +48,10 @@ export interface LoginInput {
   password: string;
 }
 
+export interface NoticeInput {
+  noticeId: number;
+}
+
 export interface VerifyEmailInput {
   code: string;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Logo from "../images/noaround_logo.png";
+import Logo from "../images/ahnlogo.png";
 
 const Container = styled.div`
   background-color: rgb(250, 250, 250);

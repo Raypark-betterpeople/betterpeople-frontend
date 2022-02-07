@@ -12,6 +12,7 @@ import { SelectDonate } from "../pages/select-donation";
 import { AdminPage } from "../pages/admin/admin";
 import { Notices } from "../pages/notices";
 import { AboutPage } from "../pages/about";
+import { SelectNotice } from "../pages/select-notice";
 
 export const AppRouter = () => {
   return (
@@ -27,6 +28,7 @@ export const AppRouter = () => {
           <Route path='/donate/:id' element={<SelectDonate />}/>
           <Route path='/admin' element={<AdminPage />}/>
           <Route path='/notices' element={<Notices />} />
+          <Route path='/notice/:id' element={<SelectNotice />} />
           <Route path='/about' element={<AboutPage />} />
       </Routes>
     </BrowserRouter>

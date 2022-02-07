@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FormError } from "../components/form-error";
-import AroundLogo from "../images/around_logo.png";
+import AroundLogo from "../images/ahnlogo.png";
 import {
   createAccountMutation,
   createAccountMutationVariables,
@@ -49,8 +49,8 @@ const InlineStyle = styled.div`
 `;
 
 const AROUND_LOGO = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   margin-right: 5px;
   @media only screen and (max-width: 520px) {
     width: 40px;
@@ -67,12 +67,12 @@ const Input = styled.input`
   width: 100%;
   color: rgb(80, 80, 80);
   :hover {
-    border: 1px solid rgb(36, 179, 139);
+    border: 1px solid rgb(95, 75, 139);
   }
 
   :focus {
-    border: 1px solid rgb(36, 179, 139);
-    background-color: rgba(91, 202, 147, 0.1);
+    border: 1px solid rgb(95, 75, 139);
+    background-color: rgba(95, 75, 139, 0.1);
   }
   @media only screen and (max-width: 520px) {
     margin-top: 0.4rem;
@@ -115,7 +115,7 @@ const Form = styled.form`
 
 const Button = styled.button<{ opacity?: string; canClick?: string }>`
   all: unset;
-  background-color: rgb(36, 179, 139);
+  background-color: rgb(95, 75, 139);
   color: white;
   padding: 1rem 1.5rem 1rem 1.5rem;
   border-radius: 5px;
@@ -182,16 +182,13 @@ export const CreateAccount = () => {
         <Link style={{ textDecoration: "none" }} to="/">
           <InlineStyle>
             <AROUND_LOGO src={AroundLogo} alt="로고" />
-            <Font fontSize="26px" fontColor="rgb(36,179,139)" fontWeight="700">
-              BetterPeople Inc.
-            </Font>
           </InlineStyle>
         </Link>
         <Font
           fontSize="22px"
           fontColor="rgb(80,80,80)"
           fontWeight="600"
-          marginTop="2rem"
+          marginTop="0.5rem"
         >
           더 좋은 사람들 가입을 환영합니다!
         </Font>
@@ -271,7 +268,7 @@ export const CreateAccount = () => {
             >
               <Font
                 fontSize="16px"
-                fontColor="rgb(36,179,139)"
+                fontColor="rgb(95, 75, 139)"
                 marginTop="0.3rem"
               >
                 로그인

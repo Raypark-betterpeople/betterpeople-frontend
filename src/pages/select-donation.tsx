@@ -52,10 +52,8 @@ const DonateBox = styled.div`
   margin-bottom: 10rem;
 `;
 
-const CoverImg = styled.div`
+const CoverImg = styled.img`
   width: 100%;
-  height: 500px;
-  background-color: rgb(200, 200, 200);
   margin-bottom: 5rem;
 `;
 
@@ -78,10 +76,10 @@ const IllustContainer = styled.div`
   }
 `;
 
-const DescriptionImg = styled.div`
+const DescriptionImg = styled.img`
   width: 100%;
   background-size: cover;
-  height: 1300px;
+  margin-bottom: 10rem;
 `;
 
 const PaymentButton = styled.span`
@@ -147,13 +145,7 @@ export const SelectDonate = () => {
       </Helmet>
       {isLoggedIn ? <LoginHeader /> : <LogoutHeader />}
       <DonateBox key={data?.donate.donate?.id}>
-        <CoverImg
-          style={{
-            backgroundImage: `url('${coverImageUrl}')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+        <CoverImg src={coverImageUrl} alt='일러스트 이미지' />
         <Font
           fontColor="black"
           fontWeight="600"
@@ -179,9 +171,9 @@ export const SelectDonate = () => {
           {description}
         </Font>
       </DonateBox>
-      <DescriptionImg style={{ backgroundImage: `url('${descriptionImg}')` }} />
-      <Font fontSize="2rem" fontWeight="500" fontColor="black">
-        등록되어 있는 일러스트에오!
+      <DescriptionImg src={descriptionImg} />
+      <Font fontSize="2rem" fontWeight="700" fontColor="black">
+        등록되어 있는 일러스트에오 🤭
       </Font>
       <IllustContainer>
         {data?.donate.donate?.donateImage?.map((imageArray) => {

@@ -42,13 +42,14 @@ export const IllustAbout = () => {
     <SectionContainer>
       <Font
         fontColor="black"
-        fontSize="3rem"
+        fontSize="2rem"
         fontWeight="600"
         marginBottom="1rem"
+        smallDeviceSize='1.8rem'
       >
         관심있는 프로젝트에 참여하고,
       </Font>
-      <Font fontColor="black" fontSize="3rem" fontWeight="600">
+      <Font fontColor="black" fontSize="2rem" fontWeight="600" smallDeviceSize='1.8rem'>
         자신만 인증할 수 있는 <Highlight>일러스트 굿즈</Highlight>를 받아보세요!
       </Font>
       <HiddenBox>

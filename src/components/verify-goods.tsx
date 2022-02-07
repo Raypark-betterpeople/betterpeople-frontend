@@ -65,7 +65,7 @@ export const VerifyGoods: React.FC<IGoodsProps> = ({
         style={{ marginRight: "auto"}}
       >
         <Icon>
-          <HiBadgeCheck color='rgb(36, 179, 139)' />
+          <HiBadgeCheck color='rgb(129, 78, 240)' />
         </Icon>
          Verified illust
       </Font>

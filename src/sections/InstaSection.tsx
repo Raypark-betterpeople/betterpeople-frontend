@@ -74,18 +74,20 @@ export const InstaSection = () => {
       <FontContainer>
         <Font
           fontColor="black"
-          fontSize="3rem"
+          fontSize="2.3rem"
           fontWeight="600"
           marginBottom="0.5rem"
+          smallDeviceSize='1.8rem'
         >
           {data?.me.nickname ? `${data.me.nickname}님` : "당신"}의{" "}
           <Highlight>선한 영향력</Highlight>을
         </Font>
         <Font
           fontColor="black"
-          fontSize="3rem"
+          fontSize="2.3rem"
           fontWeight="600"
-          marginBottom="1rem"
+          marginBottom="2rem"
+          smallDeviceSize='2.3rem'
         >
           공유해주세요!
         </Font>

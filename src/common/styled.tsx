@@ -6,12 +6,18 @@ export const Font = styled.p<{
   fontColor: string;
   marginBottom?: string;
   lineHeight? : string;
+  smallDeviceSize? : string;
+  smallDeviceLineHeight? : string;
 }>`
   font-size: ${(props) => props.fontSize};
   font-weight: ${(props) => props.fontWeight};
   color: ${(props) => props.fontColor};
   margin-bottom: ${(props) => props.marginBottom};
   line-height: ${(props) => props.lineHeight};
+  @media only screen and (max-width: 520px) {
+    font-size:${(props) => props.smallDeviceSize};
+    line-height:${(props) => props.smallDeviceLineHeight};
+  }
 `;
 
 export const DirectionStyle = styled.div<{ directionStyle: string }>`
@@ -33,7 +39,7 @@ export const CommonBodyContainer = styled.div`
 
 export const Highlight = styled.span`
   display: inline-block;
-  background:linear-gradient(to top, rgba(36, 179, 139, 0.5), transparent 40%);
+  background:linear-gradient(to top, rgba(133, 100, 206, 0.5), transparent 40%);
 `
 
 export const Bold = styled.span`

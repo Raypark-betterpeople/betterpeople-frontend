@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Logo from "../images/noaround_logo.png";
+import Logo from "../images/ahnlogo.png";
 
 const HeaderSection = styled.nav`
   display: flex;
@@ -33,8 +33,8 @@ const LiStyle = styled.li`
 `;
 
 const LogoImage = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   margin-right: 0.2rem;
 `;
 
@@ -42,8 +42,8 @@ const GaleryButton = styled.button`
   all: unset;
   font-size: 14px;
   padding: 0.8rem 1rem 0.8rem 1rem;
-  color: rgb(36, 179, 139);
-  background-color: rgba(36, 179, 139, 0.2);
+  color: rgb(95, 75, 139);
+  background-color: rgba(95, 75, 139, 0.2);
   border-radius: 5px;
   font-weight: 600;
   cursor: pointer;
@@ -64,9 +64,6 @@ export const LogoutHeader = () => {
     <HeaderSection>
       <LogoBox>
         <LogoImage src={Logo} alt="logo image" />
-        <Font fontSize="20px" fontColor="rgb(36,179,139)" fontWeight="700">
-          better people
-        </Font>
       </LogoBox>
       <UlStyle>
         <Link to="/notices">
