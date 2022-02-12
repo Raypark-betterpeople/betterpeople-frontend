@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import CountUp from "react-countup";
 import styled from "styled-components";
-import DogCat from "../images/dogandcat.png";
+import DogCat from "../images/catdogs.png";
 
 const Font = styled.p<{
   fontSize: string;

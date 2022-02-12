@@ -27,6 +27,10 @@ const DonateContainer = styled.div`
     background-color: rgb(240,240,240);
     transform: translateY(-5px);
   }
+  @media only screen and (max-width: 520px) {
+    padding: 0.8rem;
+    border-radius: 8px;
+  }
 `;
 
 const DonateBox = styled.div`
@@ -43,27 +47,9 @@ const TextBox = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  background-color: gray;
   margin-bottom: 2rem;
   border-radius: 15px;
 `;
-
-const Button = styled.button`
-  all: unset;
-  padding: 1rem 1rem;
-  color:rgb(36, 179, 139);
-  background-color: rgba(36, 179, 139, 0.2);
-  border-radius: 5px;
-  position: absolute;
-  right: 2rem;
-  bottom: 2rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-  :hover {
-    transform: scale(1.05);
-  }
-`
 
 export const HomeDonate: React.FC<IDonateProps> = ({
   id,
@@ -85,7 +71,7 @@ export const HomeDonate: React.FC<IDonateProps> = ({
             marginBottom="1rem"
             lineHeight='2.3rem'
             smallDeviceSize='1.3rem'
-            smallDeviceLineHeight='1.7rem'
+            smallDeviceLineHeight='1.3rem'
           >
             {title.split("]")[1] ? title.split(']')[0] + ']' : ""}
             <p>{title.split(']')[1]}</p>
@@ -96,6 +82,8 @@ export const HomeDonate: React.FC<IDonateProps> = ({
             fontSize="2rem"
             marginBottom="1rem"
             lineHeight='2.3rem'
+            smallDeviceSize='1.3rem'
+            smallDeviceLineHeight='1.7rem'
           >
             {title.split("]")[1] ? "" : title.split(']')[0]}
           </Font>

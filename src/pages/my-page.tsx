@@ -1,27 +1,116 @@
 import React from "react";
-import { CommonBodyContainer } from "../common/styled";
+import styled from "styled-components";
+import { CommonBodyContainer, Font } from "../common/styled";
 import { useMe } from "../hooks/useMe";
 import { LoginHeader } from "./login-header";
+
+const IllustContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+`;
+
+const IllustBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 320px;
+  padding: 1rem;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 10px;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+`;
+
+const TokenCheck = styled.span`
+  cursor: pointer;
+  :hover {
+    color:rgba(133, 100, 206);
+    text-decoration: underline;
+  }
+`
 
 export const MyPage = () => {
   const { data: UserData } = useMe();
   return (
     <CommonBodyContainer>
       <LoginHeader />
-      <div>{UserData?.me.nickname}님 이 만큼이나 참여하셨네요?! 🎉</div>
-      <div style={{marginTop:'3rem'}}>
+      <Font
+        fontColor="black"
+        fontWeight="700"
+        fontSize="1.7rem"
+        marginBottom="0.3rem"
+        style={{ marginTop: "5rem" }}
+      >
+        {UserData?.me.nickname}님 이 만큼이나 참여하셨네요?! 🎉
+      </Font>
+      <Font
+        fontSize="1.2rem"
+        fontWeight="500"
+        fontColor="rgb(120,120,120)"
+        marginBottom="0.3rem"
+      >
+        {UserData?.me.nickname}님의 따듯한 마음 응원합니다.
+      </Font>
+      <IllustContainer style={{ marginTop: "3rem" }}>
         {UserData?.me.provideImage?.map((images, index) => {
           return (
-            <div key={index} style={{position:'relative', width: "300px", marginTop:'1rem' }}>
-              <div style={{backgroundImage:`url('${images.imageUrl}')`, width:'300px', height:'150px', backgroundPosition:'center'}}/>
-              <div>{images.donateDurationDate}</div>
-              <div>{images.donateSessionTitle}</div>
-              <p>토큰</p>
-              <span style={{display:'block', wordWrap:'break-word', backgroundColor:'rgb(200,200,200)'}}>{images.token}</span>
-            </div>
+            <IllustBox key={index}>
+              <Image src={images.imageUrl} alt="illust" />
+              <Font
+                fontSize="1.5rem"
+                fontWeight="600"
+                fontColor="black"
+                marginBottom="0.5rem"
+              >
+                {UserData.me.nickname} 님
+              </Font>
+              <Font
+                fontSize="0.9rem"
+                fontWeight="400"
+                fontColor="rgb(80,80,80)"
+                marginBottom="0.3rem"
+              >
+                '{images.donateDurationDate}'에 진행된
+              </Font>
+              <Font
+                fontSize="0.9rem"
+                fontWeight="400"
+                fontColor="rgb(80,80,80)"
+                marginBottom="1rem"
+              >
+                '{images.donateSessionTitle}'에 참여.
+              </Font>
+              <Font
+                fontColor="black"
+                fontSize="1rem"
+                fontWeight="600"
+                marginBottom='0.3rem'
+                style={{ marginLeft: "auto"}}
+              >
+                <TokenCheck>
+                토큰 일련번호 확인
+                </TokenCheck>
+              </Font>
+              <Font
+                fontColor="rgb(120,120,120)"
+                fontSize="0.8rem"
+                fontWeight="600"
+                style={{ marginLeft: "auto" }}
+              >
+                better-people.org
+              </Font>
+            </IllustBox>
           );
         })}
-      </div>
+      </IllustContainer>
     </CommonBodyContainer>
   );
 };
