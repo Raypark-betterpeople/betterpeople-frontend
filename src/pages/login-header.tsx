@@ -91,7 +91,9 @@ export const LoginHeader = () => {
   return (
     <HeaderSection>
       <LogoBox>
+        <Link to='/'>
         <LogoImage src={Logo} alt="logo image" />
+        </Link>
       </LogoBox>
       <UlStyle>
         <Link to="/notices">
@@ -100,7 +102,7 @@ export const LoginHeader = () => {
         <Link to="/about">
           <LiStyle>서비스 소개</LiStyle>
         </Link>
-        <Link to="/">
+        <Link to="/verify-illust">
           <LiStyle>일러스트 정품인증</LiStyle>
         </Link>
         <LiStyle>

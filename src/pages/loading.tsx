@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { DirectionStyle, Font } from '../common/styled'
-import LogoImage from '../images/around_logo.png'
+import LogoImage from '../images/ahnlogo.png'
 
 const ImageOpacity = keyframes`
     0% {

@@ -7,7 +7,8 @@ import { LoginHeader } from "./login-header";
 const IllustContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
+  margin-bottom: 5rem;
 `;
 
 const IllustBox = styled.div`
@@ -17,10 +18,11 @@ const IllustBox = styled.div`
   position: relative;
   width: 320px;
   padding: 1rem;
-  border: 1px solid rgb(200, 200, 200);
   border-radius: 10px;
+  border:1px solid rgb(230,230,230);
   margin-right: 2rem;
   margin-bottom: 2rem;
+  box-shadow: 4px 8px 12px rgb(180,180,180);
 `;
 
 const Image = styled.img`
@@ -46,13 +48,21 @@ export const MyPage = () => {
         fontColor="black"
         fontWeight="700"
         fontSize="1.7rem"
-        marginBottom="0.3rem"
+        marginBottom="1rem"
         style={{ marginTop: "5rem" }}
       >
         {UserData?.me.nickname}님 이 만큼이나 참여하셨네요?! 🎉
       </Font>
       <Font
-        fontSize="1.2rem"
+        fontSize="1rem"
+        fontWeight="500"
+        fontColor="rgb(120,120,120)"
+        marginBottom="0.1rem"
+      >
+        그 동안 모인 일러스트들 입니다.
+      </Font>
+      <Font
+        fontSize="1rem"
         fontWeight="500"
         fontColor="rgb(120,120,120)"
         marginBottom="0.3rem"

@@ -13,6 +13,7 @@ import { AdminPage } from "../pages/admin/admin";
 import { Notices } from "../pages/notices";
 import { AboutPage } from "../pages/about";
 import { SelectNotice } from "../pages/select-notice";
+import { VerifyIllust } from "../pages/verify-illust";
 
 export const AppRouter = () => {
   return (
@@ -30,6 +31,7 @@ export const AppRouter = () => {
           <Route path='/notices' element={<Notices />} />
           <Route path='/notice/:id' element={<SelectNotice />} />
           <Route path='/about' element={<AboutPage />} />
+          <Route path='/verify-illust' element={<VerifyIllust />} />
       </Routes>
     </BrowserRouter>
   );

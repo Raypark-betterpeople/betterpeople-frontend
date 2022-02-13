@@ -44,7 +44,7 @@ export const IllustAbout = () => {
         fontColor="black"
         fontSize="2rem"
         fontWeight="600"
-        marginBottom="1rem"
+        marginBottom="0.5rem"
         smallDeviceSize='1.8rem'
       >
         관심있는 프로젝트에 참여하고,

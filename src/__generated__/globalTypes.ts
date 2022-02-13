@@ -56,6 +56,10 @@ export interface VerifyEmailInput {
   code: string;
 }
 
+export interface VerifyImageSearchInput {
+  token: string;
+}
+
 //==============================================================
 // END Enums and Input Objects
 //==============================================================
