@@ -30,12 +30,13 @@ const FadeContainer = keyframes`
   100% {
     transform: translateY(150%);
   }
-`
+`;
 
 const TrueContainer = styled.div`
   border-radius: 15px;
-  background-color: rgba(95, 75, 139, 0.4);
+  background-color: rgba(50, 189, 159, 0.4);
   color: white;
+
   font-weight: 600;
   padding: 1.3rem;
   position: fixed;
@@ -46,6 +47,9 @@ const TrueContainer = styled.div`
   margin-left: 1rem;
   transform: translateY(150%);
   animation: ${FadeContainer} 5s;
+  @media only screen and (max-width: 520px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const EmailWarning = () => {
@@ -54,18 +58,18 @@ export const EmailWarning = () => {
     return <Loading />;
   }
 
-  if(!data?.me) {
-      return <></>;
+  if (!data?.me) {
+    return <></>;
   }
   return (
     <div>
       {data?.me.emailVerified ? (
         <TrueContainer>
-          이메일 인증이 완료된 계정입니다👍🏻 모든 기능을 사용할 수 있어요!
+          이메일 인증이 완료된 계정입니다 👍🏻 이제 모든 기능을 이용해보세요!
         </TrueContainer>
       ) : (
         <FalseContainer>
-          아직 이메일 본인인증이 되지 않았습니다. 가입한 이메일의 메일함을
+          아직 이메일 본인인증이 되지 않았습니다. <br /> 가입한 이메일의 메일함을
           확인해주세요 👏🏻
         </FalseContainer>
       )}

@@ -22,6 +22,9 @@ const NoticeContainer = styled.div`
   margin-bottom: 3rem;
   justify-content: space-between;
   flex-wrap: wrap;
+  @media only screen and (max-width: 900px) {
+    justify-content: center;
+  }
 `;
 
 const NoticeBox = styled.div`
@@ -51,10 +54,10 @@ export const Notices = () => {
     <CommonBodyContainer>
       {isLoggedIn ? <LoginHeader /> : <LogoutHeader />}
       <ContentsContainer>
-        <Font fontColor="black" fontSize="2rem" fontWeight="600" marginBottom='0.8rem'>
+        <Font fontColor="black" fontSize="2rem" fontWeight="600" marginBottom='0.8rem' smallDeviceSize='1.5rem'>
           더좋사의 최근 공지사항입니다. 👍🏻
         </Font>
-        <Font fontColor="rgb(80,80,80)" fontSize="1rem" fontWeight="500">
+        <Font fontColor="rgb(80,80,80)" fontSize="1rem" fontWeight="500" smallDeviceSize='0.8rem'>
           어떤 기부 프로젝트가 진행되는지, 어떻게 모금 금액이 쓰이고 있는지 확인해보세요!
         </Font>
         {data ? <NoticeContainer>

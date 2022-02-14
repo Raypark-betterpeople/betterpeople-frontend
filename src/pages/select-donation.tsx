@@ -93,6 +93,8 @@ const PaymentContainer = styled.div`
   border-radius: 15px;
   @media only screen and (max-width: 520px) {
     flex-direction: column;
+    box-shadow: none;
+    border: 1px solid rgb(220,220,220);
   }
 `;
 

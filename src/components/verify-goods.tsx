@@ -61,13 +61,13 @@ export const VerifyGoods: React.FC<IGoodsProps> = ({
       <Font
         fontColor="rgb(60,60,60)"
         fontSize="0.9rem"
-        fontWeight="400"
+        fontWeight="600"
         style={{ marginRight: "auto"}}
       >
         <Icon>
           <HiBadgeCheck color='rgb(129, 78, 240)' />
         </Icon>
-         Verified illust
+         인증된 일러스트
       </Font>
       {illust === "earth" ? <Illust src={EarthIllust} /> : ""}
       {illust === "kids" ? <Illust src={KidsIllust} /> : ""}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Font } from "../common/styled";
@@ -58,9 +58,14 @@ export const HomeDonate: React.FC<IDonateProps> = ({
   coverImg,
 }) => {
   const { data } = useMe();
+  const onClick = () => {
+    if(data?.me.emailVerified === false) {
+      alert('이메일 인증 후 가능한 컨텐츠입니다. 🥲')
+    }
+  }
   return (
     <DonateContainer>
-      <Link to={data?.me.nickname ? `donate/${id}` : 'login'}>
+      <Link onClick={() => onClick()} to={data?.me.nickname ? data.me.emailVerified ? `donate/${id}` : '/' : 'login'}>
       <DonateBox>
         <Image src={coverImg} alt='배너' />
         <TextBox>
