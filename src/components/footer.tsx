@@ -91,22 +91,13 @@ export const Footer = () => {
           </Font>
         </ItemContainer>
         <ItemContainer>
-          <Font fontSize="20px" fontWeight="600">
-            Team
-          </Font>
-          <Font fontSize="16px" fontColor="rgb(150,150,150)">
-            더 좋은 사람들 블로그
-          </Font>
-          <Font fontSize="16px" fontColor="rgb(150,150,150)">
-            채용
-          </Font>
         </ItemContainer>
         <ItemContainer>
           <NoAroundLogo src={Logo} alt="로고" />
         </ItemContainer>
         <ItemContainer>
           <Font fontSize="18px" fontWeight="600">
-            Copyright ⓒ BetterPeople Inc. All Rights Reserved
+            Copyright (주)소셜 체이닝 All Rights Reserved
           </Font>
         </ItemContainer>
         <ItemContainer>
@@ -115,12 +106,12 @@ export const Footer = () => {
             | 대표 : 박상준
           </Font>
           <Font fontSize="14px" fontColor="rgb(150,150,150)">
-            서울특별시 강남구 테헤란로 131, 15층 (역삼동,한국지식재산센터)
+            서울특별시 강남구 테헤란로 79길 6 JS타워 1, 3-5층 브이611
           </Font>
         </ItemContainer>
         <ItemContainer>
           <Font fontSize="18px" fontWeight="600">
-            BetterPeople Inc. 기본약관
+            Social Chaning Inc. 기본약관
           </Font>
         </ItemContainer>
         <ItemContainer>

@@ -50,6 +50,7 @@ const DonateBox = styled.div`
   flex-direction: column;
   margin-top: 8rem;
   margin-bottom: 1rem;
+  white-space: pre-wrap;
 `;
 
 const CoverImg = styled.img`

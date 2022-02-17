@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { CommonBodyContainer, Font } from "../common/styled";
 import { useMe } from "../hooks/useMe";
 import { LoginHeader } from "./login-header";
+import "../css/Check.css";
+import { Link } from "react-router-dom";
 
 const IllustContainer = styled.div`
   display: flex;
@@ -48,25 +50,44 @@ const ModalBackground = styled.div`
 `;
 
 const TokenModal = styled.div`
+  box-sizing: border-box;
   display: flex;
   font-size: 0.9rem;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 2rem;
   flex-direction: column;
-  max-width: 500px;
   word-break: break-all;
   border-radius: 10px;
   margin: 1rem;
-  border: 1px solid rgb(150,150,150);
+  border: 1px solid rgb(150, 150, 150);
 `;
 
-const TokenNumberStyle = styled.span`
-  display: inline-block;
-  letter-spacing: 1px;
-  background-color: rgb(230, 230, 230);
+const CopyTokenNumberBtn = styled.span`
+  margin-left: auto;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  :hover {
+    text-decoration: underline;
+  }
+`;
+
+const TokenNumberStyle = styled.textarea`
+  all: unset;
+  box-sizing: border-box;
+  color: white;
+  display: block;
+  letter-spacing: 1.5px;
+  line-height: 1.3rem;
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 1rem;
   border-radius: 10px;
-  margin-bottom: 1rem;
+  width: 500px;
+  @media only screen and (max-width: 520px) {
+    width: 100%;
+  }
 `;
 
 const ModalCloseButton = styled.span`
@@ -77,7 +98,7 @@ const ModalCloseButton = styled.span`
   margin-left: auto;
   cursor: pointer;
   font-weight: 600;
-`
+`;
 
 const TokenCheck = styled.span`
   cursor: pointer;
@@ -88,33 +109,102 @@ const TokenCheck = styled.span`
 `;
 
 export const MyPage = () => {
+  const [copyOk, setCopyOk] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [token, setToken] = useState("");
+  const tokenInput = useRef<HTMLTextAreaElement>(null);
   const onModalOpen = () => {
     setOpenModal(true);
   };
   const onModalClose = () => {
     setOpenModal(false);
+    setCopyOk(false);
   };
 
   const setTokenClick = (imagesToken: string) => {
     setToken(imagesToken);
     onModalOpen();
   };
+
+  const copyToken = () => {
+    const copyTokens = tokenInput.current;
+    copyTokens?.focus();
+    copyTokens?.select();
+    copyTokens?.setSelectionRange(0, 9999);
+    document.execCommand("copy");
+    setCopyOk(true);
+  };
+
   const { data: UserData } = useMe();
   return (
     <CommonBodyContainer>
       {openModal ? (
         <ModalBackground>
           <TokenModal>
-            <Font fontWeight="600" fontSize="1.5rem" fontColor="black" marginBottom='0.3rem'>
+            <Font
+              fontWeight="600"
+              fontSize="1.5rem"
+              fontColor="black"
+              marginBottom="0.3rem"
+            >
               이 일러스트의 토큰입니다.
             </Font>
-            <Font fontWeight="400" fontSize="0.9rem" fontColor="rgb(100,100,100)" marginBottom='1rem'>
+            <Font
+              fontWeight="400"
+              fontSize="0.9rem"
+              fontColor="rgb(100,100,100)"
+              marginBottom="1rem"
+            >
               복사한 뒤 일러스트 정품인증 페이지에서 인증이 가능합니다 💕
             </Font>
-            <TokenNumberStyle>{token}</TokenNumberStyle>
-            <ModalCloseButton onClick={() => onModalClose()}>닫기</ModalCloseButton>
+            <TokenNumberStyle ref={tokenInput} value={token} readOnly />
+            <CopyTokenNumberBtn onClick={() => copyToken()}>
+              토큰 복사
+            </CopyTokenNumberBtn>
+            <ModalCloseButton onClick={() => onModalClose()}>
+              닫기
+            </ModalCloseButton>
+            {copyOk ? (
+              <div className="wrapper">
+                <svg
+                  className="checkmark"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 52 52"
+                >
+                  <circle
+                    className="checkmark__circle"
+                    cx="26"
+                    cy="26"
+                    r="25"
+                    fill="none"
+                  />
+                  <path
+                    className="checkmark__check"
+                    fill="none"
+                    d="M14.1 27.2l7.1 7.2 16.7-16.8"
+                  />
+                </svg>
+                <Font
+                  fontColor="rgb(201,105,204)"
+                  fontWeight="700"
+                  fontSize="1.3rem"
+                  marginBottom='0.3rem'
+                >
+                  Copied OK!
+                </Font>
+                <Link to="/verify-illust">
+                  <Font
+                    fontColor="black"
+                    fontWeight="600"
+                    fontSize="0.9rem"
+                  >
+                    정품인증 페이지로 바로가기
+                  </Font>
+                </Link>
+              </div>
+            ) : (
+              ""
+            )}
           </TokenModal>
         </ModalBackground>
       ) : (

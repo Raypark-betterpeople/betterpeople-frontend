@@ -19,10 +19,12 @@ const NoticeBox = styled.div`
 const NoticeBody = styled.div`
   margin-top: 3rem;
   margin-bottom: 3rem;
+  white-space: pre-wrap;
 `
 
 const Image = styled.img`
   width: 100%;
+  margin-bottom: 2rem;
 `
 
 const NOTICE_QUERY = gql`
@@ -64,7 +66,7 @@ export const SelectNotice = () => {
       <Font fontWeight='400' fontColor='rgb(80,80,80)' fontSize='1rem'>{new Date(data?.notice.notice?.createAt).toLocaleString('ko')}</Font>
       <NoticeBody>
         <Image src={data?.notice.notice?.image} alt='공지사항 이미지'/>
-        <Font fontWeight='700' fontColor='black' fontSize='1.5rem'>{data?.notice.notice?.subTitle}</Font>
+        <Font fontWeight='700' fontColor='black' fontSize='1.5rem' marginBottom='1rem'>{data?.notice.notice?.subTitle}</Font>
         <Font fontWeight='400' fontColor='black' fontSize='1rem'>{data?.notice.notice?.description}</Font>
       </NoticeBody>
       </NoticeBox>
