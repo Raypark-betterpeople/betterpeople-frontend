@@ -2,21 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import CountUp from "react-countup";
 import styled from "styled-components";
+import { Font } from "../common/styled";
 import EarthImage from '../images/earthwater.png'
-
-const Font = styled.p<{
-  fontSize: string;
-  fontColor: string;
-  fontWeight: string;
-  marginBottom?: string;
-}>`
-  font-size: ${(props) => props.fontSize};
-  color: ${(props) => props.fontColor};
-  font-weight: ${(props) => props.fontWeight};
-  margin-bottom: ${(props) => props.marginBottom};
-  letter-spacing: 1px;
-  line-height: 1.4rem;
-`;
 
 const Container = styled.div`
   position: relative;
@@ -101,13 +88,14 @@ export const EarthInfo = () => {
                 fontColor="black"
                 fontWeight="800"
                 marginBottom="2rem"
+                smallDeviceSize='2rem'
               >
                 지구는 지금,
               </Font>
-              <Font fontSize="1rem" fontColor="gray" fontWeight="400">
+              <Font fontSize="1rem" fontColor="gray" fontWeight="400" marginBottom='0.5rem'>
                 지구 온난화로 인해 지구 해수면 상승이 가속화 되고 있습니다.
               </Font>
-              <Font fontSize="1rem" fontColor="gray" fontWeight="400">
+              <Font fontSize="1rem" fontColor="gray" fontWeight="400" marginBottom='0.5rem'>
                 2100년에는 <HighLight>최대 73cm</HighLight>까지 상승할 수도 있다네요..
               </Font>
               <Font fontSize="1rem" fontColor="gray" fontWeight="400">

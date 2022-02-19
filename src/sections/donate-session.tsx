@@ -17,6 +17,10 @@ const DonateBoxSection = styled.div`
   display: flex;
   margin-top: 3rem;
   flex-wrap: wrap;
+  @media only screen and (max-width: 520px) {
+    margin-top: 1rem;
+  }
+
 `
 
 export const DonateSession = () => {
@@ -31,10 +35,10 @@ export const DonateSession = () => {
     
     <DonateSectionContainer>
       <DirectionStyle style={{ textAlign: "start" }} directionStyle="column">
-        <Font fontColor="black" fontWeight="600" fontSize="1.8rem" smallDeviceSize='1.5rem' smallDeviceLineHeight='1rem' marginBottom='1rem'>
+        <Font fontColor="black" fontWeight="600" fontSize="1.8rem" smallDeviceSize='1.3rem' smallDeviceLineHeight='1rem' marginBottom='0.5rem'>
           <Highlight>현재!</Highlight> 진행중인
         </Font>
-        <Font fontColor="black" fontWeight="600" fontSize="2.5rem" smallDeviceSize='1.5rem' smallDeviceLineHeight='1.5rem' lineHeight='1rem'>
+        <Font fontColor="black" fontWeight="600" fontSize="2rem" smallDeviceSize='1.3rem' smallDeviceLineHeight='1.5rem' lineHeight='1rem'>
           기부 프로젝트에 참여하고, 굿즈 받아오!
         </Font>
       </DirectionStyle>

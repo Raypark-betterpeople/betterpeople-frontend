@@ -16,7 +16,6 @@ interface IGoodsProps {
 
 const GoodsBox = styled.div`
   display: flex;
-  width: 300px;
   flex-direction: column;
   justify-content: center;
   padding: 1.2rem;
@@ -34,10 +33,13 @@ const FontBox = styled.div`
 `;
 
 const Illust = styled.img`
-  width: 100%;
+  width: 320px;
   border-radius: 5px;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  @media only screen and (max-width: 520px) {
+    width: 260px;
+  }
 `;
 
 const Icon = styled.span`
@@ -98,7 +100,15 @@ export const VerifyGoods: React.FC<IGoodsProps> = ({
           fontWeight="600"
           style={{ marginLeft: "auto" }}
         >
-          better-people.org
+          더 좋은 사람들
+        </Font>
+        <Font
+          fontColor="rgb(120,120,120)"
+          fontSize="0.8rem"
+          fontWeight="600"
+          style={{ marginLeft: "auto" }}
+        >
+          Social Chaning Inc.
         </Font>
       </FontBox>
     </GoodsBox>

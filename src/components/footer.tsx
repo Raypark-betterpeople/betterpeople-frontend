@@ -1,130 +1,196 @@
 import React from "react";
 import styled from "styled-components";
+import { Font } from "../common/styled";
 import Logo from "../images/ahnlogo.png";
 
 const Container = styled.div`
-  background-color: rgb(250, 250, 250);
-  padding-bottom: 3rem;
+  box-sizing: border-box;
+  background-color: rgba(224, 123, 207, 0.068);
+  padding: 3rem 18% 2rem 18%;
   @media only screen and (max-width: 520px) {
+    padding: 1rem;
     padding-top: 2rem;
-    padding-bottom: 4rem;
   }
 `;
 
-const NoAroundLogo = styled.img`
-  width: 100px;
-  height: 100px;
-  @media only screen and (max-width: 520px) {
-    display: none;
-  }
-`;
-
-const GridSection = styled.div`
-  display: grid;
-  grid-template-columns: 20% 20% 20%;
-  grid-template-rows: 3fr 1fr 1fr 1fr 1fr; 
-  justify-content: center;
-  align-items: center;
-  @media only screen and (max-width: 1000px) {
-    grid-template-columns: 30% 30% 30%;
-  }
-  @media only screen and (max-width: 520px) {
-    grid-template-rows: 28% 28% 0fr 4% 35% 6% 4%;
-  }
-`;
-
-const ItemContainer = styled.div`
+const Text = styled.div`
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  :nth-child(4) {
-    grid-column: 1/4;
-  }
-  :nth-child(5) {
-    grid-column: 1/4;
-  }
-  :nth-child(6) {
-    grid-column: 1/4;
-  }
   @media only screen and (max-width: 520px) {
-    :nth-child(0) {
-      grid-column: 1/4;
-    }
-    :nth-child(1) {
-      grid-column: 1/4;
-    }
-    :nth-child(2) {
-      grid-column: 1/4;
-    }
+    margin-bottom: 0.5rem;
   }
 `;
 
-const Font = styled.p<{
-  fontSize: string;
-  fontWeight?: string;
-  fontColor?: string;
-  hover? : string
-}>`
-  font-size: ${(props) => props.fontSize};
-  font-weight: ${(props) => props.fontWeight};
-  color: ${(props) => props.fontColor};
-  line-height: 1.8rem;
-  @media only screen and (max-width: 1000px) {
-    font-size: 12px;
+const GrayText = styled.p`
+  @media only screen and (max-width: 520px) {
+    margin-left: 0;
   }
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+`;
+
+const AddressContainer = styled.div`
+  display: flex;
+  margin-bottom: 1rem;
+  @media only screen and (max-width: 520px) {
+    flex-direction: column;
+  }
+`;
+
+const VerticalBar = styled.div`
+  border-left: 2px solid rgb(80, 80, 80);
+  margin-left: 1rem;
+  margin-right: 1rem;
 `;
 
 export const Footer = () => {
   return (
     <Container>
-      <GridSection>
-        <ItemContainer>
-          <Font fontSize="20px" fontWeight="600">
-            Contact
+      <LogoContainer>
+        <Font
+          fontColor="black"
+          fontSize="1.3rem"
+          fontWeight="800"
+          smallDeviceSize="1rem"
+        >
+          Social Chaining Inc.
+        </Font>
+        <Font
+          fontColor="rgb(150,150,150)"
+          fontSize="1rem"
+          fontWeight="800"
+          smallDeviceSize="1rem"
+        >
+          better-people.org
+        </Font>
+      </LogoContainer>
+      <AddressContainer>
+        <Text>
+          <Font
+            fontColor="black"
+            fontSize="1rem"
+            fontWeight="400"
+            smallDeviceSize="0.7rem"
+          >
+            서울특별시 강남구 테헤란로 79길 6 4층, 브이611(삼성동, 제이에스타워)
           </Font>
-          <Font fontSize="16px" fontColor="rgb(150,150,150)">
-            전화: +82 010-3977-9827
+        </Text>
+        <VerticalBar />
+        <Text>
+          <GrayText>
+            <Font
+              fontColor="rgb(100,100,100)"
+              fontSize="1rem"
+              fontWeight="400"
+              smallDeviceSize="0.7rem"
+            >
+              사업자등록번호
+            </Font>
+          </GrayText>
+          <Font
+            style={{ marginLeft: "1rem" }}
+            fontColor="black"
+            fontSize="1rem"
+            fontWeight="400"
+            smallDeviceSize="0.7rem"
+          >
+            123-4214-2211
           </Font>
-          <Font fontSize="16px" fontColor="rgb(150,150,150)">
-            이메일: contact@better-people.org
+        </Text>
+      </AddressContainer>
+      <AddressContainer>
+        <Text>
+          <GrayText>
+            <Font
+              style={{marginRight:'1rem'}}
+              fontColor="rgb(100,100,100)"
+              fontSize="1rem"
+              fontWeight="400"
+              smallDeviceSize="0.7rem"
+            >
+              대표
+            </Font>
+          </GrayText>
+          <Font
+            fontColor="black"
+            fontSize="1rem"
+            fontWeight="400"
+            smallDeviceSize="0.7rem"
+          >
+            박상준
           </Font>
-        </ItemContainer>
-        <ItemContainer>
-        </ItemContainer>
-        <ItemContainer>
-          <NoAroundLogo src={Logo} alt="로고" />
-        </ItemContainer>
-        <ItemContainer>
-          <Font fontSize="18px" fontWeight="600">
-            Copyright (주)소셜 체이닝 All Rights Reserved
+        </Text>
+        <VerticalBar />
+        <Text>
+          <GrayText>
+            <Font
+            style={{marginRight:'1rem'}}
+              fontColor="rgb(100,100,100)"
+              fontSize="1rem"
+              fontWeight="400"
+              smallDeviceSize="0.7rem"
+            >
+              대표 번호
+            </Font>
+          </GrayText>
+          <Font
+            fontColor="black"
+            fontSize="1rem"
+            fontWeight="400"
+            smallDeviceSize="0.7rem"
+          >
+            010-3977-9827
           </Font>
-        </ItemContainer>
-        <ItemContainer>
-          <Font fontSize="14px" fontColor="rgb(150,150,150)">
-            사업자등록번호 411-86-01799 | 통신판매신고 제2020-서울강남-01164호
-            | 대표 : 박상준
+        </Text>
+        <VerticalBar />
+        <Text>
+          <GrayText>
+            <Font
+              style={{ marginRight: "1rem" }}
+              fontColor="rgb(100,100,100)"
+              fontSize="1rem"
+              fontWeight="400"
+              smallDeviceSize="0.7rem"
+            >
+              이메일
+            </Font>
+          </GrayText>
+          <Font
+            style={{ marginRight: "1rem" }}
+            fontColor="black"
+            fontSize="1rem"
+            fontWeight="400"
+            smallDeviceSize="0.7rem"
+          >
+            contact@better-people.org
           </Font>
-          <Font fontSize="14px" fontColor="rgb(150,150,150)">
-            서울특별시 강남구 테헤란로 79길 6 JS타워 1, 3-5층 브이611
-          </Font>
-        </ItemContainer>
-        <ItemContainer>
-          <Font fontSize="18px" fontWeight="600">
-            Social Chaning Inc. 기본약관
-          </Font>
-        </ItemContainer>
-        <ItemContainer>
-        <Font fontSize="14px" fontColor="rgb(150,150,150)">
-            서비스 이용약관
-          </Font>
-        </ItemContainer>
-        <ItemContainer>
-        <Font fontSize="14px" fontColor="rgb(150,150,150)">
-            개인정보 처리방침
-          </Font>
-        </ItemContainer>
-      </GridSection>
+        </Text>
+      </AddressContainer>
+      <AddressContainer style={{ marginTop: "3rem" }}>
+        <Font
+          style={{ marginRight: "1rem" }}
+          fontColor="rgb(100,100,100)"
+          fontSize="1rem"
+          fontWeight="400"
+          smallDeviceSize="0.7rem"
+        >
+          개인정보 처리방침
+        </Font>
+      </AddressContainer>
+      <AddressContainer>
+        <Font
+          style={{ marginRight: "1rem" }}
+          fontColor="black"
+          fontSize="0.9rem"
+          fontWeight="400"
+          smallDeviceSize="0.7rem"
+        >
+          Copyright. © Social Chaning. ALL RIGHTS RESERVED.
+        </Font>
+      </AddressContainer>
     </Container>
   );
 };

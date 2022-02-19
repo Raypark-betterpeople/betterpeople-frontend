@@ -155,7 +155,7 @@ export const MyPage = () => {
               fontColor="rgb(100,100,100)"
               marginBottom="1rem"
             >
-              복사한 뒤 일러스트 정품인증 페이지에서 인증이 가능합니다 💕
+              복사한 뒤 일러스트 정품인증 페이지에서 인증이 가능합니다.
             </Font>
             <TokenNumberStyle ref={tokenInput} value={token} readOnly />
             <CopyTokenNumberBtn onClick={() => copyToken()}>
@@ -198,7 +198,7 @@ export const MyPage = () => {
                     fontWeight="600"
                     fontSize="0.9rem"
                   >
-                    정품인증 페이지로 바로가기
+                    정품인증 페이지로 바로가기 →
                   </Font>
                 </Link>
               </div>
@@ -218,6 +218,7 @@ export const MyPage = () => {
         fontSize="1.7rem"
         marginBottom="1rem"
         style={{ marginTop: "5rem" }}
+        smallDeviceSize='1.2rem'
       >
         {UserData?.me.nickname}님 이 만큼이나 참여하셨네요?! 🎉
       </Font>
@@ -226,6 +227,7 @@ export const MyPage = () => {
         fontWeight="500"
         fontColor="rgb(120,120,120)"
         marginBottom="0.1rem"
+        smallDeviceSize='0.9rem'
       >
         그 동안 모인 일러스트들 입니다.
       </Font>
@@ -234,6 +236,7 @@ export const MyPage = () => {
         fontWeight="500"
         fontColor="rgb(120,120,120)"
         marginBottom="0.3rem"
+        smallDeviceSize='0.9rem'
       >
         {UserData?.me.nickname}님의 따듯한 마음 응원합니다.
       </Font>

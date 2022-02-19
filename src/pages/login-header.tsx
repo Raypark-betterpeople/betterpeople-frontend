@@ -16,7 +16,7 @@ const HeaderSection = styled.nav`
   justify-content: space-between;
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: #ffffff;
   z-index: 100;
 `;
 
@@ -79,6 +79,13 @@ const SmallDeviceMenuContainer = styled.div<{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 520px) {
+    p {
+      font-size: 1rem;
+      margin-top: 0.8rem;
+      margin-bottom: 0;
+    }
+  }
 `;
 
 const GaleryButton = styled.button`

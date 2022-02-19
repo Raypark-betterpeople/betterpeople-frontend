@@ -45,11 +45,11 @@ export const IllustAbout = () => {
         fontSize="2rem"
         fontWeight="600"
         marginBottom="0.5rem"
-        smallDeviceSize='1.8rem'
+        smallDeviceSize='1.5rem'
       >
         관심있는 프로젝트에 참여하고,
       </Font>
-      <Font fontColor="black" fontSize="2rem" fontWeight="600" smallDeviceSize='1.8rem'>
+      <Font fontColor="black" fontSize="2rem" fontWeight="600" smallDeviceSize='1.5rem'>
         자신만 인증할 수 있는 <Highlight>일러스트 굿즈</Highlight>를 받아보세요!
       </Font>
       <HiddenBox>

@@ -19,7 +19,7 @@ const NoticeContainer = styled.div`
   display: flex;
   width: 100%;
   margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 10rem;
   justify-content: space-between;
   flex-wrap: wrap;
   @media only screen and (max-width: 900px) {
@@ -45,6 +45,14 @@ const CoverImage = styled.div`
     :hover {
         opacity: 0.8;
     }
+    @media only screen and (max-width: 520px) {
+    width: 400px;
+    height: 200px;
+  }
+  @media only screen and (max-width: 400px) {
+    width: 330px;
+    height: 160px;
+  }
 `
 
 export const Notices = () => {

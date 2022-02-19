@@ -24,12 +24,18 @@ const Container = styled.div`
 const IPhone = styled.img`
   width: 350px;
   z-index:15;
+  @media only screen and (max-width: 380px) {
+    width: 300px;
+  }
 `;
 
 const Feed = styled.img`
   width: 305px;
   height: 620px;
   border-radius: 30px;
+  @media only screen and (max-width: 380px) {
+    height:520px;
+  }
 `;
 
 const FontContainer = styled.div`
@@ -55,6 +61,9 @@ const SlideContainer = styled.div`
   padding: 1rem;
   padding-bottom: 0;
   border-radius: 30px;
+  @media only screen and (max-width: 380px) {
+    width: 250px;
+  }
 `;
 
 export const InstaSection = () => {
@@ -77,7 +86,7 @@ export const InstaSection = () => {
           fontSize="2.3rem"
           fontWeight="600"
           marginBottom="0.5rem"
-          smallDeviceSize='1.8rem'
+          smallDeviceSize='1.5rem'
         >
           {data?.me.nickname ? `${data.me.nickname}님` : "당신"}의{" "}
           <Highlight>선한 영향력</Highlight>을
@@ -87,7 +96,7 @@ export const InstaSection = () => {
           fontSize="2.3rem"
           fontWeight="600"
           marginBottom="2rem"
-          smallDeviceSize='2.3rem'
+          smallDeviceSize='1.5rem'
         >
           공유해주세요!
         </Font>
@@ -96,11 +105,12 @@ export const InstaSection = () => {
           fontSize="1rem"
           fontWeight="500"
           marginBottom="0.5rem"
+          smallDeviceSize='0.8rem'
         >
           {data?.me.nickname ? `${data.me.nickname}님` : "당신"}이 가치있다고
           생각하는 기부 세션에 참여하고, 인증가능한 일러스트를 얻어보세요!
         </Font>
-        <Font fontColor="gray" fontSize="1rem" fontWeight="500">
+        <Font fontColor="gray" fontSize="1rem" fontWeight="500" smallDeviceSize='0.8rem'>
           {data?.me.nickname ? `${data.me.nickname}님` : "당신"}의 멋짐을 세상에
           알려보는건 어떤가요?
         </Font>

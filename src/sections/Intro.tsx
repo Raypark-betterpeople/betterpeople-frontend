@@ -41,7 +41,11 @@ const Font = styled.p`
   font-weight: 600;
   line-height: 5rem;
   @media only screen and (max-width: 520px) {
-    font-size:1.8rem;
+    font-size:1.7rem;
+    line-height:2.5rem;
+  }
+  @media only screen and (max-width: 380px) {
+    font-size:1.6rem;
     line-height:2.5rem;
   }
 `;

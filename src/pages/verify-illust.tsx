@@ -27,13 +27,17 @@ const LoadingSpinner = keyframes`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 5rem;
+  justify-content: center;
+  align-items: center;
 `;
 
 const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
+  margin-top: 7rem;
+  justify-content: center;
+  align-items: center;
 `;
 
 const InputToken = styled.input`
@@ -101,16 +105,15 @@ const LoadingAnimation = styled.div`
   top: -15px;
   width: 100%;
   height: 110%;
-  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   animation: ${LoadingSpinner} 2.2s;
   animation-fill-mode: forwards;
-  z-index: 1000;
+  z-index: 10;
   background-color: white;
   @media only screen and (max-width: 520px) {
-    width: 120%;
+    width: 110%;
   }
 `;
 
@@ -123,12 +126,12 @@ const CheckLoading = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 10;
   background-color: white;
   animation: ${LoadingSpinner} 2s;
   animation-fill-mode: forwards;
   @media only screen and (max-width: 520px) {
-    width: 120%;
+    width: 110%;
   }
 `
 
@@ -155,6 +158,15 @@ export const VerifyIllust = () => {
     setTimeout(() => {
       setLoading(false)
     }, 1800)
+    if(window.innerWidth > 1200) {
+      window.scrollTo(0,220)
+    }
+    if(window.innerWidth < 500) {
+      window.scrollTo(0,300)
+    }
+    if(window.innerWidth < 400) {
+      window.scrollTo(0,360)
+    }
   };
 
   return (
@@ -164,10 +176,10 @@ export const VerifyIllust = () => {
       </Helmet>
       {isLoggedIn ? <LoginHeader /> : <LogoutHeader />}
       <TextBox>
-        <Font fontColor="black" fontSize="1.5rem" fontWeight="700">
+        <Font fontColor="black" fontSize="1.5rem" fontWeight="700" smallDeviceSize='1.2rem'>
           일러스트의 토큰 번호를 입력해주세요!
         </Font>
-        <Font fontColor="rgb(100,100,100)" fontSize="1rem" fontWeight="400">
+        <Font fontColor="rgb(100,100,100)" fontSize="1rem" fontWeight="400" smallDeviceSize='0.8rem'>
           번호를 입력하면 정품 인증이 된 일러스트를 확인할 수 있습니다.
         </Font>
       </TextBox>
@@ -275,7 +287,7 @@ export const VerifyIllust = () => {
             </Font>
             <Font
               fontWeight="400"
-              fontSize="0.9rem"
+              fontSize="0.8rem"
               fontColor="rgb(80,80,80)"
               marginBottom='0.3rem'
               style={{ marginLeft: "auto" }}
@@ -284,7 +296,7 @@ export const VerifyIllust = () => {
             </Font>
             <Font
               fontWeight="400"
-              fontSize="0.9rem"
+              fontSize="0.8rem"
               fontColor="rgb(80,80,80)"
               style={{ marginLeft: "auto" }}
             >
