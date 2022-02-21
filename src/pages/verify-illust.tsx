@@ -73,6 +73,9 @@ const Illust = styled.div`
   width: 320px;
   box-shadow: 4px 8px 12px rgb(200, 200, 200);
   padding: 1rem;
+  @media only screen and (max-width: 520px) {
+    width: 280px;
+  }
 `;
 
 const Image = styled.img`
@@ -80,6 +83,9 @@ const Image = styled.img`
   margin-bottom: 1rem;
   margin-top: 1rem;
   border-radius: 10px;
+  @media only screen and (max-width: 520px) {
+    width: 100%;
+  }
 `;
 
 const Icon = styled.span`

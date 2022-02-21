@@ -84,9 +84,17 @@ const IllustContainer = styled.div`
 `;
 
 const DescriptionImg = styled.img`
-  width: 100%;
-  background-size: cover;
-  margin-bottom: 10rem;
+  width: 80%;
+  height: 100%;
+  margin-right: auto;
+  margin-bottom: 3rem;
+  transform: translateX(-30px);
+  background-color: rgb(230,230,230);
+  @media only screen and (max-width: 520px) {
+    width: 100%;
+    transform: none;
+    transform: translateX(-13px);
+  }
 `;
 
 const PaymentContainer = styled.div`
@@ -244,23 +252,12 @@ export const SelectDonate = () => {
         >
           {donateName}
         </Font>
-        <Font
-          fontSize="1rem"
-          fontWeight="400"
-          lineHeight='1.3rem'
-          fontColor="rgb(80,80,80)"
-          smallDeviceLineHeight='1rem'
-          smallDeviceSize='0.8rem'
-          style={{marginRight:'auto'}}
-        >
-          {description}
-        </Font>
       </DonateBox>
       <DescriptionImg src={descriptionImg} />
-      <Font fontSize="2rem" fontWeight="700" fontColor="black" smallDeviceSize='1.5rem'>
+      <Font fontSize="2rem" fontWeight="700" fontColor="black" smallDeviceSize='1.2rem'>
         이 일러스트를 얻을 수 있어요!
       </Font>
-      <Font fontSize="1rem" fontWeight="500" fontColor="rgb(100,100,100)">
+      <Font fontSize="1rem" fontWeight="500" fontColor="rgb(100,100,100)" smallDeviceSize='0.8rem'>
         (랜덤으로 1장이 발급됩니다.)
       </Font>
       <IllustContainer>

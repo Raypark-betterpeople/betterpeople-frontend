@@ -5,6 +5,7 @@ import { useMe } from "../hooks/useMe";
 import { LoginHeader } from "./login-header";
 import "../css/Check.css";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const IllustContainer = styled.div`
   display: flex;
@@ -87,6 +88,8 @@ const TokenNumberStyle = styled.textarea`
   width: 500px;
   @media only screen and (max-width: 520px) {
     width: 100%;
+    font-size: 0.7rem;
+    margin-bottom: 0.3rem;
   }
 `;
 
@@ -138,6 +141,9 @@ export const MyPage = () => {
   const { data: UserData } = useMe();
   return (
     <CommonBodyContainer>
+      <Helmet>
+        <title>더 좋은 사람들 | 내 갤러리</title>
+      </Helmet>
       {openModal ? (
         <ModalBackground>
           <TokenModal>
@@ -146,6 +152,7 @@ export const MyPage = () => {
               fontSize="1.5rem"
               fontColor="black"
               marginBottom="0.3rem"
+              smallDeviceSize='1rem'
             >
               이 일러스트의 토큰입니다.
             </Font>
@@ -154,6 +161,7 @@ export const MyPage = () => {
               fontSize="0.9rem"
               fontColor="rgb(100,100,100)"
               marginBottom="1rem"
+              smallDeviceSize='0.7rem'
             >
               복사한 뒤 일러스트 정품인증 페이지에서 인증이 가능합니다.
             </Font>

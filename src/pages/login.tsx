@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FormError } from "../components/form-error";
 import Helmet from "react-helmet";
-import AroundLogo from "../images/ahnlogo.png";
+import AroundLogo from "../images/pixellogo3.png";
 import {
   LoginMutation,
   LoginMutationVariables,
@@ -45,11 +45,9 @@ const InlineStyle = styled.div`
 `;
 
 const AROUND_LOGO = styled.img`
-  width: 80px;
   height: 80px;
   @media only screen and (max-width: 520px) {
-    width: 40px;
-    height: 40px;
+    height: 60px;
   }
 `;
 

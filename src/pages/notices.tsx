@@ -1,5 +1,6 @@
 import { useReactiveVar } from "@apollo/client";
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { isLoggedInVar } from "../apollo";
@@ -60,13 +61,16 @@ export const Notices = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   return (
     <CommonBodyContainer>
+      <Helmet>
+        <title>더 좋은 사람들 | 공지사항</title>
+      </Helmet>
       {isLoggedIn ? <LoginHeader /> : <LogoutHeader />}
       <ContentsContainer>
         <Font fontColor="black" fontSize="2rem" fontWeight="600" marginBottom='0.8rem' smallDeviceSize='1.5rem'>
           더좋사의 최근 공지사항입니다. 👍🏻
         </Font>
-        <Font fontColor="rgb(80,80,80)" fontSize="1rem" fontWeight="500" smallDeviceSize='0.8rem'>
-          어떤 기부 프로젝트가 진행되는지, 어떻게 모금 금액이 쓰이고 있는지 확인해보세요!
+        <Font fontColor="rgb(80,80,80)" fontSize="1rem" fontWeight="500" smallDeviceSize='0.8rem' smallDeviceLineHeight='1rem'>
+          어떤 기부 프로젝트가 진행되는지, 어떻게 모금 금액이 쓰이고 있는지, 그 외 모든 정보를 확인해보세요!
         </Font>
         {data ? <NoticeContainer>
           {data?.allNotice.notices?.map((selectNotice) => {

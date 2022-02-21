@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { HiMenu } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Logo from "../images/ahnlogo.png";
+import Logo from "../images/pixellogo3.png";
 import { IoMdClose } from "react-icons/io";
 import { Font } from "../common/styled";
 
@@ -42,9 +42,11 @@ const LiStyle = styled.li`
 `;
 
 const LogoImage = styled.img`
-  width: 60px;
   height: 60px;
   margin-right: 0.2rem;
+  @media only screen and (max-width: 520px) {
+    height: 50px;
+  }
 `;
 
 const GaleryButton = styled.button`

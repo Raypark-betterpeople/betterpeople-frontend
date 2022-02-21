@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Loading } from "./loading";
-import Logo from "../images/ahnlogo.png";
+import Logo from "../images/pixellogo3.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useMe } from "../hooks/useMe";
 import { isLoggedInVar } from "../apollo";
@@ -46,9 +46,11 @@ const LiStyle = styled.li`
 `;
 
 const LogoImage = styled.img`
-  width: 60px;
   height: 60px;
   margin-right: 0.2rem;
+  @media only screen and (max-width: 520px) {
+    height: 50px;
+  }
 `;
 
 const SmallDeviceMenu = styled.div`
