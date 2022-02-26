@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { Font, Highlight } from "../common/styled";
 import { useMe } from "../hooks/useMe";
 import IphoneImage from "../images/iphone.png";
-import FeedImage from "../images/insta.png";
+import FeedImage1 from "../images/insta1.png";
+import FeedImage2 from "../images/insta2.png";
 import Slick, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -119,9 +120,9 @@ export const InstaSection = () => {
         <IPhone src={IphoneImage} alt="아이폰" />
         <SlideContainer>
           <Slick {...settings}>
-            <Feed src={FeedImage}/>
-            <Feed src={FeedImage}/>
-            <Feed src={FeedImage}/>
+            <Feed src={FeedImage1}/>
+            <Feed src={FeedImage2}/>
+            <Feed src={FeedImage1}/>
           </Slick>
         </SlideContainer>
       </ImageContainer>

@@ -2,7 +2,7 @@ import { useReactiveVar } from "@apollo/client";
 import React from "react";
 import styled from "styled-components";
 import { isLoggedInVar } from "../apollo";
-import { CommonBodyContainer, Font, Highlight } from "../common/styled";
+import { CommonBodyContainer, Font, GrayFont, Highlight } from "../common/styled";
 import { LoginHeader } from "./login-header";
 import { LogoutHeader } from "./logout-header";
 import { FaMoneyCheck, FaCheckSquare, FaInstagram } from "react-icons/fa";
@@ -307,6 +307,12 @@ export const AboutPage = () => {
         </Font>
         <DescriptionImg src={Part6} alt='설명 이미지6' />
         </DescriptionContainer>
+        <Font fontColor="black" fontSize="1.5rem" fontWeight="700" smallDeviceSize='1rem' lineHeight='1.7rem' smallDeviceLineHeight='1rem'>
+          <GrayFont>여러분이 관심 있는 가치소비</GrayFont> 는 어떤 것인지 저희 팀에게 알려주세요!
+        </Font>
+        <Font fontColor="black" fontSize="1.5rem" fontWeight="700" smallDeviceSize='1rem' marginBottom='0.5rem'>
+          그게 무엇이든 저희가 알맞는 프로젝트를 진행해볼께요!
+        </Font>
       </AboutContainer>
     </CommonBodyContainer>
   );

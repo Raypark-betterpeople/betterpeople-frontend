@@ -46,3 +46,7 @@ export const Bold = styled.span`
   font-weight: 700;
   color: rgb(50,50,50);
 `
+
+export const GrayFont = styled.span`
+  color: rgb(100,100,100);
+`

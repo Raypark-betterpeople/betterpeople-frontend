@@ -88,6 +88,7 @@ const DescriptionImg = styled.img`
   height: 100%;
   margin-right: auto;
   margin-bottom: 3rem;
+  margin-top: 5rem;
   transform: translateX(-30px);
   background-color: rgb(230,230,230);
   @media only screen and (max-width: 520px) {

@@ -26,8 +26,7 @@ const LoadingSection = styled.div`
 `
 
 const LoadingImage = styled.img`
-    width: 150px;
-    height: 150px;
+    height: 80px;
     animation: ${ImageOpacity} 0.7s infinite alternate;
     margin-bottom: 1rem;
 `

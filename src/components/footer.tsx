@@ -188,7 +188,7 @@ export const Footer = () => {
           fontWeight="400"
           smallDeviceSize="0.7rem"
         >
-          Copyright. © Social Chaning. ALL RIGHTS RESERVED.
+          Copyright. © Social Chaining. ALL RIGHTS RESERVED.
         </Font>
       </AddressContainer>
     </Container>

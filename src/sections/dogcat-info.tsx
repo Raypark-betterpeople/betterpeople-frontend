@@ -3,7 +3,7 @@ import { Fade } from "react-awesome-reveal";
 import CountUp from "react-countup";
 import styled from "styled-components";
 import { Font } from "../common/styled";
-import DogCat from "../images/catdogs.png";
+import DogCat from "../images/catdogbanner.png";
 
 const Container = styled.div`
   position: relative;
@@ -45,9 +45,10 @@ const Circle = styled.div`
 const DogImage = styled.img`
   position: absolute;
   display: block;
-  width: 800px;
-  right: 0px;
+  width: 700px;
   bottom: 30px;
+  right: 0px;
+  bottom: 0px;
   z-index:-10;
   @media only screen and (max-width: 500px) {
     width: 400px;
@@ -86,11 +87,14 @@ export const DogCatInfo = () => {
               >
                 유기견,묘는 지금,
               </Font>
-              <Font fontSize="1rem" fontColor="rgb(100,100,100)" fontWeight="400" marginBottom='0.5rem'>
+              <Font fontSize="1rem" fontColor="rgb(100,100,100)" fontWeight="400" lineHeight='1.2rem'>
                 파양, 유기등으로 정말 많이 버려지고 있습니다.
               </Font>
+              <Font fontSize="1rem" fontColor="rgb(100,100,100)" fontWeight="400" lineHeight='1.2rem'>
+                당신의 가치가 이 곳에 있다면 유기동물들의 
+              </Font>
               <Font fontSize="1rem" fontColor="rgb(100,100,100)" fontWeight="400">
-                당신의 가치가 이 곳에 있다면 유기동물들의 영웅이 되어보는건 어떠신가요?
+                영웅이 되어보는 것은 어떠신가요?
               </Font>
             </DirectionStyle>
             <DirectionStyle flexDirection="column">
