@@ -80,6 +80,7 @@ const Font = styled.p<{
   marginTop?: string;
   fontWeight?: string;
 }>`
+  font-family: sans-serif;
   font-size: ${(props) => props.fontSize};
   color: ${(props) => props.fontColor};
   margin-top: ${(props) => props.marginTop};
@@ -107,6 +108,7 @@ const Form = styled.form`
 `;
 
 const Button = styled.button<{ opacity?: string, canClick?: string }>`
+  font-family: sans-serif;
   all: unset;
   background-color: rgb(95, 75, 139);
   color: white;
@@ -123,6 +125,7 @@ const Button = styled.button<{ opacity?: string, canClick?: string }>`
   @media only screen and (max-width: 520px) {
     padding: 0.8rem 1rem 0.8rem 1rem;
     font-size: 14px;
+    font-family: sans-serif;
   }
 `;
 

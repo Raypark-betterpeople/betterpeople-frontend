@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { Bold, Font } from "../common/styled";
-import IllustDummy from "../images/catpixeldemo.png";
-import EarthIllust from "../images/sunearth.png";
-import KidsIllust from "../images/kids.png";
+import IllustDummy from "../images/alonegirl.png";
+import EarthIllust from "../images/spacedog.png";
+import KidsIllust from "../images/artcat.png";
+import Bigworld from '../images/bigworld.png'
 import { HiBadgeCheck } from "react-icons/hi";
 
 interface IGoodsProps {
@@ -74,6 +75,7 @@ export const VerifyGoods: React.FC<IGoodsProps> = ({
       {illust === "earth" ? <Illust src={EarthIllust} /> : ""}
       {illust === "kids" ? <Illust src={KidsIllust} /> : ""}
       {illust === "cats" ? <Illust src={IllustDummy} /> : ""}
+      {illust === "bigworld" ? <Illust src={Bigworld} /> : ""}
       <FontBox>
         <Font
           fontColor="rgb(50,50,50)"

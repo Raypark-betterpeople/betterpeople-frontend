@@ -14,6 +14,9 @@ import Part5 from '../images/part5r.png'
 import Part6 from '../images/part6r.png'
 import { Loading } from "./loading";
 import { Helmet } from "react-helmet";
+import Illust1 from '../images/bigworld.png'
+import Illust2 from '../images/alonegirl.png'
+import Illust3 from '../images/spacedog.png'
 
 const AboutContainer = styled.div`
   display: flex;
@@ -35,12 +38,24 @@ const IconBox = styled.div`
   }
 `;
 
-const IllustContainer = styled.div`
-  width: 100%;
+const Illust = styled.img`
+  width: 320px;
   height: 320px;
-  background-color: rgb(150, 150, 150);
+  border-radius: 15px;
+  margin-bottom: 1rem;
+`
+
+const IllustContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   margin-top: 1rem;
+  margin-top: 3rem;
   margin-bottom: 10rem;
+  justify-content: space-between;
+  @media only screen and (max-width: 520px) {
+    justify-content: center;
+  }
 `;
 
 const ProcessContainer = styled.div`
@@ -179,7 +194,11 @@ export const AboutPage = () => {
         >
           주제에 맞는 일러스트 등장!
         </Font>
-        <IllustContainer>일러스트 섹션</IllustContainer>
+        <IllustContainer>
+          <Illust src={Illust1} alt='일러스트' />
+          <Illust src={Illust2} alt='일러스트' />
+          <Illust src={Illust3} alt='일러스트' />
+        </IllustContainer>
         <Font
           lineHeight="2.5rem"
           fontSize="2rem"

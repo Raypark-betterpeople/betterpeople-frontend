@@ -86,6 +86,7 @@ const SmallDeviceMenuContainer = styled.div<{
       font-size: 1rem;
       margin-top: 0.8rem;
       margin-bottom: 0;
+      font-family: sans-serif;
     }
   }
 `;

@@ -32,6 +32,7 @@ const LogoBox = styled.div`
 `;
 
 const LiStyle = styled.li`
+  font-family: sans-serif;
   text-decoration: none;
   font-size: 15px;
   color: rgb(100, 100, 100);

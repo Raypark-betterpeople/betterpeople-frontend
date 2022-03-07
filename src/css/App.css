@@ -3,8 +3,14 @@
    License: none (public domain)
 */
 
+
+
+
+
 html,
-body,
+body {
+  font-family: sans-serif;
+}
 div,
 span,
 applet,

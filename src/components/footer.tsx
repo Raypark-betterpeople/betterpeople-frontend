@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Font } from "../common/styled";
-import Logo from "../images/ahnlogo.png";
+import Logo from "../images/sociallogo.svg";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -46,18 +46,19 @@ const VerticalBar = styled.div`
   margin-right: 1rem;
 `;
 
+const Logos = styled.img`
+  width: 200px;
+  transform: translateX(-0.5rem);
+  @media only screen and (max-width: 520px) {
+    width: 150px;
+  }
+`
+
 export const Footer = () => {
   return (
     <Container>
       <LogoContainer>
-        <Font
-          fontColor="black"
-          fontSize="1.3rem"
-          fontWeight="800"
-          smallDeviceSize="1rem"
-        >
-          Social Chaining Inc.
-        </Font>
+        <Logos src={Logo} />
         <Font
           fontColor="rgb(150,150,150)"
           fontSize="1rem"

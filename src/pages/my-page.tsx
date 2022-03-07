@@ -19,22 +19,17 @@ const IllustBox = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 320px;
-  padding: 1rem;
-  border-radius: 10px;
-  border: 1px solid rgb(230, 230, 230);
+  width: 300px;
   margin-right: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 4px 8px 12px rgb(180, 180, 180);
   @media only screen and (max-width: 520px) {
     margin-right: 0;
   }
 `;
 
 const Image = styled.img`
-  width: 100%;
+  width: 300px;
   margin-bottom: 1rem;
-  border-radius: 10px;
 `;
 
 const ModalBackground = styled.div`
@@ -253,30 +248,6 @@ export const MyPage = () => {
           return (
             <IllustBox key={index}>
               <Image src={images.imageUrl} alt="illust" />
-              <Font
-                fontSize="1.5rem"
-                fontWeight="600"
-                fontColor="black"
-                marginBottom="0.5rem"
-              >
-                {UserData.me.nickname} 님
-              </Font>
-              <Font
-                fontSize="0.9rem"
-                fontWeight="400"
-                fontColor="rgb(80,80,80)"
-                marginBottom="0.3rem"
-              >
-                '{images.donateDurationDate}'에 진행된
-              </Font>
-              <Font
-                fontSize="0.9rem"
-                fontWeight="400"
-                fontColor="rgb(80,80,80)"
-                marginBottom="1rem"
-              >
-                '{images.donateSessionTitle}'에 참여.
-              </Font>
               <Font
                 fontColor="black"
                 fontSize="1rem"

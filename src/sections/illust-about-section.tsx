@@ -72,7 +72,7 @@ export const IllustAbout = () => {
         <VerifyGoods
           title="유기견,묘 센터의 와기들에게"
           durationTime="2022년 1월 1일 ~ 2022년 3월 1일"
-          illust='cats'
+          illust='bigworld'
         />
         <VerifyGoods
           title="지구가 뜨거워 컨텐츠"

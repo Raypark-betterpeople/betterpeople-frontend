@@ -6,6 +6,7 @@ interface IFormError {
 }
 
 const ErrorFont = styled.span`
+    font-family: sans-serif;
     color: red;
     font-size: 12px;
     display: inline-block;

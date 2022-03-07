@@ -37,6 +37,7 @@ const NonStickySection = styled.div`
 `;
 
 const Font = styled.p`
+  font-family: sans-serif;
   font-size: 4rem;
   font-weight: 600;
   line-height: 5rem;
