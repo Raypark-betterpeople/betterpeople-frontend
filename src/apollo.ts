@@ -13,7 +13,7 @@ export const isLoggedInVar = makeVar(Boolean(token));
 export const authToken = makeVar(localStorage.getItem(LOCALSTORAGE_TOKEN));
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:4000/graphql",
+  uri: "https://better-people-backend.herokuapp.com/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
