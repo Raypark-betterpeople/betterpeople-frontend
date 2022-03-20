@@ -55,7 +55,7 @@ const GaleryButton = styled.button`
   font-size: 14px;
   padding: 0.8rem 1rem 0.8rem 1rem;
   color: rgb(95, 75, 139);
-  background-color: rgba(95, 75, 139, 0.2);
+  background-color: rgba(122, 81, 211, 0.2);
   border-radius: 5px;
   font-weight: 600;
   cursor: pointer;
