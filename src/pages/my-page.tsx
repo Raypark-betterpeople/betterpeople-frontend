@@ -271,6 +271,7 @@ export const MyPage = () => {
           );
         })}
       </IllustContainer>
+      {UserData ? '' : '아직 없어도 실망하지 마세요!'}
     </CommonBodyContainer>
   );
 };
