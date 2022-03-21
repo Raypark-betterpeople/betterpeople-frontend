@@ -98,7 +98,7 @@ export const Footer = () => {
             fontWeight="400"
             smallDeviceSize="0.7rem"
           >
-            123-4214-2211
+            388-87-02419
           </Font>
         </Text>
       </AddressContainer>
