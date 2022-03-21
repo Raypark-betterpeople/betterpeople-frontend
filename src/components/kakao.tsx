@@ -20,9 +20,8 @@ declare global {
 }
 
 export const KakaoChat = () => {
-    useEffect(() => {
-        window.Kakao.init('a53674671c05c06ff2cdb372f719f8fe')
-    }, [])
+    const kakaoOpen = window.Kakao.init('a53674671c05c06ff2cdb372f719f8fe')
+    kakaoOpen();
     const chatChannel = () => {
         window.Kakao.Channel.chat({
             channelPublicId: '_nVHxeb'
