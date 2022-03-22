@@ -102,8 +102,8 @@ const NotIllust = styled.div`
   width: 100%;
   height: 500px;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   flex-direction: column;
 `;
 
