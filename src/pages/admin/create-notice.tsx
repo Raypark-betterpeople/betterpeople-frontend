@@ -55,11 +55,11 @@ export const CreateNotice = () => {
       const formBody = new FormData();
       formBody.append("file", actualFile);
       const { url } = await (
-        await fetch("https://better-people.org/uploads", {
+        await fetch('https://better-people.org/uploads', {
           method: "POST",
           body: formBody,
         })
-      );
+      ).json();
       const { mainTitle, description, subTitle } = getValues();
       createNotice({
         variables: {
