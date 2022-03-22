@@ -135,13 +135,13 @@ export const CreateDonate = () => {
       formBody.append("file", actualFile);
       formBody2.append('file2',descriptionImgFile);
       const { url } = await (
-        await fetch("http://localhost:4000/uploads", {
+        await fetch("https://better-people.org/uploads", {
           method: "POST",
           body: formBody,
         })
       ).json();
       const { url2 } = await (
-        await fetch("http://localhost:4000/uploads2", {
+        await fetch("https://better-people.org/uploads2", {
           method: "POST",
           body: formBody2,
         })

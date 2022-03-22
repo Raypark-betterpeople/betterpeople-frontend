@@ -54,7 +54,7 @@ export const CreateNotice = () => {
       const formBody = new FormData();
       formBody.append("file", actualFile);
       const { url } = await (
-        await fetch("http://localhost:4000/uploads", {
+        await fetch("https://better-people.org/uploads", {
           method: "POST",
           body: formBody,
         })
