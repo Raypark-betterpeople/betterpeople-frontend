@@ -98,6 +98,15 @@ const ModalCloseButton = styled.span`
   font-weight: 600;
 `;
 
+const NotIllust = styled.div`
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
 const TokenCheck = styled.span`
   cursor: pointer;
   :hover {
@@ -147,7 +156,7 @@ export const MyPage = () => {
               fontSize="1.5rem"
               fontColor="black"
               marginBottom="0.3rem"
-              smallDeviceSize='1rem'
+              smallDeviceSize="1rem"
             >
               이 일러스트의 토큰입니다.
             </Font>
@@ -156,7 +165,7 @@ export const MyPage = () => {
               fontSize="0.9rem"
               fontColor="rgb(100,100,100)"
               marginBottom="1rem"
-              smallDeviceSize='0.7rem'
+              smallDeviceSize="0.7rem"
             >
               복사한 뒤 일러스트 정품인증 페이지에서 인증이 가능합니다.
             </Font>
@@ -191,16 +200,12 @@ export const MyPage = () => {
                   fontColor="rgb(201,105,204)"
                   fontWeight="700"
                   fontSize="1.3rem"
-                  marginBottom='0.3rem'
+                  marginBottom="0.3rem"
                 >
                   Copied OK!
                 </Font>
                 <Link to="/verify-illust">
-                  <Font
-                    fontColor="black"
-                    fontWeight="600"
-                    fontSize="0.9rem"
-                  >
+                  <Font fontColor="black" fontWeight="600" fontSize="0.9rem">
                     정품인증 페이지로 바로가기 →
                   </Font>
                 </Link>
@@ -221,7 +226,7 @@ export const MyPage = () => {
         fontSize="1.7rem"
         marginBottom="1rem"
         style={{ marginTop: "5rem" }}
-        smallDeviceSize='1.2rem'
+        smallDeviceSize="1.2rem"
       >
         {UserData?.me.nickname}님 이 만큼이나 참여하셨네요?! 🎉
       </Font>
@@ -230,7 +235,7 @@ export const MyPage = () => {
         fontWeight="500"
         fontColor="rgb(120,120,120)"
         marginBottom="0.1rem"
-        smallDeviceSize='0.9rem'
+        smallDeviceSize="0.9rem"
       >
         그 동안 모인 일러스트들 입니다.
       </Font>
@@ -239,7 +244,7 @@ export const MyPage = () => {
         fontWeight="500"
         fontColor="rgb(120,120,120)"
         marginBottom="0.3rem"
-        smallDeviceSize='0.9rem'
+        smallDeviceSize="0.9rem"
       >
         {UserData?.me.nickname}님의 따듯한 마음 응원합니다.
       </Font>
@@ -271,7 +276,18 @@ export const MyPage = () => {
           );
         })}
       </IllustContainer>
-      {UserData?.me.provideImage?.slice(0,1) === null ? '' : '아직 없어도 실망하지 마세요!'}
+      {UserData?.me.provideImage?.slice(0, 1) === null ? (
+        ""
+      ) : (
+        <NotIllust>
+          <Font fontSize="1.5rem" fontWeight="700" fontColor="black" marginBottom='0.5rem'>
+            아직 아무런 일러스트가 없네요!
+          </Font>
+          <Font fontSize="1.3rem" fontWeight="600" fontColor="black">
+            참여하고 싶은 프로젝트에 참여하고 일러스트를 얻어보세요 👀
+          </Font>
+        </NotIllust>
+      )}
     </CommonBodyContainer>
   );
 };
