@@ -59,7 +59,7 @@ export const CreateNotice = () => {
           method: "POST",
           body: formBody,
         })
-      ).json();
+      );
       const { mainTitle, description, subTitle } = getValues();
       createNotice({
         variables: {
