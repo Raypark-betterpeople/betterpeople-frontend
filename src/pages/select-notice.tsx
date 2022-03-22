@@ -23,6 +23,7 @@ const NoticeBody = styled.div`
 `
 
 const Image = styled.img`
+  background-color: gray;
   width: 100%;
   height: 500px;
   margin-bottom: 2rem;
