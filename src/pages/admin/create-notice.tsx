@@ -34,6 +34,7 @@ export const CreateNotice = () => {
         if (ok) {
           alert('공지 사항이 생성되었습니다. 수고했어요 ㅎㅎ')
         }
+        console.log(error)
       };
       const [createNotice, { data }] = useMutation<
     createNotice,
