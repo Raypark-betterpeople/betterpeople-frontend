@@ -83,7 +83,7 @@ export const CreateIllust = () => {
       const formBody = new FormData();
       formBody.append("file", actualFile);
       const { url } = await (
-        await fetch("https://better-people.org/uploads", {
+        await fetch("https://better-people-backend.herokuapp.com/uploads", {
           method: "POST",
           body: formBody,
         })

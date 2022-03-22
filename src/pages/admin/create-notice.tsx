@@ -34,7 +34,6 @@ export const CreateNotice = () => {
         if (ok) {
           alert('공지 사항이 생성되었습니다. 수고했어요 ㅎㅎ')
         }
-        console.log(error)
       };
       const [createNotice, { data }] = useMutation<
     createNotice,
@@ -55,7 +54,7 @@ export const CreateNotice = () => {
       const formBody = new FormData();
       formBody.append("file", actualFile);
       const { url } = await (
-        await fetch('https://better-people.org/uploads', {
+        await fetch("https://better-people-backend.herokuapp.com/uploads", {
           method: "POST",
           body: formBody,
         })

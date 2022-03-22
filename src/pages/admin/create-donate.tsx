@@ -135,13 +135,13 @@ export const CreateDonate = () => {
       formBody.append("file", actualFile);
       formBody2.append('file2',descriptionImgFile);
       const { url } = await (
-        await fetch("https://better-people.org/uploads", {
+        await fetch("https://better-people-backend.herokuapp.com/uploads", {
           method: "POST",
           body: formBody,
         })
       ).json();
       const { url2 } = await (
-        await fetch("https://better-people.org/uploads2", {
+        await fetch("https://better-people-backend.herokuapp.com/uploads2", {
           method: "POST",
           body: formBody2,
         })
