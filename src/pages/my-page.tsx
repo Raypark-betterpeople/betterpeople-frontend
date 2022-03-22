@@ -100,11 +100,12 @@ const ModalCloseButton = styled.span`
 
 const NotIllust = styled.div`
   width: 100%;
-  height: 500px;
+  height: 300px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  margin-top: 150px;
 `;
 
 const TokenCheck = styled.span`
@@ -280,10 +281,10 @@ export const MyPage = () => {
         ""
       ) : (
         <NotIllust>
-          <Font fontSize="1.5rem" fontWeight="700" fontColor="black" marginBottom='0.5rem'>
+          <Font fontSize="1.4rem" fontWeight="700" fontColor="black" marginBottom='0.5rem'>
             아직 아무런 일러스트가 없네요!
           </Font>
-          <Font fontSize="1.3rem" fontWeight="600" fontColor="black">
+          <Font fontSize="1.1rem" fontWeight="500" fontColor="black">
             참여하고 싶은 프로젝트에 참여하고 일러스트를 얻어보세요 👀
           </Font>
         </NotIllust>
