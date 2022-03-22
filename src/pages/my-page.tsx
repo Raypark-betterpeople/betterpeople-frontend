@@ -100,7 +100,7 @@ const ModalCloseButton = styled.span`
 
 const NotIllust = styled.div`
   width: 100%;
-  height: 60%;
+  height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
