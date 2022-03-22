@@ -12,7 +12,6 @@ import { CommonBodyContainer } from "../common/styled";
 import { InstaSection } from "../sections/InstaSection";
 import { IllustAbout } from "../sections/illust-about-section";
 import { DonateSession } from "../sections/donate-session";
-import { KakaoChat } from "../components/kakao";
 
 export const MainPage = () => {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
@@ -33,7 +32,6 @@ export const MainPage = () => {
       <IllustAbout />
       <InstaSection />
       <DonateSession />
-      <KakaoChat />
     </CommonBodyContainer>
   );
 };

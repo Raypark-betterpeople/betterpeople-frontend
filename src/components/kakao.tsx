@@ -1,16 +1,37 @@
 import React, { useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import KakaoImage from '../images/kakao.png'
+
+const Dokey = keyframes`
+  0% {
+    transform: scale(1)
+  }
+  100% {
+    transform: scale(1.1);
+  }
+`;
 
 const ChatIcon = styled.a`
-    padding: 1rem;
+    z-index: 1000;
+    padding: 0 1.5rem 1rem 0;
     position: fixed;
-    top: 30px;
+    bottom: 0;
     right: 0;
-    background-color: #ecd716;
-    color: #584231;
-    font-weight: bold;
     cursor: pointer;
-    border-radius: 5px 0 0 5px;
+    @media only screen and (max-width: 520px) {
+    padding: 0.5rem;
+  }
+`
+
+const KakaoImageIcon = styled.img`
+    width: 100px;
+    height: 100px;
+    animation: ${Dokey} 0.7s infinite alternate linear;
+    @media only screen and (max-width: 520px) {
+    padding: 0.5rem;
+    width: 80px;
+    height: 80px;
+  }
 `
 
 declare global {
@@ -31,6 +52,6 @@ export const KakaoChat = () => {
         })
     }
     return (
-        <ChatIcon onClick={chatChannel}>카카오톡 채널</ChatIcon>
+        <ChatIcon onClick={chatChannel}><KakaoImageIcon src={KakaoImage} alt='kakaoimages' /></ChatIcon>
     )
 }
