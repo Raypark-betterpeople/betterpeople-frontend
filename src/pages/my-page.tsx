@@ -271,7 +271,7 @@ export const MyPage = () => {
           );
         })}
       </IllustContainer>
-      {UserData?.me.provideImage ? '' : '아직 없어도 실망하지 마세요!'}
+      {UserData?.me.provideImage?.slice(0,1) === null ? '' : '아직 없어도 실망하지 마세요!'}
     </CommonBodyContainer>
   );
 };
