@@ -24,7 +24,11 @@ const NoticeBody = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  height: 500px;
   margin-bottom: 2rem;
+  @media only screen and (max-width: 520px) {
+    height: 100%;
+  }
 `
 
 const NOTICE_QUERY = gql`
