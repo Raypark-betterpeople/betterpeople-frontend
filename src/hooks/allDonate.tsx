@@ -10,6 +10,7 @@ export const DONATE_QUERY = gql`
         description
         coverImg
         durationTime
+        publicStatus
         donateImage {
           imageUrl
         }

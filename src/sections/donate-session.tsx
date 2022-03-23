@@ -23,6 +23,40 @@ const DonateBoxSection = styled.div`
 
 `
 
+const NotPublic = styled.div`
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(50, 50, 50, 0.3);
+  width: 100%;
+  height: 93%;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  @media only screen and (max-width: 520px) {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+  }
+`;
+
+const NotPublicContainer = styled.div`
+  position: relative;
+  display: flex;
+`
+
+const NotPublicPadding = styled.div`
+  padding: 1.5rem;
+  @media only screen and (max-width: 520px) {
+    padding: 1rem;
+  }
+`
+
 export const DonateSession = () => {
   const { data } = useDonate();
   const [donates, setDonates] = useState<
@@ -44,7 +78,7 @@ export const DonateSession = () => {
       </DirectionStyle>
       <DonateBoxSection>
       {donates?.map((donate) => {
-        return (
+        return donate.publicStatus ? (
           <HomeDonate
             key={donate.id}
             description={donate.description}
@@ -53,6 +87,21 @@ export const DonateSession = () => {
             durationTime={donate.durationTime}
             coverImg={donate.coverImg}
           />
+        ) : (
+          <NotPublicContainer>
+            <NotPublic>곧 진행 될 프로젝트에요! 🥳
+            </NotPublic>
+            <NotPublicPadding>
+            <HomeDonate
+              key={donate.id}
+              description={donate.description}
+              title={donate.title}
+              id={donate.id}
+              durationTime={donate.durationTime}
+              coverImg={donate.coverImg}
+            />
+            </NotPublicPadding>
+          </NotPublicContainer>
         );
       })}
       </DonateBoxSection>

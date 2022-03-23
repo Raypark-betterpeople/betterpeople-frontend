@@ -19,6 +19,7 @@ export interface allDonateQuery_allDonate_donates {
   description: string;
   coverImg: string;
   durationTime: string;
+  publicStatus: boolean;
   donateImage: allDonateQuery_allDonate_donates_donateImage[] | null;
 }
 
