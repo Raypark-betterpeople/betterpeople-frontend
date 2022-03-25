@@ -89,7 +89,7 @@ export const DonateSession = () => {
           />
         ) : (
           <NotPublicContainer>
-            <NotPublic>곧 진행 될 프로젝트에요! 🥳
+            <NotPublic>준비 중인 프로젝트에요 🕙
             </NotPublic>
             <NotPublicPadding>
             <HomeDonate
