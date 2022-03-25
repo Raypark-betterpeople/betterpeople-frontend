@@ -68,12 +68,12 @@ export const SelectNotice = () => {
     </Helmet>
     {isLoggedIn ? <LoginHeader /> : <LogoutHeader />}
     <NoticeBox>
-    <Font fontWeight='700' fontColor='black' fontSize='1.8rem'>{data?.notice.notice?.mainTitle}</Font>
-    <Font fontWeight='400' fontColor='rgb(80,80,80)' fontSize='1rem'>{new Date(data?.notice.notice?.createAt).toLocaleString('ko')}</Font>
+    <Font fontWeight='700' fontColor='black' fontSize='1.8rem' smallDeviceSize='1.5rem'>{data?.notice.notice?.mainTitle}</Font>
+    <Font fontWeight='400' fontColor='rgb(80,80,80)' fontSize='1rem' smallDeviceSize='0.9rem'>{new Date(data?.notice.notice?.createAt).toLocaleString('ko')}</Font>
     <NoticeBody>
       <Image src={data?.notice.notice?.image} alt='공지사항 이미지'/>
-      <Font fontWeight='700' fontColor='black' fontSize='1.5rem' marginBottom='1rem'>{data?.notice.notice?.subTitle}</Font>
-      <Font fontWeight='400' fontColor='black' fontSize='1rem'>{data?.notice.notice?.description}</Font>
+      <Font fontWeight='700' fontColor='black' fontSize='1.5rem' marginBottom='1rem' smallDeviceSize='1.3rem'>{data?.notice.notice?.subTitle}</Font>
+      <Font fontWeight='400' fontColor='black' fontSize='1rem' smallDeviceSize='0.9rem'>{data?.notice.notice?.description}</Font>
     </NoticeBody>
     </NoticeBox>
   </CommonBodyContainer> : <Loading />
