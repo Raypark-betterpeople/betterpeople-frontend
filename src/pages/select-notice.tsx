@@ -19,7 +19,7 @@ const NoticeBox = styled.div`
 
 const NoticeBody = styled.div`
   margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 7rem;
   white-space: pre-wrap;
 `
 
@@ -73,7 +73,7 @@ export const SelectNotice = () => {
     <NoticeBody>
       <Image src={data?.notice.notice?.image} alt='공지사항 이미지'/>
       <Font fontWeight='700' fontColor='black' fontSize='1.5rem' marginBottom='1rem' smallDeviceSize='1.3rem'>{data?.notice.notice?.subTitle}</Font>
-      <Font fontWeight='400' fontColor='black' fontSize='1rem' smallDeviceSize='0.9rem'>{data?.notice.notice?.description}</Font>
+      <Font fontWeight='400' fontColor='black' fontSize='1rem' smallDeviceSize='0.9rem' lineHeight='1.2rem'>{data?.notice.notice?.description}</Font>
     </NoticeBody>
     </NoticeBox>
   </CommonBodyContainer> : <Loading />
