@@ -10,7 +10,7 @@ const FalseContainer = styled.div`
   font-weight: 600;
   padding: 1.3rem;
   position: fixed;
-  z-index: 300;
+  z-index: 3000;
   bottom: 1rem;
   right: 1rem;
   line-height: 1.5rem;
