@@ -199,7 +199,7 @@ export const SelectDonate = () => {
       window.Paddle.Setup({ vendor: 140501 });
       //@ts-ignore
       window.Paddle.Checkout.open({
-        product: 754163,
+        product: 762822,
         email: UserData?.me.email,
         successCallback: (paddleData: any) => {
           createProvideImage({
