@@ -272,7 +272,7 @@ export const SelectDonate = () => {
             marginBottom="1rem"
             smallDeviceSize='1rem'
           >
-            이 기부세션에 참여하고 싶으신가요?
+            {UserData?.me.nickname}님 이 기부세션에 참여하고 싶으신가요?
           </Font>
           <Font fontSize="1rem" fontWeight="400" fontColor="rgb(100,100,100)" smallDeviceSize='0.7rem' smallDeviceLineHeight='1rem'>
             당신의 마음이 이 곳에 움직인다면 망설이지 말고,
