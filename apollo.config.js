@@ -4,7 +4,7 @@ module.exports = {
     tagName: "gql",
     service: {
       name: "betterpeople-backend",
-      url: "http://localhost:4000/graphql",
+      url: "https://better-people-backend.herokuapp.com/graphql",
     },
   },
 };
