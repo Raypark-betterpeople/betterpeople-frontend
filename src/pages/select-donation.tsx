@@ -361,7 +361,7 @@ export const SelectDonate = () => {
             fontColor="rgba(133, 100, 206)"
             smallDeviceSize='1.5rem'
           >
-            6,900 원
+            2,900 원
           </Font>
           <PaymentButton onClick={triggerPaddle}>일러스트 구매</PaymentButton>
         </PaymentPrice>
